@@ -3,9 +3,11 @@
 
 student_ratio <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-07/student_teacher_ratio.csv")
 
-View(student_ratio)
 
-colnames(student_ratio)
+# Create average student ratio ---------------------------------------------
+
+library(dplyr)
+student_ratio<-student_ratio%>%group_by(country)%>%mutate(mean = mean(student_ratio, na.rm = TRUE))
 
 
 # Prepare the colour palette ----------------------------------------------
@@ -22,6 +24,10 @@ g <- list(
   showcoastlines = FALSE,
   projection = list(type = 'Mercator')
 )
+
+
+# Plotly graph ------------------------------------------------------------
+
 
 
 p <- plot_geo(student_ratio) %>%
@@ -49,3 +55,5 @@ p <- plot_geo(student_ratio) %>%
   )
 
 p
+
+
