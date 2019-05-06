@@ -11,6 +11,8 @@ colnames(student_ratio)
 # Prepare the colour palette ----------------------------------------------
 
 
+library(plotly)
+
 # light grey boundaries
 l <- list(color = toRGB("grey"), width = 0.5)
 
@@ -21,7 +23,6 @@ g <- list(
   projection = list(type = 'Mercator')
 )
 
-library(plotly)
 
 p <- plot_geo(student_ratio) %>%
   add_trace(
@@ -43,7 +44,8 @@ p <- plot_geo(student_ratio) %>%
            showarrow = F, xref='paper', yref='paper', 
            xref = 'paper', x = 0,
            yref = 'paper', y = 1,
-           font=list(size=14, color="black")),
+           font=list(size=10, color="black")),
     geo = g
   )
 
+p
