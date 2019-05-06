@@ -36,7 +36,7 @@ p <- plot_geo(student_ratio) %>%
     frame = ~year, 
     text =  ~paste('</br> Country: ', country,
                      '</br> Year: ', year,
-                     '</br> Student Ratio(%): ', round(student_ratio,2)), 
+                     '</br> Global Student to Teacher Ratios(%): ', round(student_ratio,2)), 
     
     
     hoverinfo = "text"
