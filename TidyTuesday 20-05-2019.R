@@ -1,5 +1,4 @@
 
-
 # Upload the data ---------------------------------------------------------
 
 waste_vs_gdp <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv")
@@ -19,7 +18,8 @@ View(waste_vs_gdp)
 
 #############   omit na rows
 
-data_plotly<-na.omit(waste_vs_gdp)
+data_plotly<-na.omit(waste_vs_gdp)  # Data for 2010 because for the rest of years we don't have all variables.
+
 
 View(data_plotly)
 colnames(data_plotly_Health_Education)
