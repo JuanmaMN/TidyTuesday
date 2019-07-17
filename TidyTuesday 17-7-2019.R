@@ -62,6 +62,5 @@ d3heatmap(a1_2, scale = "column", colors = "GnBu", dendrogram = "none",
 # https://rdrr.io/github/rstudio/d3heatmap/man/d3heatmap.html
 
 
-# https://rdrr.io/github/rstudio/d3heatmap/man/d3heatmap.html
 
 
