@@ -42,7 +42,7 @@ ggplot(data_damage, aes(x=incident_year,y = reorder(time_of_day,desc(time_of_day
       Visualization: JuanmaMN (Twitter @Juanma_MN)",
     x = "",
     y = "") +
-  scale_fill_brewer(palette = "Spectral") + theme(legend.position = "none") + scale_x_continuous(breaks=seq(1990,2018,4))
+  scale_fill_brewer(palette = "Spectral") + scale_x_continuous(breaks=seq(1990,2018,4))
 
 
 
