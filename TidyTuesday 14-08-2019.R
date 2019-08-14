@@ -2,42 +2,29 @@
 
 library(ggplot2)
 library(hrbrthemes)
-
-library(gridExtra)
+library(dplyr)
+library(lubridate)
 
 emperors <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv")
 
-View(emperors)
 
-colnames(emperors)
-str(emperors)
 
-library(dplyr)
-library(lubridate)
 
 # Calculate the reign length ----------------------------------------------
 
 reign_start <- as.POSIXct(emperors$reign_start, format = "%Y-%m-%d")
 reign_end<- as.POSIXct(emperors$reign_end, format = "%Y-%m-%d")
-View(emperors)
+
 
 
 empeorers2<-emperors %>% mutate(elapsed_time = (reign_start %--% reign_end)/ddays(1)) %>% select("name", "reign_start",
                                                                                                  "reign_end", "elapsed_time", "rise","cause","killer","dynasty","era")
-View(emperors)
-View(empeorers2)
-
-
-empeorers3<-empeorers2%>%group_by(dynasty)%>%summarize(average=round(sum(elapsed_time),0))    # for first graph
-
-
 
 
 empeorers4<-empeorers2%>%group_by(dynasty,rise)%>%summarize(average=round(sum(elapsed_time),0)) %>%
   arrange(-average)   # for second graph
 
 
-unique(empeorers4$rise)
 
 # Order the column by total -----------------------------------------------
 
