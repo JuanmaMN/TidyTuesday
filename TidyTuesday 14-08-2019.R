@@ -21,8 +21,8 @@ empeorers2<-emperors %>% mutate(elapsed_time = (reign_start %--% reign_end)/dday
                                                                                                  "reign_end", "elapsed_time", "rise","cause","killer","dynasty","era")
 
 
-empeorers4<-empeorers2%>%group_by(dynasty,rise)%>%summarize(average=round(sum(elapsed_time),0)) %>%
-  arrange(-average)   # for second graph
+empeorers4<-empeorers2%>%group_by(dynasty,rise)%>%summarize(total=round(sum(elapsed_time),0)) %>%
+  arrange(-total)   # for second graph
 
 
 
@@ -35,8 +35,8 @@ empeorers4$dynasty <- factor(empeorers4$dynasty, levels = c("Theodosian","Flavia
 
 
 
-g2<- ggplot(empeorers4, aes(dynasty,fct_reorder(dynasty,average ))) +
-  geom_bar(aes(y = average, fill = rise),stat="identity") +
+g2<- ggplot(empeorers4, aes(dynasty,fct_reorder(dynasty,total ))) +
+  geom_bar(aes(y = total, fill = rise),stat="identity") +
   scale_fill_brewer(palette = "Set3") +
   coord_flip() +
   theme_ipsum_tw()  + 
