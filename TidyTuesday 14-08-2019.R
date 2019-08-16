@@ -35,7 +35,7 @@ empeorers4$dynasty <- factor(empeorers4$dynasty, levels = c("Theodosian","Flavia
 
 
 
-g2<- ggplot(empeorers4, aes(dynasty,fct_reorder(dynasty,total ))) +
+g2<- ggplot(empeorers4, aes(dynasty)) +
   geom_bar(aes(y = total, fill = rise),stat="identity") +
   scale_fill_brewer(palette = "Set3") +
   coord_flip() +
