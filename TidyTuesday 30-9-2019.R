@@ -25,13 +25,8 @@ pizza_jared2<-pizza_jared%>%  mutate(date = as_datetime(time),) %>% mutate(Year=
 pizza_jaredarea<-pizza_jared2%>%group_by (Year,  answer)%>% 
   summarise(total=sum(votes))
 
-View(pizza_jaredarea)
-
-str(pizza_jaredarea)
-
 pizza_jaredarea$Year<-as.numeric(pizza_jaredarea$Year)
 
-colnames(pizza_jaredarea)
 
 p2area3 <- pizza_jaredarea%>% 
   ggplot(aes(x=Year, y=total, fill=factor(answer), group=1,
