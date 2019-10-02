@@ -54,39 +54,8 @@ ggplotly(p2area3, tooltip=c("text","x"))
 
 
 
-# Other code --------------------------------------------------------------
-
-
-
-pizza_jared <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-01/pizza_jared.csv")
-View(pizza_jared)
-
-
-library(tidyverse)
-library(lubridate)
-str(pizza_jared)
-pizza_jared2<-pizza_jared%>%  mutate(date = as_datetime(time)) %>% mutate(Year=format(date,"%Y"),
-                                                                           Month=format(date,"%B"))
-
-View(pizza_jared2)
-
-
-
-pizza_jared3<-pizza_jared2%>%group_by(answer,place, Year)%>% summarise(total=sum(votes)) %>% filter (answer == "Excellent")
-
-View(pizza_jared3)
-
-
-library(plotly)
-p <- plot_ly(pizza_jared3, x = ~Year, y = ~total, type = 'scatter', mode = 'lines')
-
-
-
 
 # Ridgeline ---------------------------------------------------------------
-
-
-
 
 
 # Excelent and Good
