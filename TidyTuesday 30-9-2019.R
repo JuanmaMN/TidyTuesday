@@ -18,7 +18,7 @@ library(viridis)
 
 # Prepare the data for the graph ------------------------------------------
 
-pizza_jared2<-pizza_jared%>%  mutate(date = as_datetime(time),) %>% mutate(Year=format(date,"%Y"),
+pizza_jared2<-pizza_jared%>%  mutate(date = as_datetime(time)) %>% mutate(Year=format(date,"%Y"),
                                                                            Month=format(date,"%B"))
 # geom_area ---------------------------------------------------------------
 
@@ -50,6 +50,67 @@ p2area3 <- pizza_jaredarea%>%
 ggplotly(p2area3, tooltip=c("text","x"))
 
 
+
+
+
+
+# Other code --------------------------------------------------------------
+
+
+
+pizza_jared <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-01/pizza_jared.csv")
+View(pizza_jared)
+
+
+library(tidyverse)
+library(lubridate)
+str(pizza_jared)
+pizza_jared2<-pizza_jared%>%  mutate(date = as_datetime(time)) %>% mutate(Year=format(date,"%Y"),
+                                                                           Month=format(date,"%B"))
+
+View(pizza_jared2)
+
+
+
+pizza_jared3<-pizza_jared2%>%group_by(answer,place, Year)%>% summarise(total=sum(votes)) %>% filter (answer == "Excellent")
+
+View(pizza_jared3)
+
+
+library(plotly)
+p <- plot_ly(pizza_jared3, x = ~Year, y = ~total, type = 'scatter', mode = 'lines')
+
+
+
+
+# Ridgeline ---------------------------------------------------------------
+
+
+
+
+
+# Excelent and Good
+
+pizza_jaredREG<-pizza_jared2%>%group_by (Year, Month, answer)%>% filter (answer == "Excellent") %>%
+  summarise(total=sum(votes))
+
+
+pizza_jaredREG$Year<-as.numeric(pizza_jaredREG$Year)
+
+
+head(pizza_jaredREG)
+ggplot(pizza_jaredREG, aes(x=Year,y = reorder(Month,desc(Month)), fill = Month, group = interaction(Month, answer)),width=800, height=700) +
+  geom_density_ridges2(scale =1) + 
+  theme_ipsum_rc()+
+  labs( 
+    title = "NY pizza restaurants - Excelent Answer",
+    subtitle = "TidyTuesday 2.10.2019",
+    caption = "\n Source: TidyTuesday
+      Visualization: JuanmaMN (Twitter @Juanma_MN)",
+    x = "",
+    y = "")  +
+  theme(legend.position="",
+        legend.title = element_blank())
 
 
 
