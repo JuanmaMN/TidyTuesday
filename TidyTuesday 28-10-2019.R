@@ -46,8 +46,6 @@ nyc_squirrels3<- as.data.frame(sapply(nyc_squirrels3,gsub,pattern="-NA-NA-NA",re
 # Upload the packages -----------------------------------------------------
 
 
-?sunburst
-
 
 
 p2 <- sunburst(nyc_squirrels3,legend=FALSE,
