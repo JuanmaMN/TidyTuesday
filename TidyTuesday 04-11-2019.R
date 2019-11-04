@@ -36,7 +36,7 @@ data<-commute_mode %>% group_by(state_region,mode)%>%summarize(total=sum(n)) %>%
 g<-ggplot(data, aes(x = Walk, xend = Bike, y=reorder(state_region,Walk))) + 
   geom_dumbbell(colour = "#dddddd",
                 size = 3,
-                colour_x = "#FAAB18",
+                colour_x = "#228b34",
                 colour_xend = "#1380A1")+
   labs(
     title = "Bicycling and Walking to Work in the United States: 2008-2012",
@@ -110,8 +110,10 @@ g2 + geom_label(aes(x = 612611, y = 3.7, label = "Northeast: Highest number of c
            vjust = 0.5, 
            lineheight = 0.8,
            colour = "#648aed", 
-           fill = "white", 
+           fill = "#f7f7f7", 
            label.size = NA, 
            family="Helvetica", 
-           size = 3) 
+           size = 3) +theme(legend.position = "top",
+                            legend.box = "horizontal",
+                            plot.background=element_rect(fill="#f7f7f7"))
 
