@@ -32,7 +32,7 @@ data$Day =  fct_relevel(data$Day,  c("Monday",
 # Heatmap -----------------------------------------------------------------
 
 data %>% 
-  ggplot(aes(x = Day, y = bird_breed)) +
+  ggplot(aes(x = Day, y = fct_reorder(bird_breed,n))) +
   geom_tile(aes(fill = n), color = "#2b2b2b") +
   geom_text(aes(label = n), color = "#22292F") +
   scale_fill_gradient(low = "#20b2aa", high = "#2072b2") +
