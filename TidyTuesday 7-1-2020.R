@@ -24,14 +24,16 @@ temperatureperth2$date <- factor(temperatureperth2$date) %>%
 temperatureperth2$date<-format(as.POSIXct(temperatureperth2$date, format="%Y-%m-%d"),format="%d %B %Y")
 
 
+View(temperatureperth2)
 # Graph -------------------------------------------------------------------
 
 pAustralia <- temperatureperth2 %>% 
-  ggplot(aes(date, diff, label = diff, fill = diff)) +
+  ggplot(aes(fct_reorder(date, diff),diff, label = diff, fill = diff)) +
   scale_fill_gradient(low = "#20b2aa", high = "#2072b2") +
   geom_col() +
   geom_bar_text(place = "right", contrast = TRUE, size=10) + 
   coord_flip() +
+  ylim(0, 30)+
   labs(x = "",y = "",
        title = "Climate Data - Australia",
        subtitle = "Top 10 days with the biggest difference in temperature on the day",
