@@ -12,6 +12,7 @@ library(scales)
 corbyn <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-16/corbyn.csv")
 
 corbyn
+
 corbyn_2<-corbyn%>%mutate(percentage=avg_facebook_likes/sum(avg_facebook_likes))
 
 

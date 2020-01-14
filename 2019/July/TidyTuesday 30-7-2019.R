@@ -42,7 +42,7 @@ ggplot(test2, aes(x=Year,y = reorder(owners,desc(owners)), fill = owners, group 
     subtitle = "TidyTuesday 30.7.2019",
     caption = "\n Source: TidyTuesday
       Visualization: JuanmaMN (Twitter @Juanma_MN)",
-    x = "",
+    x = "Average playtime in minutes",
     y = "") +
   scale_fill_brewer(palette = "Spectral") + theme(legend.position = "",
                                                   legend.box = "") +

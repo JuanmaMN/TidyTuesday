@@ -17,24 +17,11 @@ school_diversity3<-school_diversity2%>% mutate(id = row_number())
 school_diversity3<-school_diversity2[, -(1)]
 rownames(school_diversity3) <- school_diversity2$LEA_NAME
 
-View(school_diversity3)
-
-
 school_diversity3[,1:5]<-round(school_diversity3[,1:5],2)
-
-
-
-
-
-
 
 school_diversity3[,6]<-lapply(school_diversity3[,6], comma_format())
 
-View(school_diversity3)
-
-
-
-library(heatmaply)
+# Heatmap -----------------------------------------------------------------
 
 library(d3heatmap)
 d3heatmap(school_diversity3, scale = "column", colors = "GnBu", dendrogram = "none",xaxis_font_size = "7pt", yaxis_font_size = "7pt", show_legend = show.legend,main = "TidyTuesday")

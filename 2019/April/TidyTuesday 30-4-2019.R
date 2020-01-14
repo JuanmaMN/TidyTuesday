@@ -46,3 +46,7 @@ p <- plot_ly(mp_light_3_plotly, x = ~month, y = ~amount,
   ) 
 
 p
+
+
+View(mp_light_3)
+

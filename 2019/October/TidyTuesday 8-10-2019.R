@@ -6,6 +6,7 @@ ipf_lifts <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/
 
 # Data manipulation -------------------------------------------------------
 
+library(tidyverse)
 
 ipf_lifts$place[ipf_lifts$place == "1"] <- "Gold"
 

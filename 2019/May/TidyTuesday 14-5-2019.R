@@ -35,6 +35,8 @@ test_3<-test_2 %>%   mutate(
   ) %>% group_by(decade) %>%
   summarize(n=n(), na.rm=TRUE)%>%  select(decade, n)
 
+View(test_3)
+
 test_4<-test_3%>%filter(decade != "NA")
 View(test_4)
 
