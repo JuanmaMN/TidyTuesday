@@ -100,7 +100,7 @@ graph1<-graph+
 # Include the theme
 
 graph1+
-  theme_ipsum_rc()  +
+  theme_minimal() +
   labs(
     title = "Number of songs by genre - 2000 to 2020",
     subtitle = "What genre saw the highest increase in songs since 2000 on Spotify?",
