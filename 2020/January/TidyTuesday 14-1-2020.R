@@ -30,7 +30,7 @@ passwords3$measure <- recode(passwords3$measure, avg_value = "Average Time to cr
 
 
 
-g13<-passwords3%>% ggplot( aes(x=category, y=value)) +
+g13<-passwords3%>% ggplot( aes(x=fct_reorder(category,value), y=value)) +
   geom_bar(stat="identity", fill="#69b3a2", width=0.6) +
   coord_flip() +
   labs(x = "",y = "",
