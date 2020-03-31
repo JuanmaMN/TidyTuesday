@@ -18,12 +18,12 @@ library(ggplot2)
 library(tidyverse)
 library(usmap)
 
+
 data<-dog_moves%>%select(1,4) %>% na.omit()
 
 
 names(data)[1] <- "full"
 names(data)[2] <- "value"
-
 
 
 # Select the columns needed -----------------------------------------------
