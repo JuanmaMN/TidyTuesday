@@ -13,9 +13,7 @@ library(tidyverse)
 library(ggfittext)
 
 
-
-# Graph -------------------------------------------------------------------
-
+# Prepare the data --------------------------------------------------------
 
 tdf_winners2<-tdf_winners %>%
   mutate(
@@ -48,7 +46,7 @@ tdf_winners2<-tdf_winners %>%
 
 
 
-# Second ------------------------------------------------------------------
+# Graph -------------------------------------------------------------------
 
 RWlogo <- png::readPNG("C:/Users/StephMcD/Documents/R/TF.png")
 raster <- as.raster(RWlogo)
