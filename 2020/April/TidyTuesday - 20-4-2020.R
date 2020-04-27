@@ -9,12 +9,14 @@ library(viridis)
 
 gdpr_violations <- readr::read_tsv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_violations.tsv')
 
+View(gdpr_violations)
 # Prepare the data --------------------------------------------------------
 
 gdpr_violations2<-gdpr_violations%>%group_by(name)%>% summarise(n=n(),
                                                                 fine=sum(price))
 names(gdpr_violations2)[1]<-"region"
 
+View(gdpr_violations2)
 
 # World Data --------------------------------------------------------------
 
@@ -37,7 +39,7 @@ europe2 <- europe + geom_polygon(data = map,
                                      group = group),
                                  color = "grey70") +
   labs(title = "GDPR Fines",
-       subtitle = "Total amount paid in fines in euros (???)",
+       subtitle = "Total amount paid in fines in euros (???) - Country where violation was enforced",
        caption = "Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
   theme(
     plot.title = element_text(margin = margin(b = 10), 
@@ -67,6 +69,9 @@ europe2 <- europe + geom_polygon(data = map,
                                 50000000,
                                 25000000,
                                 0),
-                      labels= c("100M in ???", "75M in ???", "50M in ???", "25M in ???", "0M in ???")) +
+                      labels= c("100M ???", "75M ???", "50M ???", "25M ???", "0M ???")) +
   theme(legend.background = element_rect(fill = "#f7f7f7"),
         legend.title = element_blank())
+
+
+europe2
