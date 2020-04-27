@@ -14,7 +14,7 @@ grosses <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/ti
 grosses2<-grosses%>%mutate(month=format(week_ending,"%B")) %>% 
   mutate(year = ifelse(week_ending <= "1999-12-31", Before, After)) %>%
   group_by(year, month)%>%
-  summarize(total_seats_sold=sum(seats_sold, na.rm=TRUE)
+  summarize(total_seats_sold=sum(seats_sold, na.rm=TRUE))
 
 grosses2$month <-  fct_relevel(grosses2$month, 
                                          c("January",
@@ -42,7 +42,7 @@ g2<-grosses2 %>%
   geom_line(size=1.5,linetype = "solid") + 
   geom_point(size=4, shape=21, fill="#f0f0f0") +
   scale_color_manual(name = "", labels = c("Before 2000", "2000 and after"), values=c("#20b2aa", "#44a6c6")) +
-  scale_y_continuous(label = unit_format(unit = "m", scale = 1e-6)) +
+  scale_y_continuous(label = unit_format(unit = "m", scale = 1e-6), breaks=c(0,5000000,10000000,15000000,20000000, 25000000))+
   scale_x_discrete(position = "bottom")+
   labs(x = "",y = "",
        title = "Broadway Weekly Grosses - Monthly Analysis",
