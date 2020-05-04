@@ -36,7 +36,7 @@ graph2<-ggplot(datafa,aes(reorder(category,percent),percent, fill=color)) +
   scale_fill_manual(values = c("#8ab2b3","#bd9a99"), name = NULL) +
   labs(x = "",y = "",
        title = "Animal Crossing - New Horizons",
-       subtitle = "Biggest difference between Buy and Sell per item value among categories",
+       subtitle = "Category analysis: Biggest difference between Buy and Sell value per item",
        caption = "\n Source: TidyTuesday
       Visualization: JuanmaMN (Twitter @Juanma_MN)")+
   guides(fill = NULL) +
