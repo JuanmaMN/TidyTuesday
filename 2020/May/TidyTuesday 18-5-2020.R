@@ -94,8 +94,8 @@ gender_donutWdonut<-ggplot(Wdonut, aes(ymax=yaxismax, ymin=yaxismin, xmax=4, xmi
   scale_fill_manual(values=c("#CDAA25", "#43a07e")) +
   geom_text(x=3.5, aes(y=label_position, label=paste(pcnt,"%",sep="")), size=4, col=c("black", "black"))  + 
   geom_richtext(aes(label="<span style='color:#000000'>AVP circuit<br></span>
-        <span style='color:#43a07e'> Different nationality<br></span>
-                      <span style='color:#CDAA25'> Same nationality<br></span>
+        <span style='color:#CDAA25'> Different nationality<br></span>
+                      <span style='color:#43a07e'> Same nationality<br></span>
                       ",
                     x=1, y=0),
                 fill=NA, label.color=NA,
