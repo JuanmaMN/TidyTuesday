@@ -127,8 +127,6 @@ gdatafirsts4
 
 # Patchwork ---------------------------------------------------------------
 
-patchworkgdatafirsts4 <- (gdatafirsts4 | gender_datafirsts2) 
-
 patchworkgdatafirsts5<-cowplot::plot_grid(gdatafirsts4, gender_datafirsts2, ncol = 2,align = "v")
 
 PW962020 <- patchworkgdatafirsts5 + plot_annotation(title = "African American Achievements",
