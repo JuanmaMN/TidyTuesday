@@ -3,7 +3,7 @@
 
 marbles <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-02/marbles.csv')
 
-
+unique(marbles$site)
 
 # Upload packages ---------------------------------------------------------
 
