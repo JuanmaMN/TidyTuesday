@@ -138,6 +138,66 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br>
 <hr>
 
-** More to come
+ ### Week 8/2020 -  Food Consumption and CO2 Emissions  
+   
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/February/TidyTuesday%2018-2-2020.R)
 
 
+<p align="center">
+<img width="805" alt="18-2-2020" src="https://user-images.githubusercontent.com/37122520/86512555-29908700-bdfb-11ea-8cfd-da0b0fe62c8f.png">
+</p>
+<br>
+<hr>
+
+
+### Week 7/2020 -  Hotel bookings
+ 
+ 
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/February/TidyTuesday%2010-2-2020.R)
+
+
+<p align="center">
+<img width="805" alt="18-2-2020" src="https://user-images.githubusercontent.com/37122520/86512581-5349ae00-bdfb-11ea-85fa-6eaae53d0b04.png">
+</p>
+<br>
+<hr>
+
+
+### Week 1/2020 -  Australia Fires
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/tree/master/2020/January)
+
+<br>
+
+<p align="center">
+<img width="805" alt="data" src="https://user-images.githubusercontent.com/37122520/71928433-774f6e00-318f-11ea-9188-ab6772e93047.png">
+</p>
+
+<hr>
+
+### November 2019 -  Cycling and Walking to Work in the United States: 2008-2012
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2019/November/TidyTuesday%2004-11-2019.R)
+
+<br>
+
+<p align="center">
+<img width="805" alt="data" src="https://user-images.githubusercontent.com/37122520/86512705-49747a80-bdfc-11ea-85da-ddc8e5f88c7d.png">
+</p>
+
+<hr>
+
+### July 2019 -  FAA Wildlife Strike Database
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2019/July/TidyTuesday%2023-07-2019.R)
+
+<br>
+
+<p align="center">
+<img width="805" alt="data" src="https://user-images.githubusercontent.com/37122520/86512766-cf90c100-bdfc-11ea-9262-ee9b6c2d5779.png">
+</p>
+
+<hr>
