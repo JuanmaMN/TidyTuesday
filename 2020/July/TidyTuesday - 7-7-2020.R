@@ -115,10 +115,6 @@ gdata_coffee_both<-data_coffe_both%>% ggplot(aes(x=reorder(country_of_origin,tot
 
 
 
-
-#patchwork_coffee1<- gender_coffeeMdonut | gdata_coffee_both 
-
-
 # First arrange -----------------------------------------------------------
 
 
