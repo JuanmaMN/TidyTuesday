@@ -9,6 +9,26 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 28/2020 - Coffee ratings
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%207-7-2020.R)
+
+<br>              
+<p align="center">
+  
+<img width="805" alt="7-7-2020- 1" src="https://user-images.githubusercontent.com/37122520/86818008-b9456800-c07d-11ea-886e-37d07468ca33.png">
+</p>
+<br>
+
+           
+<p align="center">
+  
+<img width="805" alt="7-7-2020-2" src="https://user-images.githubusercontent.com/37122520/86818022-c06c7600-c07d-11ea-9101-d75f43f297e9.png">
+</p>
+<br>
+
+<hr>
+
 ### Week 27/2020 - Uncanny X-Men
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/June/TidyTuesday%2029-6-2020.R)
@@ -166,7 +186,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 ### Week 1/2020 -  Australia Fires
 
 
-Code is available [here](https://github.com/JuanmaMN/TidyTuesday/tree/master/2020/January)
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/January/TidyTuesday%207-1-2020.R)
 
 <br>
 
