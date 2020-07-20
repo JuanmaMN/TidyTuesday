@@ -1,8 +1,9 @@
 
 # Upload packages ---------------------------------------------------------
 
-pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,sf,ozmaps,
                hrbrthemes,scales,ggtext, ggpubr)
+
 
 
 # Raw data ----------------------------------------------------------------
@@ -25,6 +26,10 @@ names(animal_outcomes)[11]<-"Western Australia"
 animal_outcomes2<-animal_outcomes%>% 
   pivot_longer(cols = 4:11, names_to = "Region", values_to = "value") %>%group_by(Region)%>% summarize(value=sum(value,na.rm=TRUE))  
 
+
+sf_oz <- ozmap_data("states")
+
+tibble::as_tibble(sf_oz)
 
 data_join222<-animal_outcomes2 %>% left_join(sf_oz, by= c("Region" = "NAME"))
 
