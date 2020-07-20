@@ -9,6 +9,20 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 29/2020 - Astronaut Database
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%2014-7-2020.R)
+
+<br>              
+<p align="center">
+<img width="805"  alt="TidyTuesday 14-7-2020" src="https://user-images.githubusercontent.com/37122520/87467631-2c1b8980-c610-11ea-8011-61e7a9eae9ec.png">
+</p>
+<br>
+
+<hr>
+
+
+
 ### Week 28/2020 - Coffee ratings
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%207-7-2020.R)
