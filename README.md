@@ -9,6 +9,16 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 30/2020 - Australian Pets
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%2020-7-2020.R)
+<br>              
+<p align="center">
+<img width="805" alt="TidyTuesday 20-7-2020" src="https://user-images.githubusercontent.com/37122520/87984916-a77ab080-cad2-11ea-8525-a62dcb4bfe6c.png">
+</p>
+<br>
+<hr>
+
 ### Week 29/2020 - Astronaut Database
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%2014-7-2020.R)
