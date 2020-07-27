@@ -30,7 +30,7 @@ background <-
 
 
 graph2<-penguins2%>% 
-  ggplot(aes(reorder(species, -n), n)) +
+  ggplot(aes(fct_reorder(species, -n), n)) +
   geom_label(aes(label = n), 
              fill = "#DCDCD5", 
              color = "#6A6A68", 
@@ -39,7 +39,7 @@ graph2<-penguins2%>%
              size = 5, 
              alpha = 0.9,
              family = 'Arial') +
-  labs(x = NULL, 
+  labs(x = "", 
        y = "",
        title = "",
        caption = "Source:TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)\nPicture:Unsplash") +
