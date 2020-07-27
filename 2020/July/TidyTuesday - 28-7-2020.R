@@ -2,13 +2,14 @@
 # Upload packages ---------------------------------------------------------
 
 
-pacman::p_load(tidyverselubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,
+pacman::p_load(tidyverselubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,ggdraw,
                hrbrthemes,scales,ggtext, ggpubr)
 
 
 # Upload the data ---------------------------------------------------------
 
 penguins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv')
+
 
 
 # Prepare the data --------------------------------------------------------
@@ -63,7 +64,7 @@ ggdraw(background) +
   draw_image("Penguin.png", hjust = 0, x = -0.315, y = 0.12, height = 0.75) +
   draw_image("Penguin.png", hjust = 0, x = 0.001, y = 0.12, height = 0.64) +
   draw_image("Penguin.png", hjust = 0, x = 0.295, y = -0.195, scale = 0.38) +
-  geom_richtext(aes(x = 0.79, y = 0.55), label = "Total number of <br/>**24 Chinstrap penguins** <br/>in 2019", color = "#c15ccb", hjust = 0.5, label.color = NA)  +
-  geom_richtext(aes(x = 0.49, y = 0.8), label = "Total number of  <br/>**44 Gentoo penguins** <br/>in 2019", color = "#067473", hjust = 0.5, label.color = NA)  +
-  geom_richtext(aes(x = 0.19, y = 0.9), label = "Total number of <br/>**52 Adelie penguins** <br/>in 2019", color = "#ff6b00", hjust = 0.5, label.color = NA) +
+  geom_richtext(aes(x = 0.79, y = 0.55), label = "Total number of <br/>**24 Chinstrap penguins** <br/>in 2009", color = "#c15ccb", hjust = 0.5, label.color = NA)  +
+  geom_richtext(aes(x = 0.49, y = 0.8), label = "Total number of  <br/>**44 Gentoo penguins** <br/>in 2009", color = "#067473", hjust = 0.5, label.color = NA)  +
+  geom_richtext(aes(x = 0.19, y = 0.9), label = "Total number of <br/>**52 Adelie penguins** <br/>in 2009", color = "#ff6b00", hjust = 0.5, label.color = NA) +
   draw_plot(graph2) 
