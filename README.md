@@ -7,6 +7,18 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
+
+<hr>
+
+### Week 31/2020 - Palmer Penguins
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%2028-7-2020.R)
+
+<br>              
+<p align="center">
+<img width="805" alt="TidyTuesday 28-7-2020" src="https://user-images.githubusercontent.com/37122520/88802139-91d84b80-d1a2-11ea-8eeb-8604169ccabc.png">
+</p>
+<br>
 <hr>
 
 ### Week 30/2020 - Australian Pets
