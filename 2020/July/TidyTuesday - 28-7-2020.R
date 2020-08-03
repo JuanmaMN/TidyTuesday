@@ -2,7 +2,7 @@
 # Upload packages ---------------------------------------------------------
 
 
-pacman::p_load(tidyverselubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,ggdraw,
+pacman::p_load(tidyverse,lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,ggdraw,cowplot,
                hrbrthemes,scales,ggtext, ggpubr)
 
 
