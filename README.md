@@ -10,6 +10,19 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 32/2020 - European energy
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/August/TidyTuesday%20-%203-8-2020.R)
+
+<br>              
+<p align="center">
+<img width="837" alt="4-8-2020" src="https://user-images.githubusercontent.com/37122520/89319716-6a88ef00-d678-11ea-9e0f-a8d153ee80c8.png">
+</p>
+<br>
+
+
+<hr>
+
 ### Week 31/2020 - Palmer Penguins
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/July/TidyTuesday%20-%2028-7-2020.R)
