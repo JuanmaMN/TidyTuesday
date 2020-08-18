@@ -7,6 +7,19 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
+<hr>
+
+### Week 33/2020 - Avatar: The Last Airbender
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/August/TidyTuesday%20-%2010-8-2020.R)
+
+
+<br>              
+<p align="center">
+<img width="915" alt="TidyTuesday 10-8-2020" src="https://user-images.githubusercontent.com/37122520/89814635-555e0580-db3b-11ea-9a69-42c7e8474b15.png">
+</p>
+<br>
+
 
 <hr>
 
