@@ -9,6 +9,19 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 34/2020 - Plants in Danger
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/August/TidyTuesday%20-%2017-8-2020.R)
+
+<br>              
+<p align="center">
+<img width="954" alt="TidyTuesday" src="https://user-images.githubusercontent.com/37122520/90543317-66cb9100-e17d-11ea-93f5-6ecccf8221fb.png">
+</p>
+<br>
+
+
+<hr>
+
 ### Week 33/2020 - Avatar: The Last Airbender
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/August/TidyTuesday%20-%2010-8-2020.R)
