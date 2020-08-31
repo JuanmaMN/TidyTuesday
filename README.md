@@ -9,6 +9,19 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 36/2020 - Global Crop Yields
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/August/TidyTuesday%20-%2031-8-2020.R)
+
+<br>              
+<p align="center">
+<img width="924" alt="TidyTuesday 31-8-2020 picture" src="https://user-images.githubusercontent.com/37122520/91759102-000c9580-ebc9-11ea-9d3e-8085eeed136d.png">
+</p>
+<br>
+
+
+<hr>
+
 ### Week 34/2020 - Plants in Danger
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/August/TidyTuesday%20-%2017-8-2020.R)
