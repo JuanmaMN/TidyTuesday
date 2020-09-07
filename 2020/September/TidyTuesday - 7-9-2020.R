@@ -11,6 +11,7 @@ pacman::p_load(readxl, lubridate, tidyverse, ggplot2,  ggfittext, patchwork,
 
 friends_info <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-08/friends_info.csv')
 
+View(friends_info)
 
 
 # Prepare the data --------------------------------------------------------
@@ -22,8 +23,9 @@ darker<-"#3a9fbf"
 
 data1<-friends_info%>% group_by(season) %>%
   summarize(rating=round(mean(imdb_rating, na.rm=TRUE),2),
-            viewings_pe_episode=round(sum(us_views_millions/sum(episode), na.rm=TRUE),2),
-            number_episodes=n()) %>% ungroup()%>%
+            number_episodes=n(),
+            viewings_pe_episode=round(sum(us_views_millions/number_episodes, na.rm=TRUE),2),
+            ) %>% ungroup()%>%
   mutate(fill = case_when(
     season %in% c(1,2,3,4,5,6,7,8,9)  ~ lighter,
     season == 10 ~ darker,
@@ -31,6 +33,7 @@ data1<-friends_info%>% group_by(season) %>%
   ))
 
 
+View(data1)
 
 
 # First graph -------------------------------------------------------------
@@ -41,17 +44,17 @@ p1 <- ggplot(data1, aes(season, viewings_pe_episode), group = 1) +
               geom_line(linetype = "dotted") +
               geom_point(aes(fill = season), shape = 21, size = 3, show.legend = F) +
         geom_text(aes(label =paste0(round(viewings_pe_episode,2), " ", "M")), data = data1, size = 3.5, vjust = -1.8) +
-    coord_cartesian(ylim=c(1.5,3), xlim=c(0.5,10.5))+
-  geom_point(x= 1, y = 1.98, size=3, shape=21, fill="#888e8c") +
-  geom_point(x= 2, y =2.54,size=3, shape=21, fill="#888e8c") +
-  geom_point(x= 3, y = 2.02,size=3, shape=21, fill="#888e8c")+
-  geom_point(x= 4, y = 2,size=3, shape=21, fill="#888e8c")+
-  geom_point(x= 5, y = 1.98,size=3, shape=21, fill="#888e8c")+
-  geom_point(x= 6, y = 1.74, size=3, shape=21, fill="#888e8c") +
-  geom_point(x= 7, y =1.76,size=3, shape=21, fill="#888e8c") +
-  geom_point(x= 8, y = 2.14,size=3, shape=21, fill="#888e8c")+
-  geom_point(x= 9, y = 1.91,size=3, shape=21, fill="#888e8c")+
-  geom_point(x= 10, y = 2.75,size=3, shape=21, fill="#3a9fbf")+
+    coord_cartesian(ylim=c(22,32.5), xlim=c(0.5,10.5))+
+  geom_point(x= 1, y = 24.79, size=3, shape=21, fill="#888e8c") +
+  geom_point(x= 2, y =31.72,size=3, shape=21, fill="#3a9fbf") +
+  geom_point(x= 3, y = 26.31,size=3, shape=21, fill="#888e8c")+
+  geom_point(x= 4, y = 24.95,size=3, shape=21, fill="#888e8c")+
+  geom_point(x= 5, y = 24.75,size=3, shape=21, fill="#888e8c")+
+  geom_point(x= 6, y = 22.62, size=3, shape=21, fill="#888e8c") +
+  geom_point(x= 7, y =22.05,size=3, shape=21, fill="#888e8c") +
+  geom_point(x= 8, y = 26.72,size=3, shape=21, fill="#888e8c")+
+  geom_point(x= 9, y = 23.93,size=3, shape=21, fill="#888e8c")+
+  geom_point(x= 10, y = 26.13,size=3, shape=21, fill="#888e8c")+
   scale_x_continuous(breaks = seq(1, 10, by = 1)) +
   labs(x = "",y = "",
        title = "")+
