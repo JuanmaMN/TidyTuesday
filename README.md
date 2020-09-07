@@ -15,9 +15,10 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <br>              
 <p align="center">
-<img width="858" alt="TT 7-9-2020" src="https://user-images.githubusercontent.com/37122520/92415755-4f673e80-f152-11ea-8384-f21c052b9a45.png">
+<img width="847" alt="TT 7-9-2020" src="https://user-images.githubusercontent.com/37122520/92416247-8179a000-f154-11ea-92d6-837313e63211.png">
 </p>
 <br>
+
 
 
 <hr>
