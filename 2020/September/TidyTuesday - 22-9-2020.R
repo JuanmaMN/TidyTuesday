@@ -20,9 +20,7 @@ members_citizenship$code=c("cn", "fr", "de", "in", "it","jp", "es", "ch", "gb","
 
 ggplotmembers_citizenship<-members_citizenship%>% ggplot(aes(x=fct_reorder(citizenship,total), y=total,group =citizenship,
                                                fill= factor(citizenship))) +
-  #geom_bar(stat="identity", fill="#69b3a2", width=0.6) +
   geom_flag(y = -50, aes(country = code), size = 8, hjust = -2) +
-  #geom_text(nudge_y = 0.2, color = "darkred", size = 5) +
   scale_fill_manual(values = c( "USA" = "#4e79a7",
                                 "UK"      = "#76B7B2",
                                 "Switzerland"     = "#76B7B2",
@@ -34,7 +32,6 @@ ggplotmembers_citizenship<-members_citizenship%>% ggplot(aes(x=fct_reorder(citiz
                                 "France" = "#76B7B2",
                                 "China" = "#76B7B2")) +
   coord_flip()+
-  #coord_flip(clip = "off", expand = FALSE)  +
   geom_col(width = 0.6,show.legend=F) +
   geom_bar_text(place = "right", contrast = TRUE, size=8,
                 aes(label=paste0(citizenship, "  ",comma(total))))  +
@@ -61,9 +58,11 @@ ggplotmembers_citizenship<-members_citizenship%>% ggplot(aes(x=fct_reorder(citiz
     plot.margin = unit(c(2, 1, 1, 2), "cm"),
     axis.ticks = element_blank(),
     strip.text.x = element_blank()
-  ) # +
-  #geom_text(aes(label="Total 10 of countries with the highest number of successful climbing", x=5, y=0), color="#000000", family="Calibri", size=4)
+  ) 
 
+
+
+# Donut chart -------------------------------------------------------------
 
 members_season<-members%>%filter(success == "TRUE" & season !="Unknown" & expedition_role == "Climber") %>%
   group_by(season) %>% summarize (total=n()) %>% na.omit()%>%
@@ -85,12 +84,7 @@ gender_donut_season<-ggplot(members_season, aes(ymax=yaxismax, ymin=yaxismin, xm
   theme_void()+
   expand_limits(x = 0, y = 0) +
   scale_fill_manual(values = color_mine2) +
-  geom_text(x=3.5, data = members_season %>% filter(season %in% c("Autumn", "Spring")), aes(y=label_position, label=paste(pcnt,"%",sep="")), size=2, col="black")  + 
- # geom_richtext(aes(label="<span style='color:#525252'>Percentage of successful <br>by Climbing Expeditions by season<br></span>",
-  #                  x=1, y=0),
-   #             fill=NA, label.color=NA,
-    #            family="Arial",
-     #           size=3.5)  +
+  geom_text(x=3.5, data = members_season %>% filter(season %in% c("Autumn", "Spring")), aes(y=label_position, label=paste(pcnt,"%",sep="")), size=2, col="black") +
   theme(legend.title = element_blank(),
         legend.position = "bottom",
         legend.margin=margin(b = 2, unit='cm'),
@@ -103,7 +97,6 @@ gender_donut_season<-ggplot(members_season, aes(ymax=yaxismax, ymin=yaxismin, xm
   guides(color = guide_legend(nrow = 1, byrow = TRUE)) +
  geom_text(aes(label="Percentage by season", x=5, y=0), color="#000000", family="Calibri", size=4)
 
-View(members_season)
 
 members$age<-as.character(members$age)
 
@@ -137,11 +130,6 @@ gender_donut_second<-ggplot(members_age, aes(ymax=yaxismax, ymin=yaxismin, xmax=
   expand_limits(x = 0, y = 0) +
   scale_fill_manual(values = color_mine3) +
   geom_text(x=3.5, data = members_age %>% filter(age_bucket %in% c("18-24", "25-34", "35-44", "45-54", "55-64")), aes(y=label_position, label=paste(pcnt,"%",sep="")), size=2, col="black")  + 
-  #geom_richtext(aes(label="<span style='color:#525252'>Percentage of successful <br>by Climbing Expeditions by age<br></span>",
-   #                 x=1, y=0),
-    #            fill=NA, label.color=NA,
-     #           family="Arial",
-      #          size=3.5)  +
   theme(legend.title = element_blank(),
         legend.position = "bottom",
         legend.margin=margin(b = 2, unit='cm'),
@@ -154,15 +142,11 @@ gender_donut_second<-ggplot(members_age, aes(ymax=yaxismax, ymin=yaxismin, xmax=
   guides(color = guide_legend(nrow = 1, byrow = TRUE)) +
   geom_text(aes(label="Percentage by age", x=5, y=0), color="#000000", family="Calibri", size=4)
 
-#+
- 
-# geom_text(aes(label="Deployment site or colony analysis of woodland caribou", x=5, y=0), color="#000000", family="Calibri", size=4)
 
 
-
+# Patchwork ---------------------------------------------------------------
 
 patchwork4 <- ggplotmembers_citizenship | gender_donut_season / gender_donut_second
-
 
 PWTT <- patchwork4 + plot_annotation(title = "Successful climbing expeditions",
                                        caption = "\n Source: TidyTuesday
