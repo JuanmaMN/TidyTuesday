@@ -7,6 +7,19 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
+
+
+### Week 38/2020 - US Spending on Kids
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/September/TidyTuesday%20-%2014-9-2020.R)
+
+<br>              
+<p align="center">
+<img width="924" alt="14-9-2020" src="https://user-images.githubusercontent.com/37122520/93134874-4dacf600-f6d1-11ea-9618-c145077359e0.png">
+</p>
+<br>
+
+
 <hr>
 
 ### Week 37/2020 - Friends
