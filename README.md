@@ -7,7 +7,20 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
+<hr>
 
+### Week 40/2020 - Beyonce & Taylor Swift Lyrics
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/September/TidyTuesday%20-%2029-9-2020.R)
+
+<br>              
+<p align="center">
+<img width="840" alt="Screenshot_2" src="https://user-images.githubusercontent.com/37122520/94591576-2aad4500-0280-11eb-8598-371cdd77016d.png">
+</p>
+<br>
+
+
+<hr>
 
 ### Week 38/2020 - US Spending on Kids
 
