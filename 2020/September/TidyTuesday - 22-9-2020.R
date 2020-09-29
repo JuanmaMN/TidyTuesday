@@ -146,7 +146,7 @@ gender_donut_second<-ggplot(members_age, aes(ymax=yaxismax, ymin=yaxismin, xmax=
 
 # Patchwork ---------------------------------------------------------------
 
-patchwork4 <- ggplotmembers_citizenship | gender_donut_season / gender_donut_second
+patchwork4 <- ggplotmembers_citizenship | (gender_donut_season / gender_donut_second)
 
 PWTT <- patchwork4 + plot_annotation(title = "Successful climbing expeditions",
                                        caption = "\n Source: TidyTuesday
