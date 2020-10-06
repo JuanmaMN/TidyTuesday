@@ -9,6 +9,20 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 41/2020 - NCAA Women's Basketball Tournament
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/October/TidyTuesday%206-10-2020.R)
+
+
+<br>              
+<p align="center">
+<img width="580" alt="6-10-2020" src="https://user-images.githubusercontent.com/37122520/95238578-9b64dc00-0801-11eb-9b43-ca13984cb1c1.png">
+</p>
+<br>
+
+
+<hr>
+
 ### Week 40/2020 - Beyonce & Taylor Swift Lyrics
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/September/TidyTuesday%20-%2029-9-2020.R)
