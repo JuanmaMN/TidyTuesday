@@ -9,6 +9,21 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 43/2020 - Beer Awards
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/October/TidyTuesday%2019-10-2020.R)
+
+
+<br> 
+<p align="center">
+<img width="840" alt="hex_bin" src="https://user-images.githubusercontent.com/37122520/96621465-8d828100-1300-11eb-8333-f81135566849.png">
+
+</p>
+<br>
+
+
+<hr>
+
 ### Week 41/2020 - NCAA Women's Basketball Tournament
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/October/TidyTuesday%206-10-2020.R)
