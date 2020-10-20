@@ -69,10 +69,10 @@ graph2<-join_data %>%
   theme_void() +
   coord_map() +
   labs(
-       title = "Beer Awards - Gold",
-       subtitle = "Total number of breweries by state awarded with gold since 1987",
-       fill = "Gold awards \nby state",
-       caption = "\n Source: TidyTuesday
+    title = "Beer Awards - Gold",
+    subtitle = "Total number of gold awards by state since 1987",
+    fill = "Gold awards \nby state",
+    caption = "\n Source: TidyTuesday
       Visualization: JuanmaMN (Twitter @Juanma_MN)")+
   theme(
     plot.title = element_text(margin = margin(t=0.5, b = 5), 
@@ -102,7 +102,7 @@ graph2<-join_data %>%
     plot.margin = unit(c(2.5, 1, 2.5, 1), "cm"),
     axis.ticks = element_blank(),
     strip.text.x = element_blank()
-  ) +annotate(geom = "text", x = -135, y = 35, size = 3, label = "California is the sta \nwith the highest Gold awards", 
+  ) +annotate(geom = "text", x = -133, y = 35, size = 3, label = "California is the state \nwith the highest number of \nGold awards", 
               family = font_text,    hjust = "center", lineheight = 0.9, color = "#e3d18f") 
 
 
