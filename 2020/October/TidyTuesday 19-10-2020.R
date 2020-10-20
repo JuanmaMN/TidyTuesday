@@ -2,17 +2,8 @@
 
 # Upload the packages -----------------------------------------------------
 
-library(readxl)
-library(tidyverse)
-library(tidyverse)
-library(tidytuesdayR)
-library(geojsonio)
-library(mapproj)
-library(rgeos)
-
-
-pacman::p_load(tidyverse,lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,ggdraw, maps, viridis,
-               biscale, cowplot, grid, gridtext,hrbrthemes,scales,ggtext, ggpubr,choroplethr,choroplethrMaps,choroplethrZip,mapproj,usmap)
+pacman::p_load(readxl,tidyverse,lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,ggdraw, maps, viridis,
+               biscale, cowplot, grid, gridtext,hrbrthemes,scales,ggtext, ggpubr,rgeos,mapproj,usmap, geojsonio)
 
 
 # Upload the data ---------------------------------------------------------
