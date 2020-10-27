@@ -9,8 +9,10 @@ pacman::p_load(readxl,tidyverse,lubridate, tidyverse, ggplot2, hrbrthemes,patchw
 # Upload the data ---------------------------------------------------------
 
 beer_awards <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-10-20/beer_awards.csv')
+beer_awards<- beer_awards%>%
+  mutate(state = recode(state, wa = "WA", Ak = "AK"))
 
-
+View(beer_awards)
 # Bring US states ---------------------------------------------------------
 
 US_States <- read_excel("US States.xlsx")
@@ -21,6 +23,7 @@ names(US_States)[2]<-"state"
 
 beer_awards<-beer_awards%>%left_join(US_States, by = "state") 
 
+View(beer_awards)
 beer_awards<-beer_awards%>%filter(medal == "Gold")%>%group_by(medal, State)%>% summarize(n=n())
 
 
