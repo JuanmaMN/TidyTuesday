@@ -35,10 +35,6 @@ wind_first_graph <-wind2 %>%
   geom_tile(aes(fill = n), color = "#2b2b2b") +
   geom_text(aes(label = n), color = "#22292F",size = 3.5)+
   scale_fill_gradient(low = "#ececc2", high = "#20b2aa")+
-  #labs(x = "",y = "",
-  #    title = "Brisbane CityCycle",
-  #   subtitle = "CityCycle monthly trip numbers",
-  #  caption = "Source:https://www.data.brisbane.qld.gov.au/\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
   scale_x_discrete(position = "bottom") +
   guides(fill = NULL) +
   theme(
@@ -76,8 +72,7 @@ wind_second_graph <- wind3 %>%
   geom_bar(stat="identity", width=0.8) +
   geom_text(aes(label = n), color = "#22292F",hjust=-0.2, size = 3.5) +
   coord_flip()+
-  scale_fill_gradient(low = "#ececc2", high = "#20b2aa")+
-  #limit to fit the text and expand to remove space in the left
+  scale_fill_gradient(low = "#ececc2", high = "#20b2aa") +
   scale_y_continuous(limit = c(0, 3500), expand=c(0,1)) +
   guides(fill = NULL) +
   theme(
@@ -107,7 +102,7 @@ patch<-wind_first_graph | wind_second_graph
 
 
 Ppatch <- patch + plot_annotation(title = "Canadian Wind Turbines",
-                                  subtitle = "Canadian Wind Turbines total number by province",
+                                  subtitle = "Total number of wind turbines by Province/territory",
                                   caption = "\n Source: TidyTuesday 
                                   Visualization: JuanmaMN (Twitter @Juanma_MN)",
                                   theme = theme(plot.title = element_text(margin = margin(t=15,b = 8), 
