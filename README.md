@@ -9,6 +9,19 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 44/2020 - Canadian Wind Turbines
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/October/TidyTuesday%2027-10-2020.R)
+
+<br> 
+<p align="center">
+<img width="915" alt="27-10-2020" src="https://user-images.githubusercontent.com/37122520/97348346-e9f81a00-1885-11eb-99dc-b09211616696.png">
+</p>
+<br>
+
+
+<hr>
+
 ### Week 43/2020 - Beer Awards
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/October/TidyTuesday%2019-10-2020.R)
