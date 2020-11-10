@@ -9,6 +9,22 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 45/2020 - IKEA Furniture
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/November/TidyTuesday%203-11-2020.R)
+
+<br> 
+
+<br> 
+<p align="center">
+<img width="911" alt="3-11-2020" src="https://user-images.githubusercontent.com/37122520/98027979-5d110b80-1e05-11eb-8c25-8dcdbb9ae2c0.png">
+</p>
+<br>
+
+
+<hr>
+
 ### Week 44/2020 - Canadian Wind Turbines
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/October/TidyTuesday%2027-10-2020.R)
