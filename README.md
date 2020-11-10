@@ -7,6 +7,37 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
+
+<hr>
+
+### Week 46/2020 - Historical Phone Usage (2)
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/November/TidyTuesday%20-%2010-11-2020%20(2).R)
+
+<br> 
+
+<br> 
+<p align="center">
+<img width="926" alt="10-11-2020 (2)" src="https://user-images.githubusercontent.com/37122520/98718285-277c9d00-2386-11eb-84b2-94b337d73508.png">
+</p>
+<br>
+
+<hr>
+
+
+### Week 46/2020 - Historical Phone Usage (1)
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/November/TidyTuesday%2010-11-2020%20(1).R)
+
+<br> 
+
+<br> 
+<p align="center">
+<img width="914" alt="10-11-2020 (1)" src="https://user-images.githubusercontent.com/37122520/98718185-02882a00-2386-11eb-819e-bc42b5494451.png">
+</p>
+<br>
+
 <hr>
 
 ### Week 45/2020 - IKEA Furniture
