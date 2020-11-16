@@ -17,12 +17,11 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/November/TidyTuesday%20-%2016-11-2020.R)
 
-
 <br> 
 
 <br> 
 <p align="center">
-<img width="926" alt="BL" src="https://user-images.githubusercontent.com/37122520/99310155-804ea880-2852-11eb-998d-e1607fe6145a.png">
+<img width="926" alt="16-11-2020" src="https://user-images.githubusercontent.com/37122520/99310891-9872f780-2853-11eb-98fb-ca522609c33b.png">
 </p>
 <br>
 
