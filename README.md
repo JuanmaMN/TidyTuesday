@@ -8,6 +8,24 @@ I have published all my code in this Github repository.   Weekly code can be fou
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 
+
+
+<hr>
+
+### Week 47/2020 - #BlackInDataWeek
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/November/TidyTuesday%20-%2016-11-2020.R)
+
+
+<br> 
+
+<br> 
+<p align="center">
+<img width="926" alt="BL" src="https://user-images.githubusercontent.com/37122520/99310155-804ea880-2852-11eb-998d-e1607fe6145a.png">
+</p>
+<br>
+
 <hr>
 
 ### Week 46/2020 - Historical Phone Usage (2)
