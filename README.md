@@ -9,8 +9,23 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 
 
+<hr>
+
+### Week 48/2020 - Washington Hiking
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/November/TidyTuedsay%20-%2024-11-2020.R)
+
+<br> 
+
+<br> 
+<p align="center">
+<img width="912" alt="Washington Hiking - 24-11-2020" src="https://user-images.githubusercontent.com/37122520/100138427-ed32f580-2e85-11eb-9283-a27b00e3ff02.png">
+</p>
+<br>
 
 <hr>
+
 
 ### Week 47/2020 - #BlackInDataWeek
 
