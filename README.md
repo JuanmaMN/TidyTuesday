@@ -7,7 +7,20 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
+<hr>
 
+### Week 49/2020 - Toronto Shelters
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/December/TidyTuedsay%20-%201-12-2020.R)
+
+<br> 
+
+<br> 
+<p align="center">
+<img width="888" alt="Visualization" src="https://user-images.githubusercontent.com/37122520/100784981-ec5f0e00-3407-11eb-9f32-e8e0b90f815c.png">
+</p>
+<br>
 
 <hr>
 
