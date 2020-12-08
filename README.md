@@ -9,10 +9,23 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 50/2020 - Women of 2020
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/December/TidyTuesday%20-%208-12-2020.R)
+<br> 
+
+<br> 
+<p align="center">
+<img width="1020" alt="8-12-2020" src="https://user-images.githubusercontent.com/37122520/101532755-e54a7980-398c-11eb-8ba0-b257d54dff38.png">
+</p>
+<br>
+
+<hr>
+
 ### Week 49/2020 - Toronto Shelters
 
 
-Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/December/TidyTuedsay%20-%201-12-2020.R)
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/December/TidyTuesday%20-%201-12-2020.R)
 
 <br> 
 
