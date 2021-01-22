@@ -9,6 +9,24 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 3/2021 - Art Collections
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/January/TidyTuesday%2015-1-2021.R)
+<br> 
+
+<br> 
+<p align="center">
+  
+<img width="960" alt="Visualization 14-1" src="https://user-images.githubusercontent.com/37122520/104763574-03f71980-575e-11eb-8402-21f9b5640ddb.png">
+
+
+
+</p>
+<br>
+
+<hr>
+
 ### Week 50/2020 - Women of 2020
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/December/TidyTuesday%20-%208-12-2020.R)
