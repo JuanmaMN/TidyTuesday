@@ -1,4 +1,3 @@
-
 # Upload the data ---------------------------------------------------------
 
 firsts <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-09/firsts.csv')
@@ -23,11 +22,11 @@ datafirsts2<-datafirsts %>%
          yaxismin = c(0, head(yaxismax, n=-1)),
          label_position = (yaxismax+yaxismin)/2,
          label = if_else(pcnt >= 50, 
-                paste0(pcnt, "%"),
-                NA_character_)
-                )
+                         paste0(pcnt, "%"),
+                         NA_character_)
+  )
 
- 
+
 
 # Graph -------------------------------------------------------------------
 
@@ -84,8 +83,8 @@ gdatafirsts4<-datafirsts4%>% ggplot(aes(x=reorder(category,total), y=total)) +
   coord_flip() +
   facet_wrap(~gender, ncol=4) + 
   geom_text(aes(label=total),hjust=-0.5,
-           color = c("#CDAA25","#43a07e","#CDAA25", "#43a07e","#CDAA25","#43a07e","#CDAA25",
-                     "#43a07e","#CDAA25","#43a07e","#CDAA25","#43a07e","#CDAA25","#43a07e","#CDAA25","#43a07e")) +
+            color = c("#CDAA25","#43a07e","#CDAA25", "#43a07e","#CDAA25","#43a07e","#CDAA25",
+                      "#43a07e","#CDAA25","#43a07e","#CDAA25","#43a07e","#CDAA25","#43a07e","#CDAA25","#43a07e")) +
   theme(
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#22222b",face = "bold",size = 14,
@@ -130,21 +129,20 @@ gdatafirsts4
 patchworkgdatafirsts5<-cowplot::plot_grid(gdatafirsts4, gender_datafirsts2, ncol = 2,align = "v")
 
 PW962020 <- patchworkgdatafirsts5 + plot_annotation(title = "African American Achievements",
-                                       subtitle = "Total number of achievements and percentange by gender in each category",
-                                       caption = "\n Source: TidyTuesday
+                                                    subtitle = "Total number of achievements and percentange by gender in each category",
+                                                    caption = "\n Source: TidyTuesday
       Visualization: JuanmaMN (Twitter @Juanma_MN)",
-                                       theme = theme(plot.title = element_text(margin = margin(t=15,b = 8), 
-                                                                               color = "#000000",face = "bold",size = 12,
-                                                                               hjust = 0.5,
-                                                                               family = "Arial"),
-                                                     plot.subtitle = element_text(margin = margin(t=10, b = 25), 
-                                                                                  color = "#000000", size = 10, family = "Arial",
-                                                                                  hjust = 0.5),
-                                                     plot.caption =  element_text(margin = margin(t = 20, b = 10), 
-                                                                                  color = "#000000", size = 8, family = "Arial",
-                                                                                  hjust = 0.95)))
+                                                    theme = theme(plot.title = element_text(margin = margin(t=15,b = 8), 
+                                                                                            color = "#000000",face = "bold",size = 12,
+                                                                                            hjust = 0.5,
+                                                                                            family = "Arial"),
+                                                                  plot.subtitle = element_text(margin = margin(t=10, b = 25), 
+                                                                                               color = "#000000", size = 10, family = "Arial",
+                                                                                               hjust = 0.5),
+                                                                  plot.caption =  element_text(margin = margin(t = 20, b = 10), 
+                                                                                               color = "#000000", size = 8, family = "Arial",
+                                                                                               hjust = 0.95)))
 
 
 
 PW962020
-
