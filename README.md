@@ -9,6 +9,18 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 4/2021 - Kenya Census
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/January/TidyTuesday%2021-1-2021.R)
+<br> 
+
+<br> 
+<img width="960" alt="21-1-2021" src="https://user-images.githubusercontent.com/37122520/105523786-c0a92780-5cd6-11eb-843a-92e380018cd7.png">
+</p>
+<br>
+
+<hr>
+
 ### Week 3/2021 - Art Collections
 
 
