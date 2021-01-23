@@ -24,14 +24,14 @@ showtext_auto()
 Kenya <- read_csv("Kenya.csv")
 
 
-
+View(Kenya_1)
 # First graph -------------------------------------------------------------
 
-Kenya_1 <- Kenya %>% clean_names() %>% select(2,10:19) %>% filter (county == "Kenya")%>%
+Kenya_1 <- Kenya %>% clean_names() %>% select(2,11:19) %>% filter (county == "Kenya")%>%
   pivot_longer(-county,
                names_to = c("Metric"),
                values_to = "total"
-  )%>%
+  )  %>%
   mutate (Metric = case_when(
     Metric %in% c("tea", "coffee")  ~ "Tea & Coffee",
     Metric %in% c("cashew_nut", "coconut")  ~ "Cashew & Coconut",
@@ -67,12 +67,12 @@ graph_Kenya_1<-ggplot(Kenya_1, aes(ymax=yaxismax, ymin=yaxismin, xmax=4, xmin=3,
 
 # Second graph ------------------------------------------------------------
 
-test_nationality <- Kenya %>% clean_names() %>% select(2,10:19) %>% filter (county == "Kenya")%>%
+View(test_nationality)
+test_nationality <- Kenya %>% clean_names() %>% select(2,11:19) %>% filter (county == "Kenya")%>%
   pivot_longer(-county,
                names_to = c("Metric"),
-               values_to = "total"
-  ) %>%
-  mutate(Metric = recode(Metric, "farming" = "Farming", 
+               values_to = "total") %>%
+  mutate(Metric = recode(Metric,  
                          "avocado" = "Avocado", 
                          "mango" = "Mango", 
                          "tea" = "Tea", 
@@ -83,30 +83,29 @@ test_nationality <- Kenya %>% clean_names() %>% select(2,10:19) %>% filter (coun
                          "coconut" = "Coconut", 
                          "cashew_nut" = "Cashew Nut"),
          ftotal=total/sum(total),
-         pcnt=round(ftotal*100, 1))%>%  arrange(desc(pcnt))%>%
-  mutate(x_axis = rep(5, each = 10, length = n()),
-         y_axis = c(-6,-7,-8,-9,-10,-6,-7,-8,-9,-10),
-         x_axis_2 = x_axis -0.05,
+         pcnt=round(ftotal*100, 1))%>%  arrange(desc(pcnt)) %>%
+  mutate(x_axis = rep(5, each = 9, length = n()),
+         y_axis = c(-7,-8,-9,-7,-8,-9,-7,-8,-9),
+         x_axis_2 = rep(4.95, each = 9, length = n()), 
          y_axis_2 = y_axis,
-         facet  = c(1,1,1,1,1,2,2,2,2,2))
+         facet  = c(1,1,1,2,2,2,3,3,3))
 
 
 graph_Kenya_2<-test_nationality %>%ggplot() +
   geom_text(aes(x = x_axis, y = y_axis, label = str_wrap(paste0(Metric," ", "-", " ",pcnt,"%"))), hjust = 0, 
-                color = "#525252",  size = 4, 
+            color = "#525252",  size = 4, 
             family = font_labels) +
   #geom_point(aes(x = x_axis_2, y = y_axis_2, colour= Metric, size = pcnt), hjust = -2, alpha=0.5) +
   geom_point(aes(x = x_axis_2, y = y_axis_2, colour= Metric), hjust = -2, size = 10, alpha=0.5) +
   scale_colour_manual(values = c( "Tea" = "#38818c",
-                                "Coffee" = "#38818c",
-                                "Farming" = "#c8a774",
-                                "Mango"= "#aaa4b0",
-                                "Avocado"= "#a0c4a9",
-                                "Cashew Nut"= "#c27c7c",
-                                "Coconut"= "#c27c7c",
-                                "Khat (Miraa)"  = "#734b5e",
-                                "Macadamia"  = "#734b5e",
-                                "Citrus"  = "#734b5e")) +
+                                  "Coffee" = "#38818c",
+                                  "Mango"= "#aaa4b0",
+                                  "Avocado"= "#a0c4a9",
+                                  "Cashew Nut"= "#c27c7c",
+                                  "Coconut"= "#c27c7c",
+                                  "Khat (Miraa)"  = "#734b5e",
+                                  "Macadamia"  = "#734b5e",
+                                  "Citrus"  = "#734b5e")) +
   scale_x_continuous(limits = c(4.85,5.5)) +
   scale_y_continuous(limits = c(-11,-5)) +
   facet_wrap(vars(facet)) +
