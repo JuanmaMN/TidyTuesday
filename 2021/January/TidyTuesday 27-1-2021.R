@@ -340,6 +340,8 @@ graph_2<-plastics_wrangle_2019_total_country_top_six%>%
   ) 
 
 
+
+
 ggarrange(graph,graph_2, ncol=2, nrow=1, common.legend = FALSE)+
   theme_ipsum() +
   labs(x = "",y = "",
