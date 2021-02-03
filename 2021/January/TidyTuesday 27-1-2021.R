@@ -109,7 +109,7 @@ world_TT_join_bi_graphp_plastics <- ggplot() +
     axis.title.x = element_blank(),
     axis.title.y = element_blank(),
     legend.title = element_blank(),
-    #legend.position = "none",
+    legend.position = "none",
     axis.text.x    = element_blank(),
     axis.text.y    = element_blank(),
     panel.background = element_blank(), 
@@ -191,7 +191,7 @@ plastics<-plastics
 plastics_wrangle_2019_total_companies_1<- plastics%>% filter(parent_company %in% c("Universal Robina Corporation",
                                                                                    "Unilever",
                                                                                    "PepsiCo",
-                                                                                   "Nestlé",
+                                                                                   "Nestle",
                                                                                    "Pure Water, Inc.",
                                                                                    "The Coca-Cola Company")  & year =="2019")%>%
   group_by(parent_company) %>% summarize(volunteers_total=sum(volunteers, na.rm = TRUE),
@@ -212,7 +212,7 @@ plastics_wrangle_2019_total_companies_1<- plastics%>% filter(parent_company %in%
 # Ordenar companies
 
 plastics_wrangle_2019_total_companies_1$parent_company <- fct_relevel(plastics_wrangle_2019_total_companies_1$parent_company, 
-                                                                      c("The Coca-Cola Company","Pure Water, Inc.","Nestlé",
+                                                                      c("The Coca-Cola Company","Pure Water, Inc.","Nestle",
                                                                         "PepsiCo","Unilever","Universal Robina Corporation" ))
 
 
