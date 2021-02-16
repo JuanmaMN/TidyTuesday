@@ -9,6 +9,20 @@ Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
+### Week 7/2021 - Wealth and Income - Home ownership
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/February/TidyTuesday%2013-2-2021.R)
+<br> 
+
+<br> 
+<img width="937" alt="TidyTuesday 13-2-2021" src="https://user-images.githubusercontent.com/37122520/107855175-c3e88c80-6e18-11eb-90db-8f7aa2213f44.png">
+
+</p>
+<br>
+
+<hr>
+
+
 ### Week 5/2021 - Plastic Pollution
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/January/TidyTuesday%2027-1-2021.R)
