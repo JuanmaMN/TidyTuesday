@@ -3,9 +3,9 @@
 
 Tidy Tuesday is a weekly data project in R from the R4DS Online Learning Community.  For all information and official repo for the #tidytuesday project, please visit this [link](https://github.com/rfordatascience/tidytuesday)
 
-I have published all my code in this Github repository.   Weekly code can be found within each folder. Some of the best visualizations below.
+I have published all my code in this Github repository.   Weekly code can be found within each folder. Some of the best visualizations can be found below.
 
-Feedback is welcome and appreciated via [Twitter](https://twitter.com/Juanma_MN)
+Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN)
 
 <hr>
 
