@@ -9,6 +9,19 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+### Week 9/2021 - Employed Status
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/February/TidyTuesday%20-%2023-2-2021.R)
+<br> 
+
+<br>
+<img width="937" alt="TT-23-2-2021" src="https://user-images.githubusercontent.com/37122520/108888628-96af9180-7603-11eb-92f0-c1c68b95a75e.png">
+
+</p>
+<br>
+
+<hr>
+
 ### Week 7/2021 - Wealth and Income - Home ownership
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/February/TidyTuesday%2013-2-2021.R)
