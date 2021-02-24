@@ -16,9 +16,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <br>
 
-<img width="937" alt="TT-23-2-2021" src="https://user-images.githubusercontent.com/37122520/109042122-ba3c1000-76c7-11eb-85cd-c98abc09e0ed.png">
-
-
+<img width="937" alt="TT-23-2-2021" src="https://user-images.githubusercontent.com/37122520/109042926-a7760b00-76c8-11eb-932b-38f821595b60.png">
 </p>
 <br>
 
