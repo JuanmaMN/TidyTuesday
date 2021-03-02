@@ -104,23 +104,23 @@ ggplot() +
   scale_x_continuous(labels = scales::dollar_format(prefix="$"))+
   labs(x = "",y = "",
        title = "Employed Status",
-       subtitle = "Median weekly earning in current dollars - Quaterly analysis in 2020 - Women",
+       subtitle = "Median weekly earning in current dollars - Quarterly analysis in 2020 - Women",
        caption = "\nSource: U.S. Bureau of Labor Statistics - Tidy Tuesday\n\nVisualization: JuanmaMN (Twitter @Juanma_MN)") + 
   theme( legend.position = "none",
          plot.title = element_text(margin = margin(t=5, b = 10), 
-                                   color = "#22222b",face = "bold",size = 16,
+                                   color = "#22222b",face = "bold",size = 24,
                                    hjust = 0.5,
                                    family = font_labels),
          plot.subtitle = element_text(margin = margin(t=10,b = 25), 
-                                      color = "#22222b", size = 9, family = font_labels,
+                                      color = "#22222b", size = 16, family = font_labels,
                                       hjust = 0.5),
          plot.caption =  element_text(margin = margin(t = 20, b = 5), 
-                                      color = "#808080", size = 8, family = font_labels,
+                                      color = "#808080", size = 10, family = font_labels,
                                       hjust = 0.95),
          axis.title.x = element_blank(), 
          axis.title.y = element_blank(), 
-         axis.text.x    = element_text(face = "bold",size = 8, color = "#808080",family = font_labels),
-         axis.text.y    = element_text(face = "bold",size = 8, color = "#808080",margin = margin(t = 0, r = 20, b = 0, l = 0),family = font_labels),
+         axis.text.x    = element_text(face = "bold",size = 12, color = "#808080",family = font_labels),
+         axis.text.y    = element_text(face = "bold",size = 12, color = "#808080",margin = margin(t = 0, r = 20, b = 0, l = 0),family = font_labels),
          #panel.grid.major.y = element_blank(), 
          panel.grid.minor.y = element_blank(), 
          #panel.grid.major.x = element_blank(), 
@@ -132,14 +132,14 @@ ggplot() +
          axis.ticks = element_blank(),
          plot.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border
          plot.margin = unit(c(1, 2, 2, 1), "cm")) +
-  annotate("text", family = font_labels, x = 602, y = 5.5,  hjust = 0, size = 3, color = "#808080",
+  annotate("text", family = font_labels, x = 602, y = 5.5,  hjust = 0, size = 3.5, color = "#808080",
            label = str_wrap("Filters applied: Women, all races, all origins.")) +
-  annotate("text", family = font_labels, x = 602, y = 5,  hjust = 0, size = 3, color = "#808080",
+  annotate("text", family = font_labels, x = 602, y = 5,  hjust = 0, size = 3.5, color = "#808080",
            label = "65 years and over: Age group with the biggest difference in earning among quarters.") +
-  annotate("text", family = font_labels, x = 602, y = 4.5,  hjust = 0, size = 3, color = "#808080",
+  annotate("text", family = font_labels, x = 602, y = 4.5,  hjust = 0, size = 3.5, color = "#808080",
            label = "20 to 24 years: Age group with the smallest difference in earning among quarters.") +
   geom_point(df,mapping =  aes(x = x2, y = y2), hjust = -1, size = 2.5, alpha=0.5, colour="#808080") +
-  annotate("rect", xmin = 595 , xmax = 740, ymin = 4.3, ymax = 5.6,
+  annotate("rect", xmin = 595 , xmax = 755, ymin = 4.3, ymax = 5.6,
            alpha = .2, fill = "#d1d1d1")
 
 
