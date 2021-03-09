@@ -7,6 +7,19 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN)
 
+### Week 11/2021 - Bechdel Test
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/March/TidyTuesday%20-%209-3-2021.R)
+
+<br> 
+
+<br>
+
+<img width="937" alt="TT-23-2-2021" src="https://user-images.githubusercontent.com/37122520/110520938-05621400-8107-11eb-82c3-e6b3c7d3238d.png">
+</p>
+<br>
+
 <hr>
 
 ### Week 9/2021 - Employed Status
