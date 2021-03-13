@@ -418,14 +418,16 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 ### Week 24/2020 - African American Achievements
 
+
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/June/TidyTuesday%20-%208-6-2020.R)
 
 <br>              
 <p align="center">
   
-<img width="805" alt="23-6-2020 - 2" src="https://user-images.githubusercontent.com/37122520/86510386-1673bc00-bde7-11ea-9a03-5cb7a7d87904.png">
+<img width="805" alt="8-6-2020" src="https://user-images.githubusercontent.com/37122520/111029357-3b97e000-83f4-11eb-8948-86d9f62982a2.png">
 </p>
 <br>
+
 
 <hr>
 
@@ -458,6 +460,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 
 ### Week 21/2020 - Beach Volleyball 
+
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2020/May/TidyTuesday%2018-5-2020.R)
 
