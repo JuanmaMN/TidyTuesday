@@ -34,7 +34,7 @@ datafirsts2<-datafirsts %>%
 gender_datafirsts2<-ggplot(datafirsts2, aes(ymax=yaxismax, ymin=yaxismin, xmax=4, xmin=3, fill=gender)) +
   geom_rect(alpha=0.5) + 
   geom_text(aes(label = label, x = 1, y = 0), 
-            color = "#cdaa25", fontface = "bold", family = "Arial",
+            color = "#cdaa25", fontface = "bold",family = font_labels,
             size=2.8) +
   coord_polar(theta="y") +
   xlim(c(1, 5))+ 
@@ -46,27 +46,35 @@ gender_datafirsts2<-ggplot(datafirsts2, aes(ymax=yaxismax, ymin=yaxismin, xmax=4
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#22222b",face = "bold",size = 14,
                               hjust = 0.5,
-                              family = "Arial"),
+                              family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10,b = 25), 
-                                 color = "#22222b", size = 9, family = "Arial",
+                                 color = "#22222b", size = 9, family = font_labels,
                                  hjust = 0.5),
     plot.caption =  element_text(margin = margin(t = 20), 
-                                 color = "#22222b", size = 10, family = "Arial",
+                                 color = "#22222b", size = 10, family = font_labels,
                                  hjust = 0.95),
     axis.title.x =element_blank(),
     axis.title.y = element_blank(),
     legend.title = element_blank(),
-    legend.position="bottom",
+    legend.position = "bottom",
+    legend.margin=margin(b = 2, unit='cm'),
+    legend.text=element_text(size=8),
     axis.text.x    = element_blank(),
     axis.text.y    = element_blank(),
     panel.background = element_blank(), 
     panel.grid.major = element_blank(),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(), 
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),
     axis.ticks = element_blank()
-  ) 
+  )  + 
+  guides(fill = guide_legend(
+    label.position = "bottom",
+    family = font_labels, 
+    color = "#808080",
+    keywidth = 1.5, keyheight = 0.5)) 
 
-gender_datafirsts2
+#gender_datafirsts2
 
 
 
@@ -89,24 +97,27 @@ gdatafirsts4<-datafirsts4%>% ggplot(aes(x=reorder(category,total), y=total)) +
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#22222b",face = "bold",size = 14,
                               hjust = 0.5,
-                              family = "Arial"),
+                              family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10,b = 25), 
-                                 color = "#22222b", size = 9, family = "Arial",
+                                 color = "#22222b", size = 9, family = font_labels,
                                  hjust = 0.5),
     plot.caption =  element_text(margin = margin(t = 20), 
-                                 color = "#22222b", size = 10, family = "Arial",
+                                 color = "#22222b", size = 10, family = font_labels,
                                  hjust = 0.95),
     axis.title.x = element_text(margin = margin(t = 10),
                                 color = "#22222b"),
     axis.title.y = element_text(margin = margin(r = 15), 
                                 color = "#22222b"),
-    legend.position = "none",
+    legend.title = element_blank(),
+    legend.position = "bottom",
+    legend.margin=margin(b = 2, unit='cm'),
+    legend.text=element_text(size=8),
     strip.background = element_blank(),
     strip.text.x = element_blank(),
     axis.text.x    = element_blank(),
     axis.text.y    = element_text(color = "#22222b"),
-    legend.title = element_blank(),
     panel.background = element_blank(), 
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),
     panel.grid.major = element_blank(),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(), 
@@ -117,9 +128,15 @@ gdatafirsts4<-datafirsts4%>% ggplot(aes(x=reorder(category,total), y=total)) +
   
   ylab("") +
   
-  xlab("") 
+  xlab("")  + 
+  guides(fill = guide_legend(
+    label.position = "bottom",
+    family = font_labels, 
+    color = "#808080",
+    keywidth = 1.5, keyheight = 0.5)) 
 
-gdatafirsts4
+
+#gdatafirsts4
 
 
 
@@ -135,14 +152,34 @@ PW962020 <- patchworkgdatafirsts5 + plot_annotation(title = "African American Ac
                                                     theme = theme(plot.title = element_text(margin = margin(t=15,b = 8), 
                                                                                             color = "#000000",face = "bold",size = 12,
                                                                                             hjust = 0.5,
-                                                                                            family = "Arial"),
+                                                                                            family = font_labels),
                                                                   plot.subtitle = element_text(margin = margin(t=10, b = 25), 
-                                                                                               color = "#000000", size = 10, family = "Arial",
+                                                                                               color = "#000000", size = 10, family = font_labels,
                                                                                                hjust = 0.5),
                                                                   plot.caption =  element_text(margin = margin(t = 20, b = 10), 
-                                                                                               color = "#000000", size = 8, family = "Arial",
+                                                                                               color = "#000000", size = 8, family = font_labels,
                                                                                                hjust = 0.95)))
 
 
 
-PW962020
+#PW962020
+
+
+ggarrange(gdatafirsts4,gender_datafirsts2, ncol=2, nrow=1, common.legend = TRUE, legend="bottom") +
+  theme_ipsum() +
+  labs(x = "",y = "",
+       title = "Toronto Shelters - Youth ",
+       subtitle = "Percentage by city of the total youth occupancy",
+       caption = "Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
+  theme(
+    plot.title = element_text(margin = margin(b = 8), 
+                              color = "#343434",face = "bold",size = 14,
+                              hjust = 0.5,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(t=10, b = 25), 
+                                 color = "#000000", size = 10, family = font_labels,
+                                 hjust = 0.5),
+    plot.caption =  element_text(margin = margin(t = 20, b = 10), 
+                                 color = "#808080", size = 8, family = font_labels,
+                                 hjust = 0.95),
+    plot.background = element_rect(fill = "#f7f7f7", color = NA))  
