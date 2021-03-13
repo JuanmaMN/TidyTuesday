@@ -1,3 +1,4 @@
+
 # TidyTuesday
 
 
@@ -116,7 +117,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <br> 
 <p align="center">
-<img width="888" alt="Visualization" src="https://user-images.githubusercontent.com/37122520/100784981-ec5f0e00-3407-11eb-9f32-e8e0b90f815c.png">
+<img width="888" alt="1-12-2020" src="https://user-images.githubusercontent.com/37122520/111029005-3df93a80-83f2-11eb-8e9a-d139e8761666.png">
 </p>
 <br>
 
