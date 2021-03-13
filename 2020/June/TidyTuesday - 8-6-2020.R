@@ -168,8 +168,8 @@ PW962020 <- patchworkgdatafirsts5 + plot_annotation(title = "African American Ac
 ggarrange(gdatafirsts4,gender_datafirsts2, ncol=2, nrow=1, common.legend = TRUE, legend="bottom") +
   theme_ipsum() +
   labs(x = "",y = "",
-       title = "Toronto Shelters - Youth ",
-       subtitle = "Percentage by city of the total youth occupancy",
+       title = "African American Achievements",
+       subtitle = "Total number of achievements and percentange by gender in each category",
        caption = "Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
   theme(
     plot.title = element_text(margin = margin(b = 8), 
