@@ -61,7 +61,7 @@ total_shelters_city_graph<-ggplot(total_shelters_city_A, aes(ymax=yaxismax, ymin
   geom_richtext(aes(label=" <span style='color:#cdaa25'>96.82%   <br><br> 6,526 people</span>",
                     x=1, y=0),
                 fill=NA, label.color=NA,
-                family="Arial",
+                family = font_labels,
                 size=3.5)+
   coord_polar(theta="y") +
   xlim(c(1, 5))+ 
@@ -121,7 +121,7 @@ ggarrange(total_shelters_city_graph2,total_shelters_city_graph, ncol=2, nrow=1, 
                               hjust = 0.5,
                               family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10, b = 25), 
-                                 color = "#000000", size = 10, family = "Arial",
+                                 color = "#000000", size = 10, family = font_labels,
                                  hjust = 0.5),
     plot.caption =  element_text(margin = margin(t = 20, b = 10), 
                                  color = "#808080", size = 8, family = font_labels,
