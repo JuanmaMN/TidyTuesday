@@ -8,6 +8,25 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN)
 
+<hr>
+
+### Week 12/2021 - Video Games and Sliced
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/March/TidyTuesday_16-03-2021.R)
+
+
+<br> 
+
+<br>
+
+<img width="937" alt="TT-16-3-2021" src="https://user-images.githubusercontent.com/37122520/111695096-9d0fe280-882a-11eb-830a-3265fc04f55b.png">
+</p>
+<br>
+
+<hr>
+
+
 ### Week 11/2021 - Bechdel Test
 
 
