@@ -338,7 +338,7 @@ map_legend_europe_second_graph <- ggdraw() +
   draw_plot(europe2_second_graph , 0, 0, 1, 1) +
   draw_plot(legend_europe, 0, 0.1, 0.2, 0.2) +
   draw_label("Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)", 
-             color = "#a1a1a1", size = 7.5,family = font_labels, angle = 0, x = 0.8, y = 0.05) +
+             color = "#a1a1a1", size = 7.5,fontfamily = font_labels, angle = 0, x = 0.8, y = 0.05) +
   theme(
     plot.background = element_rect(fill = "#f3f3f3", color = NA)
   ) +
