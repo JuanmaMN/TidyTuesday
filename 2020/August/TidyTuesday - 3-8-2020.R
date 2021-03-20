@@ -1,10 +1,21 @@
 
-# Upload packages ---------------------------------------------------------
+# Upload the packages -----------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
 
 
-pacman::p_load(tidyverse,lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,ggimage,ggdraw, maps, viridis,
-               biscale, cowplot, grid, gridtext,hrbrthemes,scales,ggtext, ggpubr)
 
+
+# Fonts -------------------------------------------------------------------
+
+extrafont::loadfonts(device = "win", quiet = TRUE)
+
+font_add_google("Lora")
+
+font_labels <- "Lora"
+
+showtext_auto()
 
 # Raw data ----------------------------------------------------------------
 
@@ -92,12 +103,12 @@ europe2 <- europe + geom_polygon(data = map_europe,
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#ffffff",face = "bold",size = 9,
                               hjust = 0.5,
-                              family = "Arial"),
+                              family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10,b = 25), 
-                                 color = "#ffffff", size = 6, family = "Arial",
+                                 color = "#ffffff", size = 6, family = font_labels,
                                  hjust = 0.5),
     plot.caption =  element_text(margin = margin(t = 20), 
-                                 color = "#ffffff", size = 5, family = "Arial",
+                                 color = "#ffffff", size = 5, family = font_labels,
                                  hjust = 0.95),
     axis.title.x = element_blank(),
     axis.title.y = element_blank(),
@@ -265,12 +276,12 @@ europe2_second_graph <- europe + geom_polygon(data = map_europe,
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#ffffff",face = "bold",size = 9,
                               hjust = 0.5,
-                              family = "Arial"),
+                             family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10,b = 25), 
-                                 color = "#ffffff", size = 6, family = "Arial",
+                                 color = "#ffffff", size = 6, family = font_labels,
                                  hjust = 0.5),
     plot.caption =  element_text(margin = margin(t = 20), 
-                                 color = "#ffffff", size = 5, family = "Arial",
+                                 color = "#ffffff", size = 5, family = font_labels,
                                  hjust = 0.95),
     axis.title.x = element_blank(),
     axis.title.y = element_blank(),
@@ -327,7 +338,7 @@ map_legend_europe_second_graph <- ggdraw() +
   draw_plot(europe2_second_graph , 0, 0, 1, 1) +
   draw_plot(legend_europe, 0, 0.1, 0.2, 0.2) +
   draw_label("Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)", 
-             color = "#a1a1a1", size = 7.5, angle = 0, x = 0.8, y = 0.05) +
+             color = "#a1a1a1", size = 7.5,family = font_labels, angle = 0, x = 0.8, y = 0.05) +
   theme(
     plot.background = element_rect(fill = "#f3f3f3", color = NA)
   ) +
