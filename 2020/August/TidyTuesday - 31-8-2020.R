@@ -7,7 +7,18 @@ tractors <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/t
 # Upload the packages -----------------------------------------------------
 
 pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
-               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot)
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggflags, showtext)
+
+
+# Fonts -------------------------------------------------------------------
+
+extrafont::loadfonts(device = "win", quiet = TRUE)
+
+font_add_google("Lora")
+
+font_labels <- "Lora"
+
+showtext_auto()
 
 
 # Prepare the data --------------------------------------------------------
@@ -107,12 +118,12 @@ ptidyTuesday2 <- ggplot() +
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#ffffff",face = "bold",size = 9,
                               hjust = 0.5,
-                              family = "Arial"),
+                              family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10,b = 25), 
-                                 color = "#ffffff", size = 6, family = "Arial",
+                                 color = "#ffffff", size = 6, family = font_labels,
                                  hjust = 0.5),
     plot.caption =  element_text(margin = margin(t = 20), 
-                                 color = "#ffffff", size = 5, family = "Arial",
+                                 color = "#ffffff", size = 5, family = font_labels,
                                  hjust = 0.95),
     axis.title.x = element_blank(),
     axis.title.y = element_blank(),
