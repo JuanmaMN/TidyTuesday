@@ -1,8 +1,19 @@
+# Upload the packages -----------------------------------------------------
 
-# Upload packages ---------------------------------------------------------
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,ozmaps,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
 
-pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes,patchwork,sf,ozmaps,
-               hrbrthemes,scales,ggtext, ggpubr)
+
+
+# Fonts -------------------------------------------------------------------
+
+extrafont::loadfonts(device = "win", quiet = TRUE)
+
+font_add_google("Lora")
+
+font_labels <- "Lora"
+
+showtext_auto()
 
 
 
@@ -60,7 +71,7 @@ ggplotaus<-ggplot() +
     axis.ticks = element_blank(),
     strip.background = element_blank(),
     strip.text.x = element_blank()
-  ) + geom_sf_text(data=data_join222,aes(label = Region))
+  ) + geom_sf_text(data=data_join222,aes(label = Region),family = font_labels)
 
 
 
@@ -72,7 +83,7 @@ View(data_join223)
 data_join223_second_graph <- data_join223 %>% 
   ggplot(aes(x = fct_reorder(Region,value), y = value,fill = value)) +
   geom_bar(stat="identity", width=0.8) +
-  geom_text(aes(label = comma_format()(value)), color = "#22292F",hjust=-0.2, size = 3.5) +
+  geom_text(aes(label = comma_format()(value)), color = "#22292F",hjust=-0.2, size = 3.5,family = font_labels) +
   coord_flip()+
   scale_fill_gradient(low = "#ececc2", high = "#20b2aa")+
   scale_y_continuous(limit = c(0, 1000000), expand=c(0,1)) +
@@ -111,9 +122,11 @@ ggarrange(ggplotaus,data_join223_second_graph, ncol=2, nrow=1, common.legend = T
   theme(
     plot.title = element_text(margin = margin(b = 8), 
                               color = "#22222b",face = "bold",size = 14,
-                              hjust = 0.5,
-                              family = "Arial"),
+                              hjust = 0.5,family = font_labels),
     plot.subtitle = element_text(margin = margin(t=10, b = 25), 
-                                 color = "#000000", size = 10, family = "Arial",
-                                 hjust = 0.5),
+                                 color = "#000000", size = 10, family = font_labels,
+                                 hjust = 0.5),,
+    plot.caption =  element_text(margin = margin(t = 20, b = 10), 
+                                 color = "#000000", size = 8, family = font_labels,
+                                 hjust = 0.95),
     plot.background = element_rect(fill = "#f7f7f7", color = NA))  
