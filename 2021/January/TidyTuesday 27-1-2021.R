@@ -347,7 +347,7 @@ ggarrange(graph,graph_2, ncol=2, nrow=1, common.legend = FALSE)+
   labs(x = "",y = "",
        title = "Plastic Pollution in 2019",
        subtitle = "",
-       caption = "Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
+       caption = "Source: Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
   theme(
     plot.title = element_text(margin = margin(t=20,b = 8), 
                               color = "#e13d3d",face = "bold",size = 14,
