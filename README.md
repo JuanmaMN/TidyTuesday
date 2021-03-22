@@ -10,6 +10,22 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+### Week 13/2021 - UN Votes
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/March/TidyTuesday_22-3-2021.R)
+
+
+<br> 
+
+<br>
+
+<img width="938" alt="22-3-2021" src="https://user-images.githubusercontent.com/37122520/112066365-1c205600-8b5e-11eb-9cb9-5883af3dbf4c.png">
+</p>
+<br>
+
+<hr>
+
 ### Week 12/2021 - Video Games and Sliced
 
 
