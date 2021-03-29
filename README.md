@@ -10,6 +10,22 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+### Week 14/2021 - Makeup Shades
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/March/TidyTuesday_29_3_2021.R)
+
+
+<br> 
+
+<br>
+
+<img width="938" alt="29-3-2021" src="https://user-images.githubusercontent.com/37122520/112893714-f271ac80-90d2-11eb-9b1f-5a9bcdfc552f.png">
+</p>
+<br>
+
+<hr>
+
 ### Week 13/2021 - UN Votes
 
 
