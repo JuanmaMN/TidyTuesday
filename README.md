@@ -8,7 +8,26 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN)
 
+
 <hr>
+
+### Week 15/2021 - Soybean production and use  - World
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/April/TidyTuesday_6_4_2021.R)
+
+
+<br> 
+<br>
+
+
+<img width="938" alt="29-3-2021" src="https://user-images.githubusercontent.com/37122520/113745870-9a9ffa80-96fd-11eb-8464-c8ff5c76b784.png">
+</p>
+<br>
+
+<hr>
+
+
 
 ### Week 14/2021 - Makeup Shades
 
