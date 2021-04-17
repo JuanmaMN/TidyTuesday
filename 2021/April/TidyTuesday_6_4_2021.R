@@ -58,11 +58,11 @@ graph <- data %>%
        caption =  "Source: Data by OurWorldInData.org - #TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)")  +
   theme(
     plot.title = element_text(
-      color = "#22222b",face = "bold",size = 14,
+      color = "#22222b",face = "bold",size = 16,
       hjust = 0,
       family = font_labels),
     plot.subtitle = element_text(margin = margin(t=5, b= 30),
-                                 color = "#22222b", size = 10, family = font_labels,
+                                 color = "#22222b", size = 12, family = font_labels,
                                  hjust = 0),
     plot.caption =  element_text(margin = margin(t = 50), 
                                  color = "#22222b", size = 10,
@@ -70,8 +70,8 @@ graph <- data %>%
                                  family = font_labels),
     axis.title.x = element_blank(), 
     axis.title.y = element_blank(), 
-    axis.text.x    = element_text(color = "#525252", family = font_labels, size = 10),  # hjust = 1 is not needed for aligment
-    axis.text.y    = element_text(color = "#525252",family = font_labels, size = 10),
+    axis.text.x    = element_text(color = "#525252", family = font_labels, size = 12),  # hjust = 1 is not needed for aligment
+    axis.text.y    = element_text(color = "#525252",family = font_labels, size = 12),
     panel.background = element_blank(), 
     panel.grid.major = element_blank(),
     panel.grid.major.y = element_blank(),
@@ -95,4 +95,6 @@ graph <- data %>%
 
 
 graph
+
+warnings()
 
