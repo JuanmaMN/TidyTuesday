@@ -67,8 +67,8 @@ netflix_titles_title<- tm_map(netflix_titles_title, removeWords, stopwords("engl
 # Remove your own stop word
 # specify your stopwords as a character vector
 netflix_titles_title<- tm_map(netflix_titles_title, removeWords, c("blabla1", "blabla2")) 
-netflix_titles_title<- tm_map(netflix_titles_title, removeWords, c('â???"', 'â???')) 
-netflix_titles_title<- netflix_titles_title  %>% filter (word != "â???"")
+netflix_titles_title<- tm_map(netflix_titles_title, removeWords, c('????"', '????')) 
+netflix_titles_title<- netflix_titles_title  %>% filter (word != "????")
 
 # Remove punctuations
 netflix_titles_title<- tm_map(netflix_titles_title, removePunctuation)
@@ -91,4 +91,6 @@ dtnetflix_titles_title = dtnetflix_titles_title[-c(4),]
 
 dtnetflix_titles_title<-dtnetflix_titles_title%>% filter(freq > 50)
 
-letterCloud(dtnetflix_titles_title,word = "N", size = 1.5,letterFont = font_labels, color = "#B81D24")
+wordcloud2(data = dtnetflix_titles_title, figPath = "netflixlogo.png",fontFamily = font_labels, backgroundColor = "#000000",color = "#B81D24")                                                         
+                                                         
+                                                         
