@@ -11,6 +11,25 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+### Week 17/2021 - Netflix Titles
+
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/April/TidyTuesday_19_4_2021.R)
+
+
+<br> 
+<br>
+<p align="center">
+
+<img width="938" alt="19-4-201" src="https://user-images.githubusercontent.com/37122520/115447935-f8aa0300-a210-11eb-8b33-577bbd8dceb0.png">
+</p>
+<br>
+
+<hr>
+
+
+
 ### Week 16/2021 - US Post Offices
 
 
@@ -20,6 +39,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <br> 
 <br>
+<p align="center">
 
 <img width="938" alt="17-4-2021" src="https://user-images.githubusercontent.com/37122520/115109930-916e2380-9f70-11eb-81b3-5cd3a53131e0.png">
 </p>
@@ -38,6 +58,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 <br>
 
+<p align="center">
 
 <img width="938" alt="29-3-2021" src="https://user-images.githubusercontent.com/37122520/113745870-9a9ffa80-96fd-11eb-8464-c8ff5c76b784.png">
 </p>
@@ -56,6 +77,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br>
+<p align="center">
 
 <img width="938" alt="29-3-2021" src="https://user-images.githubusercontent.com/37122520/112893714-f271ac80-90d2-11eb-9b1f-5a9bcdfc552f.png">
 </p>
@@ -72,6 +94,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br>
+<p align="center">
 
 <img width="938" alt="22-3-2021" src="https://user-images.githubusercontent.com/37122520/112066365-1c205600-8b5e-11eb-9cb9-5883af3dbf4c.png">
 </p>
@@ -88,6 +111,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br>
+<p align="center">
 
 <img width="937" alt="TT-16-3-2021" src="https://user-images.githubusercontent.com/37122520/111695096-9d0fe280-882a-11eb-830a-3265fc04f55b.png">
 </p>
@@ -104,6 +128,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br>
+<p align="center">
 
 <img width="937" alt="TT-23-2-2021" src="https://user-images.githubusercontent.com/37122520/110520938-05621400-8107-11eb-82c3-e6b3c7d3238d.png">
 </p>
@@ -117,6 +142,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br>
+<p align="center">
 
 <img width="937" alt="TT-23-2-2021" src="https://user-images.githubusercontent.com/37122520/109042926-a7760b00-76c8-11eb-932b-38f821595b60.png">
 </p>
@@ -130,6 +156,8 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br> 
+<p align="center">
+
 <img width="937" alt="TidyTuesday 13-2-2021" src="https://user-images.githubusercontent.com/37122520/107855175-c3e88c80-6e18-11eb-90db-8f7aa2213f44.png">
 
 </p>
@@ -144,6 +172,8 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br> 
+<p align="center">
+
 <img width="960" alt="visualization 28-1-2021" src="https://user-images.githubusercontent.com/37122520/106180562-60156100-6194-11eb-9285-29abbe199066.png">
 </p>
 <br>
@@ -159,6 +189,8 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <br> 
 
 <br> 
+<p align="center">
+
 <img width="960" alt="22-1-2021" src="https://user-images.githubusercontent.com/37122520/105573886-8bddb480-5d58-11eb-866d-04797226a871.png">
 </p>
 <br>
