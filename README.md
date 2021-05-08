@@ -9,7 +9,28 @@ I have published all my code in this Github repository.   Weekly code can be fou
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN).
 
 
+
+
 <hr>
+
+### Week 19/2021 - Water Access Points
+
+
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/May/TidyTuesday_5_5_2021.R)
+
+
+<br> 
+<br>
+<p align="center">
+
+<img width="538" alt="4-5-201" src="https://user-images.githubusercontent.com/37122520/117542521-de459700-b010-11eb-9f83-edf25b2c8365.png">
+</p>
+<br>
+
+<hr>
+
 
 ### Week 17/2021 - Netflix Titles
 
