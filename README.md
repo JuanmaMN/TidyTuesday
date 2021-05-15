@@ -13,6 +13,25 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+### Week 20/2021 - US Broadband 
+
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/May/TidyTuesday_14_5_2021.R)
+
+
+<br> 
+<br>
+<p align="center">
+
+<img width="924" alt="US_map" src="https://user-images.githubusercontent.com/37122520/118363240-579e3600-b58b-11eb-8cd9-eefb57b6e794.png">
+
+</p>
+
+<br>
+
+<hr>
+
 ### Week 19/2021 - Water Access Points
 
 
