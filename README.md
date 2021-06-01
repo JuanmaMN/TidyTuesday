@@ -13,6 +13,30 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+## Week 22/2021 - Mario Kart World Records
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/May/TidyTuesday_25_5_2021.R)
+  
+<br>
+<p align="center">
+</p>
+
+
+
+<br>
+<p align="center">
+
+<img width="924" alt="TT" src="https://user-images.githubusercontent.com/37122520/119546624-04e32c00-bd8c-11eb-9808-f66c0e4f6859.png">
+
+</p>
+
+<br>
+
+<hr>
+
+
+
 ### Week 20/2021 - US Broadband 
 
 
