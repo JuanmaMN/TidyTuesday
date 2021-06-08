@@ -1,3 +1,10 @@
+
+# Upload the packages -----------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt)
+
 # Upload data source ------------------------------------------------------
 
 
@@ -37,7 +44,7 @@ fishing_fr2%>%ggplot(aes(x=year, y = total, group = species)) +
        x = "",
        title = "Commercial Fishing - Top 4 species by production amounts",
        subtitle =  " ",
-       caption =  "Source:Tidy Tuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)")  +
+       caption =  "Source: #TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)")  +
   theme(
     plot.title = element_text(
       color = "#22222b",face = "bold",size = 20,
