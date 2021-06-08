@@ -33,6 +33,8 @@ fishing_fr2<-fishing%>% filter(species %in% c("Cisco", "Alewife", "Lake Whitefis
   summarize(total=sum(values, na.rm=T)) 
 
 
+# Graph
+
 
 fishing_fr2%>%ggplot(aes(x=year, y = total, group = species)) +
   geom_area(alpha = 0.4,fill="#b9cad4",colour="#8aa6b7") +
