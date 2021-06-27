@@ -8,7 +8,21 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN).
 
+## Week 26/2021 - US Public Park Access
 
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/June/TidyTuesday_22_6_2021(2).R)
+
+
+
+<br>
+<p align="center">
+
+<img width="924" alt="TT" src="https://user-images.githubusercontent.com/37122520/123546847-4897cf80-d756-11eb-9153-93856c103632.png">
+
+</p>
+
+<br>
 
 
 <hr>
