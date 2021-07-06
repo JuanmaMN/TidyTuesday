@@ -8,6 +8,27 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN).
 
+## Week 28/2021 - Independence Days
+
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/July/TidyTuesday_6_7_2021.R)
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="TT" src="https://user-images.githubusercontent.com/37122520/124643546-1c342f80-de89-11eb-825a-098e6b1928e9.png">
+
+</p>
+
+<br>
+
+
+<hr>
+
+
+
 ## Week 26/2021 - US Public Park Access
 
 
