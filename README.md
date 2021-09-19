@@ -8,6 +8,27 @@ I have published all my code in this Github repository.   Weekly code can be fou
 
 Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](https://twitter.com/Juanma_MN).
 
+<hr>
+
+## Week 38/2021 - Billboard Top 100
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/September/TidyTuesday_14_09_2021.R)
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="Billboard" src="https://user-images.githubusercontent.com/37122520/133931449-bb18a7dd-83b2-4594-a115-055241083e02.png">
+
+</p>
+
+<br>
+
+
+
+
+
 ## Week 28/2021 - Independence Days
 
 
