@@ -10,6 +10,25 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+
+## Week 39/2021 - Emmy Awards
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/September/TidyTuesday_21_09_2021.R)
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="Billboard" src="https://user-images.githubusercontent.com/37122520/134239353-496d5741-fadb-4fe1-9e94-64e4f38f0ce8.png">
+
+</p>
+
+<br>
+
+
+
+
 ## Week 38/2021 - Billboard Top 100
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/September/TidyTuesday_14_09_2021.R)
