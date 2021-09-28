@@ -13,7 +13,6 @@ pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, pat
                grid, gridtext, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm,stringi)
 
 
-
 # Upload name data --------------------------------------------------------
 
 library(genderdata)
