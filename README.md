@@ -11,7 +11,7 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 <hr>
 
 
-## Week 40/2021 - Registered Nurses
+## Week 41/2021 - Registered Nurses
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/October/TidyTuesday_5_10_2021.R)
 
