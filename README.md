@@ -11,6 +11,24 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 <hr>
 
 
+## Week 40/2021 - Registered Nurses
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/October/TidyTuesday_5_10_2021.R)
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="TT_5_2020" src="https://user-images.githubusercontent.com/37122520/136081101-10d87aa3-28fb-49b0-99b4-5d1e9fbb2840.png">
+
+</p>
+
+
+<br>
+
+
+
 ## Week 39/2021 - Emmy Awards
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/September/TidyTuesday_21_09_2021.R)
