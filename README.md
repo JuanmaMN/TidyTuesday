@@ -11,6 +11,24 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 <hr>
 
 
+## Week 42/2021 - Global Seafood
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/October/TidyTuesday_12_10_2021_2.R)
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="TT_12_2020" src="https://user-images.githubusercontent.com/37122520/137206680-cc7f39f7-7acc-439b-8d19-cd6ed496f8c7.png">
+
+
+</p>
+
+
+<br>
+
+
 ## Week 41/2021 - Registered Nurses
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/October/TidyTuesday_5_10_2021.R)
