@@ -10,6 +10,21 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+## Week 44/2021 - Ultra Trail Running
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/October/TidyTuesday_26_10_2021.R)
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="TT_26_20_2021" src="https://user-images.githubusercontent.com/37122520/138936712-3af76f26-52fc-4986-b2d8-73e9018a908e.png">
+
+</p>
+
+
+<br>
 
 ## Week 42/2021 - Global Seafood
 
