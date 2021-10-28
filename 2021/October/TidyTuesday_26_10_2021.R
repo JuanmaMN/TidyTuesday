@@ -5,7 +5,7 @@ ultra_rankings <- readr::read_csv('https://raw.githubusercontent.com/rfordatasci
 
 race <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-26/race.csv')
 
-
+View(ultra_rankings)
 # Upload the packages -----------------------------------------------------
 
 pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
@@ -27,10 +27,26 @@ showtext_auto()
 
 
 
+
+# Understand the data -----------------------------------------------------
+
+
+
+colnames(ultra_rankings)
+unique(ultra_rankings$nationality)
+
+# "Fra" and "Hun" to modify
+
 # Prepare the data --------------------------------------------------------
 
 
-race_nat<-ultra_rankings %>%group_by(nationality)%>% summarize(n=n()) %>% top_n(20)%>%select(nationality)
+race_nat<-ultra_rankings %>% 
+  mutate(nationality = recode(nationality, "Fra" = "FRA",
+                              "Hun" = "HUN"))%>%
+  distinct(race_year_id, rank,runner,time, age, gender, nationality) %>%
+  group_by(nationality)%>% summarize(n=n()) %>% top_n(20)%>%select(nationality)
+
+View(race_nat)
 
 race_nat2<-ultra_rankings %>%group_by(nationality, gender)%>% summarize(n=n())
 
@@ -66,7 +82,7 @@ data_nat_join2$code=c("ar","ar",
                       "us","us")
 
 
-
+View(data_nat_join2)
 
 # Graph -------------------------------------------------------------------
 
