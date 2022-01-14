@@ -10,6 +10,27 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+
+## Week 2/2022 - Bee Colony losses
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/January/TidyTuesday_12th_January_2022.R).
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="TT_13_01_2021" src="https://user-images.githubusercontent.com/37122520/149526168-72fb36aa-fa0f-411b-ae06-3eee3a6d0fee.png">
+
+
+  
+</p>
+
+
+
+<br>
+
+
 ## Week 48/2021 - Dr. Who
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2021/November/TidyTuesday_23_11_2021.R).
