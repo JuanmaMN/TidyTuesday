@@ -10,6 +10,24 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+## Week 8/2022 - World Freedom index
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/February/TidyTuesday_23_2_2022_Freedom_2022.R).
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="TT_13_01_2021" src="https://user-images.githubusercontent.com/37122520/156823021-daacf1e1-1a7f-4df5-8d3b-260927a7080c.png">
+
+
+  
+</p>
+
+
+
+<br>
 
 ## Week 2/2022 - Bee Colony losses
 
