@@ -26,7 +26,6 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 </p>
 
 
-
 <br>
 
 ## Week 2/2022 - Bee Colony losses
