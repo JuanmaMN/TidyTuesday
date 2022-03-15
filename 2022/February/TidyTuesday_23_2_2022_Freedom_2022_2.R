@@ -19,6 +19,7 @@ Freedom_percentage_2$type <- recode(Freedom_percentage_2$type,"Percent_PF_Countr
 Freedom_percentage_2$type <- recode(Freedom_percentage_2$type, "Percent_of_NF_Countries" = "Not Free")
 
 
+
 # Fonts -------------------------------------------------------------------
 
 extrafont::loadfonts(device = "win", quiet = TRUE)
