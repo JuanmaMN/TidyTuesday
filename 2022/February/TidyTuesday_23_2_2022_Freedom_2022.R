@@ -226,7 +226,7 @@ freedom_graph_2022 <- ggplot() +
   scale_y_continuous(breaks = NULL) +
   labs(x = "",y = "",
        title ="<span style='color:#00aa83;'>**Freedom in the World**</span> ",
-       subtitle = "Analysis of <span style='color:#00aa83;'> Free </span>, <span style='color:#e7b80a;'>Partly Free </span> and <span style='color:#525252;'>Not Free </span> countries in 2022",
+       subtitle = "Analysis of <span style='color:#00aa83;'> Free</span>, <span style='color:#e7b80a;'> Partly Free </span> and <span style='color:#6a71a7;'>Not Free </span> countries in 2022",
        caption = "Source: https://freedomhouse.org/\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
   theme(
     plot.title = element_markdown(margin = margin(b = 8), 
