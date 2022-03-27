@@ -52,9 +52,10 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <p align="center">
 
-<img width="924" alt="TT_13_01_2021" src="https://user-images.githubusercontent.com/37122520/159579129-7d316f91-4f90-4f15-b297-18d6dc85f087.png">
+<img width="924" alt="TT_13_01_2021" src="https://user-images.githubusercontent.com/37122520/160288344-36b3483f-af75-4f1e-984f-88f8a9413235.png">
 
-  
+
+
 </p>
 
 
