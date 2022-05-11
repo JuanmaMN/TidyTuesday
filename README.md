@@ -10,6 +10,25 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+## Week 19/2022 - NYTimes best sellers
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/May/TidyTuesday_11th_May_2022.R).
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="NY_bestsellers" src="https://user-images.githubusercontent.com/37122520/167928739-259758d9-af37-4420-b700-148192be63db.png">
+
+
+
+</p>
+
+
+
+<br>
+
 ## Week 8/2022 - World Freedom index
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/February/TidyTuesday_23_2_2022_Freedom_2022.R).
