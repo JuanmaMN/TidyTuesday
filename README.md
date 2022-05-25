@@ -10,6 +10,25 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+## Week 21/2022 - Women's Rugby
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/May/TidyTuesday_25th_May_2022/TidyTuesday_25th_May_2022.R).
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="gt_world_cup" src="https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/May/TidyTuesday_25th_May_2022/gt_world_cup.jpg">
+
+
+
+</p>
+
+
+
+<br>
+
 ## Week 19/2022 - NYTimes best sellers
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/May/TidyTuesday_11th_May_2022.R).
