@@ -19,7 +19,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <p align="center">
 
-<img width="924" alt="gt_world_cup" src="https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/May/TidyTuesday_25th_May_2022/gt_world_cup.jpg">
+<img width="924" alt="gt_world_cup" src="https://user-images.githubusercontent.com/37122520/170329052-a007f74b-d34c-4a23-a539-7cc803f7bfd0.jpg">
 
 
 
