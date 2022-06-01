@@ -54,7 +54,7 @@ gt_ranking2<-data %>% gt() %>%
       "<span style='color:#808080;'>Company</span>"
     ),
     rank_chg = html(
-      "<span style='color:#808080;'>Trend 2017-2020</span>"
+      "<span style='color:#808080;'>Trend 2017-2021</span>"
     ),
     rq_2022 = html(
       "<span style='color:#808080;'>2022 Score</span>"
