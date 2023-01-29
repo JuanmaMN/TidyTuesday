@@ -1,0 +1,106 @@
+
+# Upload data -------------------------------------------------------------
+
+episodes <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-01-24/episodes.csv')
+
+
+
+# Packages ----------------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
+
+### Additional package
+
+library(ggforce)
+
+
+# Image -------------------------------------------------------------------
+
+Alonelogo <- png::readPNG("Uploaded from working directory")
+raster <- as.raster(Alonelogo)
+
+
+# Prepare the data --------------------------------------------------------
+
+episodes_data <-
+  episodes |>
+  filter(!is.na(viewers)) |>
+  group_by(season) |> 
+  summarise(avg_views = mean(viewers, na.rm = TRUE),
+            max_views = max(viewers,na.rm = TRUE),
+            min_views = min(viewers,na.rm = TRUE)) 
+
+# Fonts -------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Merriweather")
+font_labels <- "Merriweather"
+
+showtext_auto()
+
+
+# Graph -------------------------------------------------------------------
+
+ggplot(episodes_data, aes(season, avg_views, color = as.factor(season))) +
+  geom_segment(aes(xend = season, yend = max_views), alpha = 1/2,color = "#52796f") +
+  geom_segment(aes(xend = season, yend = min_views), alpha = 1/2,color = "#52796f") +
+  geom_point(size = 14, fill = "#84a98c", color = "#52796f") +
+  geom_point(aes(y = max_views), size = 4, fill = "#84a98c", color = "#52796f") +
+  geom_point(aes(y = min_views), size = 4, fill = "#84a98c", color = "#52796f") +
+  geom_point(size = 12, fill = "#84a98c", color = "#84a98c") +
+  geom_text(aes(label = number(avg_views, accuracy = 0.1)), 
+            color = "black", 
+            fontface = "bold",
+            size = 6,
+            hjust = 0.5, vjust = 0.5) +
+  geom_link(data = tibble(x = 0.5, xend = 8.5,    y = 0.75, yend = y,    season = 7),    
+            aes(x = x, xend = xend,   y = y, yend = y, alpha = stat(index)), 
+            lineend = "butt",size = 6, color = "#84a98c") +
+  annotate(geom = "text", label = c("1", "8"),    
+           colour = "#525252", x = c(1, 8), y = c(0.75, 0.75), size = 5,   
+           family = font_labels) +
+  annotate(geom = "text", label = "Season",    colour = "#525252", x = 4.5, y = 0.75, size = 5,   
+           family = font_labels) +
+  geom_segment(aes(x = 4, y = 0.75, xend = 1.25, yend =0.75),linetype="solid", colour = "#354f52", size = 0.25,    
+               arrow = arrow(length = unit(0.15, "cm"))) +
+  geom_segment(aes(x = 5, y = 0.75, xend = 7.75, yend =0.75),linetype="solid", colour = "#2f3e46", size = 0.25,    
+               arrow = arrow(length = unit(0.15, "cm"))) +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    legend.title = element_blank(),
+    axis.text.x    = element_blank(),
+    axis.text.y    = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    panel.background = element_rect(fill = "#fbfaf6", color = NA), 
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border,
+    panel.border = element_blank(),
+    plot.margin = unit(c(1, 1, 1, 1), "cm"),
+    axis.ticks = element_blank(),
+    legend.position = "none",
+    strip.background = element_rect(fill = "#fbfaf6"),
+    strip.text.x = element_blank()) +
+  annotate("text",x = 0, y = 1, fontface = "plain", colour = "#1d3557",
+           label = "1m viewers",
+           family = font_labels, size = 5.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 1.5, fontface = "plain", colour = "#1d3557",
+           label = "1.5m viewers",
+           family = font_labels, size = 5.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 2, fontface = "plain", colour = "#1d3557",
+           label = "2m viewers",
+           family = font_labels, size = 5.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 2.5, fontface = "plain", colour = "#1d3557",
+           label = "2.5m viewers",
+           family = font_labels, size = 5.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 6, y = 2.5, fontface = "bold", colour = "#1d3557",
+           label = "Number of viewers in the US (millions)",
+           family = font_labels, size = 9, hjust = 0.5) +
+  annotate("text",x = 6, y = 2.4, fontface = "bold", colour = "#1d3557",
+           label = "Average, maximum and minimum per season",
+           family = font_labels, size = 5.5, hjust = 0.5) +
+  annotation_raster(raster, xmin=5.5,xmax=6.55, ymin=1.9, ymax=2.25)
+
