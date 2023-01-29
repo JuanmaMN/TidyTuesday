@@ -63,6 +63,9 @@ ggplot(episodes_data, aes(season, avg_views, color = as.factor(season))) +
            family = font_labels) +
   annotate(geom = "text", label = "Season",    colour = "#525252", x = 4.5, y = 0.75, size = 5,   
            family = font_labels) +
+  annotate(geom = "text", label = "Source: #TidyTuesday - Visualization: JuanmaMN (Twitter @Juanma_MN)",
+           colour = "#525252", x = 4.5, y = 0.65, size = 5,   
+           family = font_labels) +
   geom_segment(aes(x = 4, y = 0.75, xend = 1.25, yend =0.75),linetype="solid", colour = "#354f52", size = 0.25,    
                arrow = arrow(length = unit(0.15, "cm"))) +
   geom_segment(aes(x = 5, y = 0.75, xend = 7.75, yend =0.75),linetype="solid", colour = "#2f3e46", size = 0.25,    
