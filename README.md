@@ -12,7 +12,7 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 ## Week 6/2023 - Big Tech Stock Prices
 
-Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/TidyTuesday_7_February_2023).
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/TidyTuesday_7th_February_2023).
 
 
 <br>
