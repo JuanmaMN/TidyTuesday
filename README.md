@@ -9,6 +9,27 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+
+## Week 6/2023 - Big Tech Stock Prices
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/TidyTuesday_7_February_2023).
+
+
+<br>
+
+<p align="center">
+
+
+
+<img width="924" alt="Graph_7_2_2023" src="https://user-images.githubusercontent.com/37122520/218254374-792b0b0d-6729-4043-a97b-2763a4c83196.png">
+
+
+</p>
+
+
+
+<br>
+
 ## Week 48/2022 - Fifa World Cup
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2022/December/TidyTuesday_3rd_December_2022.R).
