@@ -1,0 +1,117 @@
+# Raw data ----------------------------------------------------------------
+
+big_tech_stock_prices <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-07/big_tech_stock_prices.csv')
+big_tech_companies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-07/big_tech_companies.csv')
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm,
+               scales)
+
+# Join both datasets ------------------------------------------------------
+
+stock_join <- big_tech_stock_prices %>% left_join(big_tech_companies, by ="stock_symbol")
+
+# Prepare the data for graph ----------------------------------------------
+
+stock_join_2<- stock_join %>% mutate(
+  Year = year(date)
+) %>% filter (Year %in% c(2021, 2022)) %>% 
+  group_by(Year, company) %>%
+  mutate(min_max = case_when(
+    date == min(date) ~ "first_date",
+    date == max(date) ~ "last_date",
+    TRUE ~ "Others"
+  )) %>% filter(min_max %in% c("first_date", "last_date")) %>%
+  select(7,9,10,11) %>%
+  pivot_wider(names_from = "min_max", values_from = "adj_close") %>%
+  mutate(perc = ((last_date - first_date)/first_date),
+         perc2 = percent(perc)) |>
+  mutate(label1= case_when(
+    Year == 2021 ~ perc2,
+    TRUE ~ " "
+  ),
+  label2= case_when(
+    Year == 2022 ~ perc2,
+    TRUE ~ " "
+  ))
+
+
+# Filter ------------------------------------------------------------------
+
+stock_join_2 <- stock_join_2 %>% filter(company %in% c("Apple Inc.", "Amazon.com, Inc.",
+                                                       "Alphabet Inc.", "Meta Platforms, Inc.",
+                                                       "Microsoft Corporation", "Netflix, Inc."))
+
+stock_join_2$Year<- as.character(stock_join_2$Year)
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Oswald")
+
+font_labels <- "Oswald"
+
+showtext_auto()
+
+# Graph -------------------------------------------------------------------
+
+ggplot(stock_join_2,aes(company, perc, group=Year, fill = Year, label = perc2)) +
+  scale_fill_manual(values = c(  
+    "2021" = "#96b7ac",
+    "2022" = "#f47b58"
+  )) +
+  geom_bar(stat = "identity",position = "dodge", width = .4) +
+  scale_y_continuous(limits=c(-1, 1)) +
+  labs(x = "",y = "",
+       title = "Big Tech Stock Returns",
+       subtitle = "Comparison of the Stock return for Six Tech companies in <span style='color:#96b7ac'>**2021**</span> and <span style='color:#f47b58'>**2022**</span>. Closing price after adjustments of the first VS last day of the year.",
+       caption = "Source: #TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
+  theme(
+    plot.title = element_text(margin = margin(b = 15, t=20), 
+                              color = "#525252",face = "bold",size = 35,
+                              hjust = 0,family = font_labels),
+    plot.subtitle = element_markdown(margin = margin(b = 10), 
+                                     color = "#525252",size = 25,
+                                     hjust = 0,family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 50, b = 10), 
+                                 color = "#525252", size = 20, family = font_labels,
+                                 hjust = 0.94),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(), 
+    axis.text.y    = element_blank(),
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    legend.position = "none")  +
+  geom_text(position = position_dodge(0.4), 
+            vjust = 1.4,
+            color = "white", size = 7, aes(label=label1),fontface = "bold") +
+  geom_text(position = position_dodge(0.4), 
+            vjust = -0.7,
+            color = "white", size = 7, aes(label=label2),fontface = "bold") +
+  annotate("text",x = 1, y = -1, fontface = "plain", colour = "#1d3557",
+           label = str_wrap("Apple Inc."), 
+           family = font_labels, size = 8, hjust = 0.5) +
+  annotate("text",x = 2, y = -1, fontface = "plain", colour = "#1d3557",
+           label = str_wrap("Amazon.com, Inc."), 
+           family = font_labels, size = 8, hjust = 0.5) +
+  annotate("text",x = 3, y = -1, fontface = "plain", colour = "#1d3557",
+           label = str_wrap("Alphabet Inc."), 
+           family = font_labels, size = 8, hjust = 0.5) +
+  annotate("text",x = 4, y = -1, fontface = "plain", colour = "#1d3557",
+           label = str_wrap("Meta Platforms, Inc."), 
+           family = font_labels, size = 8, hjust = 0.5) +
+  annotate("text",x = 5, y = -1, fontface = "plain", colour = "#1d3557",
+           label = str_wrap("Microsoft Corporation"), 
+           family = font_labels, size = 8, hjust = 0.5) +
+  annotate("text",x = 6, y = -1, fontface = "plain", colour = "#1d3557",
+           label = str_wrap("Netflix, Inc."), 
+           family = font_labels, size = 8, hjust = 0.5) +
+  geom_segment(aes(x=0.8,xend=6.2,y=0,yend=0), linetype="dotted",colour = "#d3d3d3") 
