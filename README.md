@@ -19,13 +19,9 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <p align="center">
 
-
-
 <img width="924" alt="Graph_7_2_2023" src="https://user-images.githubusercontent.com/37122520/218254374-792b0b0d-6729-4043-a97b-2763a4c83196.png">
 
-
 </p>
-
 
 
 <br>
