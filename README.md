@@ -10,6 +10,24 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 <hr>
 
 
+
+## Week 7/2023 - Hollywood Age Gaps
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/February/TidyTuesday_14th_February_2023).
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="Graph_14_2_2023" src="https://user-images.githubusercontent.com/37122520/219868345-8fa84ab2-fefd-4b03-ada8-36d4de6b3689.png">
+
+</p>
+
+
+
+<br>
+
 ## Week 6/2023 - Big Tech Stock Prices
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/TidyTuesday_7th_February_2023).
