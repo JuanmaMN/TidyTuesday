@@ -1,0 +1,450 @@
+# Raw data ----------------------------------------------------------------
+
+age_gaps <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv')
+
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Oswald")
+
+font_labels <- "Oswald"
+
+showtext_auto()
+
+# First -------------------------------------------------------------------
+
+age_gaps_Harold<- age_gaps |>top_n(10,age_difference)|> select(1,2,3,4,6,7,12,13)  |> filter(movie_name == "Harold and Maude")
+
+graph_Harold<-ggplot(age_gaps_Harold) + 
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5" ) +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56" ) +
+  geom_point(aes(18, 0.85),size=6, shape=20, fill = "white",color="white") +
+  geom_point(aes(18, 0.85),size=9, shape=20, fill = "#854a56",color="white") +
+  
+  annotate("text",x = 18, y = 0.85, fontface = "bold", colour = "#a6c5c5",
+           label = paste0( age_gaps_Harold$actor_1_age), 
+           family = font_labels, size = 6) +
+  
+  geom_point(aes(18, 0.88),size=6, shape=20,fill = "white",color="white") +
+  geom_point(aes(18, 0.88),size=9, shape=20,fill = "#a6c5c5",color="white") +
+  
+  annotate("text",x = 18, y = 0.88, fontface = "bold", colour = "#854a56",
+           label = paste0( age_gaps_Harold$actor_2_age), 
+           family = font_labels, size = 6) +
+  
+  # Annotate for younger 
+  annotate("text",x = 18 + 3, y = 0.85, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Harold$actor_1_name), 
+           family = font_labels, size = 8, hjust = 0)  +
+  # Annotate for older
+  annotate("text",x = 18 + 3, y = 0.88, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Harold$actor_2_name), 
+           family = font_labels, size = 8, hjust = 0) +
+  geom_segment(aes(x=18,xend=80,y=1,yend=1),colour = "#adadad", size = 0.2)  +
+  geom_segment(aes(x=18,xend=18,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=30,xend=30,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=50,xend=50,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=80,xend=80,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5") +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56") +
+  
+  annotate("text",x = 18, y = 0.98, fontface = "plain", colour = "#adadad", label = paste0("18"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 30, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("30"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 50, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("50"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 80, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("80"), 
+           family = font_labels, size = 6) +
+  scale_y_continuous(limits=c(0.85,1.24)) +
+  
+  theme(
+    plot.title = element_text(margin = margin(b = 15, t=20), 
+                              color = "#525252",face = "bold",size = 35,
+                              hjust = 0,family = font_labels),
+    plot.subtitle = element_markdown(margin = margin(b = 10), 
+                                     color = "#525252",size = 25,
+                                     hjust = 0,family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 50, b = 10), 
+                                 color = "#525252", size = 20, family = font_labels,
+                                 hjust = 0.94),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(), 
+    axis.text.y    = element_blank(),
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.margin = unit(c(0, 0.5, 0, 0.5), "cm"),
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    legend.position = "none")  +
+  
+  # Annotate for age difference 
+  
+  annotate("text",x = 18, y = 1.1, fontface = "bold", colour = "#1d3557",
+           label = paste0(age_gaps_Harold$age_difference), 
+           family = font_labels, size = 15, hjust = 0) +
+  # Annotate for years
+  
+  annotate("text",x = 18 + 8, y = 1.095, fontface = "plain", colour = "#1d3557",
+           label = paste0("years"), 
+           family = font_labels, size = 7, hjust = 0) +
+  # Segment
+  
+  geom_segment(aes(x=18,xend=80,y=1.2,yend=1.2),colour = "#1d3557", size = 2) +
+  
+  # Annotate for movie name
+  
+  annotate("text",x = 18, y = 1.22, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Harold$movie_name), 
+           family = font_labels, size = 10, hjust = 0)  +
+  
+  # Annotate for director
+  
+  annotate("text",x = 18, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Harold$director), 
+           family = font_labels, size = 8, hjust = 0) +
+  
+  # Annotate for release
+  
+  annotate("text",x = 80, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Harold$release_year), 
+           family = font_labels, size = 8, hjust = 1) 
+
+# Second graph ------------------------------------------------------------
+
+age_gaps_Venus<- age_gaps |>top_n(10,age_difference)|> select(1,2,3,4,6,7,12,13)  |> filter(movie_name == "Venus")
+
+graph_Venus<-ggplot(age_gaps_Venus) + 
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5" ) +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56" ) +
+  geom_point(aes(18, 0.85),size=6, shape=20, fill = "white",color="white") +
+  geom_point(aes(18, 0.85),size=9, shape=20, fill = "#854a56",color="white") +
+  
+  annotate("text",x = 18, y = 0.85, fontface = "bold", colour = "#a6c5c5",
+           label = paste0( age_gaps_Venus$actor_1_age), 
+           family = font_labels, size = 6) +
+  
+  geom_point(aes(18, 0.88),size=6, shape=20,fill = "white",color="white") +
+  geom_point(aes(18, 0.88),size=9, shape=20,fill = "#a6c5c5",color="white") +
+  
+  annotate("text",x = 18, y = 0.88, fontface = "bold", colour = "#854a56",
+           label = paste0( age_gaps_Venus$actor_2_age), 
+           family = font_labels, size = 6) +
+  
+  # Annotate for younger 
+  annotate("text",x = 18 + 3, y = 0.85, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Venus$actor_1_name), 
+           family = font_labels, size = 8, hjust = 0)  +
+  # Annotate for older
+  annotate("text",x = 18 + 3, y = 0.88, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Venus$actor_2_name), 
+           family = font_labels, size = 8, hjust = 0) +
+  geom_segment(aes(x=18,xend=80,y=1,yend=1),colour = "#adadad", size = 0.2)  +
+  geom_segment(aes(x=18,xend=18,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=30,xend=30,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=50,xend=50,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=80,xend=80,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5") +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56") +
+  annotate("text",x = 18, y = 0.98, fontface = "plain", colour = "#adadad", label = paste0("18"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 30, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("30"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 50, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("50"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 80, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("80"), 
+           family = font_labels, size = 6) +
+  scale_y_continuous(limits=c(0.85,1.24)) +
+  
+  theme(
+    plot.title = element_text(margin = margin(b = 15, t=20), 
+                              color = "#525252",face = "bold",size = 35,
+                              hjust = 0,family = font_labels),
+    plot.subtitle = element_markdown(margin = margin(b = 10), 
+                                     color = "#525252",size = 25,
+                                     hjust = 0,family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 50, b = 10), 
+                                 color = "#525252", size = 20, family = font_labels,
+                                 hjust = 0.94),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(), 
+    axis.text.y    = element_blank(),
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.margin = unit(c(0, 0.5, 0, 0.5), "cm"),
+    plot.background = element_rect(fill = "#F7F5ED", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    legend.position = "none")  +
+  
+  # Annotate for age difference 
+  
+  annotate("text",x = 18, y = 1.1, fontface = "bold", colour = "#1d3557",
+           label = paste0(age_gaps_Venus$age_difference), 
+           family = font_labels, size = 15, hjust = 0) +
+  # Annotate for years
+  
+  annotate("text",x = 18 + 8, y = 1.095, fontface = "plain", colour = "#1d3557",
+           label = paste0("years"), 
+           family = font_labels, size = 7, hjust = 0) +
+  # Segment
+  
+  geom_segment(aes(x=18,xend=80,y=1.2,yend=1.2),colour = "#1d3557", size = 2) +
+  
+  # Annotate for movie name
+  
+  annotate("text",x = 18, y = 1.22, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Venus$movie_name), 
+           family = font_labels, size = 10, hjust = 0)  +
+  
+  # Annotate for director
+  
+  annotate("text",x = 18, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Venus$director), 
+           family = font_labels, size = 8, hjust = 0) +
+  
+  # Annotate for release
+  
+  annotate("text",x = 80, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_Venus$release_year), 
+           family = font_labels, size = 8, hjust = 1) 
+
+# Third film --------------------------------------------------------------
+
+age_gaps_The_Quiet_American<- age_gaps |>top_n(10,age_difference)|> select(1,2,3,4,6,7,12,13)  |> filter(movie_name == "The Quiet American")
+
+graph_The_Quiet_American<-ggplot(age_gaps_The_Quiet_American) + 
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5" ) +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56" ) +
+  geom_point(aes(18, 0.85),size=6, shape=20, fill = "white",color="white") +
+  geom_point(aes(18, 0.85),size=9, shape=20, fill = "#854a56",color="white") +
+  
+  annotate("text",x = 18, y = 0.85, fontface = "bold", colour = "#a6c5c5",
+           label = paste0( age_gaps_The_Quiet_American$actor_1_age), 
+           family = font_labels, size = 6) +
+  
+  geom_point(aes(18, 0.88),size=6, shape=20,fill = "white",color="white") +
+  geom_point(aes(18, 0.88),size=9, shape=20,fill = "#a6c5c5",color="white") +
+  
+  annotate("text",x = 18, y = 0.88, fontface = "bold", colour = "#854a56",
+           label = paste0( age_gaps_The_Quiet_American$actor_2_age), 
+           family = font_labels, size = 6) +
+  
+  # Annotate for younger 
+  annotate("text",x = 18 + 3, y = 0.85, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Quiet_American$actor_1_name), 
+           family = font_labels, size = 8, hjust = 0)  +
+  # Annotate for older
+  annotate("text",x = 18 + 3, y = 0.88, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Quiet_American$actor_2_name), 
+           family = font_labels, size = 8, hjust = 0) +
+  geom_segment(aes(x=18,xend=80,y=1,yend=1),colour = "#adadad", size = 0.2)  +
+  geom_segment(aes(x=18,xend=18,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=30,xend=30,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=50,xend=50,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=80,xend=80,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5") +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56") +
+
+  annotate("text",x = 18, y = 0.98, fontface = "plain", colour = "#adadad", label = paste0("18"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 30, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("30"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 50, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("50"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 80, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("80"), 
+           family = font_labels, size = 6) +
+  scale_y_continuous(limits=c(0.85,1.24)) +
+  
+  theme(
+    plot.title = element_text(margin = margin(b = 15, t=20), 
+                              color = "#525252",face = "bold",size = 35,
+                              hjust = 0,family = font_labels),
+    plot.subtitle = element_markdown(margin = margin(b = 10), 
+                                     color = "#525252",size = 25,
+                                     hjust = 0,family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 50, b = 10), 
+                                 color = "#525252", size = 20, family = font_labels,
+                                 hjust = 0.94),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(), 
+    axis.text.y    = element_blank(),
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.margin = unit(c(0, 0.5, 0, 0.5), "cm"),
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    legend.position = "none")  +
+  
+  # Annotate for age difference 
+  
+  annotate("text",x = 18, y = 1.1, fontface = "bold", colour = "#1d3557",
+           label = paste0(age_gaps_The_Quiet_American$age_difference), 
+           family = font_labels, size = 15, hjust = 0) +
+  # Annotate for years
+  
+  annotate("text",x = 18 + 8, y = 1.095, fontface = "plain", colour = "#1d3557",
+           label = paste0("years"), 
+           family = font_labels, size = 7, hjust = 0) +
+  # Segment
+  
+  geom_segment(aes(x=18,xend=80,y=1.2,yend=1.2),colour = "#1d3557", size = 2) +
+  
+  # Annotate for movie name
+  
+  annotate("text",x = 18, y = 1.22, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Quiet_American$movie_name), 
+           family = font_labels, size = 10, hjust = 0)  +
+  
+  # Annotate for director
+  
+  annotate("text",x = 18, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Quiet_American$director), 
+           family = font_labels, size = 8, hjust = 0) +
+  
+  # Annotate for release
+  
+  annotate("text",x = 80, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Quiet_American$release_year), 
+           family = font_labels, size = 8, hjust = 1) 
+
+# Fourth  -----------------------------------------------------------------
+
+age_gaps_The_Big_Lebowski<- age_gaps |>top_n(10,age_difference)|> select(1,2,3,4,6,7,12,13)  |> filter(movie_name == "The Big Lebowski")
+
+graph_The_Big_Lebowski<-ggplot(age_gaps_The_Big_Lebowski) + 
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5" ) +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56" ) +
+  geom_point(aes(18, 0.85),size=6, shape=20, fill = "white",color="white") +
+  geom_point(aes(18, 0.85),size=9, shape=20, fill = "#854a56",color="white") +
+  
+  annotate("text",x = 18, y = 0.85, fontface = "bold", colour = "#a6c5c5",
+           label = paste0( age_gaps_The_Big_Lebowski$actor_1_age), 
+           family = font_labels, size = 6) +
+
+  geom_point(aes(18, 0.88),size=6, shape=20,fill = "white",color="white") +
+  geom_point(aes(18, 0.88),size=9, shape=20,fill = "#a6c5c5",color="white") +
+  
+  annotate("text",x = 18, y = 0.88, fontface = "bold", colour = "#854a56",
+           label = paste0( age_gaps_The_Big_Lebowski$actor_2_age), 
+           family = font_labels, size = 6) +
+  
+  # Annotate for younger 
+  annotate("text",x = 18 + 3, y = 0.85, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Big_Lebowski$actor_1_name), 
+           family = font_labels, size = 8, hjust = 0)  +
+  # Annotate for older
+  annotate("text",x = 18 + 3, y = 0.88, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Big_Lebowski$actor_2_name), 
+           family = font_labels, size = 8, hjust = 0) +
+  geom_segment(aes(x=18,xend=80,y=1,yend=1),colour = "#adadad", size = 0.2)  +
+  geom_segment(aes(x=18,xend=18,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=30,xend=30,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=50,xend=50,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_segment(aes(x=80,xend=80,y=0.995,yend=1.005),colour = "#adadad", size = 0.3) +
+  geom_point(aes(actor_1_age, 1),size=6, shape=20,fill = "#a6c5c5",color="#a6c5c5") +
+  geom_point(aes(actor_2_age, 1),size=6, shape=20,fill = "#854a56",color="#854a56") +
+  
+  annotate("text",x = 18, y = 0.98, fontface = "plain", colour = "#adadad", label = paste0("18"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 30, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("30"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 50, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("50"), 
+           family = font_labels, size = 6) +
+  annotate("text",x = 80, y = 0.98, fontface = "plain", colour = "#adadad",label = paste0("80"), 
+           family = font_labels, size = 6) +
+  scale_y_continuous(limits=c(0.85,1.24)) +
+  
+  theme(
+    plot.title = element_text(margin = margin(b = 15, t=20), 
+                              color = "#525252",face = "bold",size = 35,
+                              hjust = 0,family = font_labels),
+    plot.subtitle = element_markdown(margin = margin(b = 10), 
+                                     color = "#525252",size = 25,
+                                     hjust = 0,family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 50, b = 10), 
+                                 color = "#525252", size = 20, family = font_labels,
+                                 hjust = 0.94),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(), 
+    axis.text.y    = element_blank(),
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.margin = unit(c(0, 0.5, 0, 0.5), "cm"),
+    plot.background = element_rect(fill = "#F7F5ED", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    legend.position = "none")  +
+  
+  # Annotate for age difference 
+  
+  annotate("text",x = 18, y = 1.1, fontface = "bold", colour = "#1d3557",
+           label = paste0(age_gaps_The_Big_Lebowski$age_difference), 
+           family = font_labels, size = 15, hjust = 0) +
+  # Annotate for years
+  
+  annotate("text",x = 18 + 8, y = 1.095, fontface = "plain", colour = "#1d3557",
+           label = paste0("years"), 
+           family = font_labels, size = 7, hjust = 0) +
+  # Segment
+  
+  geom_segment(aes(x=18,xend=80,y=1.2,yend=1.2),colour = "#1d3557", size = 2) +
+  
+  # Annotate for movie name
+  
+  annotate("text",x = 18, y = 1.22, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Big_Lebowski$movie_name), 
+           family = font_labels, size = 10, hjust = 0)  +
+  
+  # Annotate for director
+  
+  annotate("text",x = 18, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Big_Lebowski$director), 
+           family = font_labels, size = 8, hjust = 0) +
+  
+  # Annotate for release
+  
+  annotate("text",x = 80, y = 1.18, fontface = "plain", colour = "#1d3557",
+           label = paste0(age_gaps_The_Big_Lebowski$release_year), 
+           family = font_labels, size = 8, hjust = 1) 
+
+# Arrange -----------------------------------------------------------------
+
+ggarrange(graph_Harold,graph_Venus,graph_The_Quiet_American,graph_The_Big_Lebowski, ncol=4, nrow=1) +
+  theme_ipsum()   +
+  labs(x = "",y = "",
+       title = "HOLLYWOOD AGE GAP",
+       subtitle = "THE AGE DIFFERENCE IN YEARS BETWEEN MOVIE LOVE INTERESTS",
+       caption = "Source: #TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)",
+       x = "",
+       y = "") + theme(plot.title = element_text(margin = margin(b = 10), 
+                                                 color = "#2d748b",face = "bold",size = 40,
+                                                 hjust = 0.5,
+                                                 family = font_labels),
+                       plot.subtitle = element_text(margin = margin(b = 50), 
+                                                    color = "#2d748b",size = 24,
+                                                    hjust = 0.5,
+                                                    family = font_labels),
+                       plot.caption =  element_text(margin = margin(t = 60, b = 10), 
+                                                    color = "#343434", size = 15, family = font_labels,
+                                                    hjust = 0.5),
+                       plot.background = element_rect(fill = "#FBFAF7", color = NA))   
+
