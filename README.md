@@ -9,8 +9,6 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
-
-
 ## Week 7/2023 - Hollywood Age Gaps
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/February/TidyTuesday_14th_February_2023).
