@@ -1,0 +1,172 @@
+# Upload the packages -----------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
+
+# Datasets ----------------------------------------------------------------
+
+languages <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-28/languages.csv')
+
+afrisenti <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-28/afrisenti.csv')
+
+language_countries <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-28/language_countries.csv')
+
+language_scripts <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-28/language_scripts.csv')
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Merriweather")
+
+font_labels <- "Merriweather"
+
+showtext_auto()
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Lora")
+
+font_labels2 <- "Lora"
+
+showtext_auto()
+
+
+# Upload the packages -----------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
+
+
+
+# Prepare the data --------------------------------------------------------
+
+afrisenti_group_positive<- afrisenti |> group_by(language_iso_code, label) %>% summarize(n=n()) |> ungroup() |>
+  filter(label =="positive") |> top_n(10,n) |>   arrange(desc(n)) %>% left_join(languages)
+
+afrisenti_group_positive$language_iso_code<-fct_reorder(afrisenti_group_positive$language_iso_code,afrisenti_group_positive$n)
+
+afrisenti_group_positive<- afrisenti_group_positive %>%  ungroup()%>%
+  mutate(row_id=seq(1, nrow(afrisenti_group_positive)),
+         row_id=as.numeric(row_id)) 
+
+
+
+# First graph -------------------------------------------------------------
+
+graph_a<-ggplot(data = afrisenti_group_positive) +
+  geom_segment(aes(x = row_id, y = 0,   xend = row_id, 
+                   yend = n),  arrow = arrow(length = unit(0.35,"cm"), type = "closed"), 
+               size = 3,color = "#087e8b") + 
+  theme(
+    axis.title.x = element_blank(),     axis.title.y = element_blank(), 
+    axis.text.y    = element_blank(),
+    axis.text.x  = element_blank(),
+    panel.background = element_blank(),     panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),    panel.grid.minor = element_blank(), 
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    plot.margin = unit(c(0, 0, 0, 0), "cm"),
+    legend.position = "none")  +
+  scale_y_continuous(limits=c(-1400,8200)) +
+  scale_x_continuous(limits=c(0,14)) +
+  geom_text(aes(12, 1000, label = "NUMBER OF TWEETS\n WITH POSITIVE SENTIMENT"),color = "#087e8b", size = 6,family = font_labels2) +
+  annotate("text",x = 1, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Hausa",
+           family = font_labels, size = 5, hjust = 0.5) +
+  annotate("text",x = 2, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Yorùbá",
+           family = font_labels, size = 5, hjust = 0.5) +
+  annotate("text",x = 3, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Igbo",
+           family = font_labels, size = 5, hjust = 0.5) +
+  annotate("text",x = 4, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "\nNigerian\nPidgin",
+           family = font_labels, size = 4.5, hjust = 0.5) +
+  annotate("text",x = 5, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "\nMoroccan\nArabic/Darija",
+           family = font_labels, size = 4.5, hjust = 0.5) +
+  annotate("text",x = 6, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Twi",
+           family = font_labels, size = 5, hjust = 0.5) +
+  annotate("text",x = 7, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Amharic",
+           family = font_labels, size = 5, hjust = 0.5) +
+  annotate("text",x = 8, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "\nMozambican\nPortuguese",
+           family = font_labels, size = 4.5, hjust = 0.5) +
+  annotate("text",x = 9, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Kinyarwanda",
+           family = font_labels, size = 5, hjust = 0.5) +
+  annotate("text",x = 10, y = -600, fontface = "plain", colour = "#1d3557",
+           label = "Swahili",
+           family = font_labels, size = 5, hjust = 0.5) +
+  geom_text(data=afrisenti_group_positive, aes(x=row_id, y=n+700, label=comma(n)), fontface = "bold",
+            color = "#087e8b", size = 6,family = font_labels) 
+
+
+# Negative ----------------------------------------------------------------
+
+afrisenti_group_negative<- afrisenti %>% group_by(language_iso_code, label) %>% summarize(n=n()) %>% filter(label =="negative")
+
+languages2<- afrisenti_group_positive %>% select(1,5)
+
+afrisenti_group_negative<- afrisenti_group_negative %>%  ungroup() %>%
+  left_join(languages2) 
+
+
+afrisenti_group_negative<-afrisenti_group_negative%>%na.omit()%>%
+  mutate(n=-n)
+
+graph_b<-ggplot(data = afrisenti_group_negative) +
+  geom_segment(aes(x = row_id, y = 0,   xend = row_id, 
+                   yend = n),  
+               arrow = arrow(length = unit(0.35,"cm"), type = "closed"), 
+               size = 3,color = "#db504a") + 
+  theme(
+    axis.title.x = element_blank(),     axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(),     
+    axis.text.y    = element_blank(),
+    panel.background = element_blank(),     panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),    panel.grid.minor = element_blank(), 
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border,
+    plot.margin = unit(c(0, 0, 0, 0), "cm"),
+    axis.ticks = element_blank(),
+    legend.position = "none")  +
+  scale_y_continuous(limits=c(-8900,700)) +
+  scale_x_continuous(limits=c(0,14)) +
+  geom_text(aes(12, -1000, label = "NUMBER OF TWEETS\n WITH NEGATIVE SENTIMENT"),color = "#db504a", size = 6,family = font_labels2) +
+  
+  geom_text(data=afrisenti_group_negative, aes(x=row_id, y=n-700, label=comma(-n)), 
+            fontface = "bold", color = "#db504a", size = 6) 
+
+
+
+
+# Combine graphs ----------------------------------------------------------
+
+patch_dr<- (graph_a / graph_b)  +
+  plot_layout(guides = "collect")
+
+Ppatch_dr <- patch_dr + plot_annotation(title = "African Language Sentiment",
+                                        subtitle = "AfriSenti: A Twitter Sentiment Analysis Benchmark for African Languages",
+                                        caption = "Source: #TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)",
+                                        theme = theme(plot.title = element_text(margin = margin(t=15,b = 8), 
+                                                                                color = "#000000",face = "bold",size = 25,
+                                                                                hjust = 0.5,
+                                                                                family = font_labels),
+                                                      plot.subtitle = element_text(margin = margin(t=10, b = 25), 
+                                                                                   color = "#000000", size = 15, family = font_labels,
+                                                                                   hjust = 0.5),
+                                                      plot.caption =  element_text(margin = margin(t = 20, b = 10), 
+                                                                                   color = "#000000", size = 12, family = font_labels,
+                                                                                   hjust = 0.5),                                                  ,
+                                                      plot.background = element_rect(fill = "#fbfaf6", color = NA),    # color removes the border
+                                                      panel.background = element_rect(color=NA, fill = "#fbfaf6"),
+                                                      legend.position = "bottom",
+                                                      legend.background = element_rect(fill = "#fbfaf6",
+                                                                                       size = 1),
+                                                      legend.title = element_blank(),
+                                                      panel.border = element_blank()))
+
+
