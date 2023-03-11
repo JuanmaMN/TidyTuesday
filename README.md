@@ -9,6 +9,25 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+## Week 9/2023 - African Language Sentiment
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/March/TidyTuesday_7th_March_2023).
+
+
+<br>
+
+<p align="center">
+
+<img width="924" alt="#TidyTuesday_11_3_2023" src="https://user-images.githubusercontent.com/37122520/224487665-73987327-3f4d-4d0d-beeb-8f90fc958b32.png">
+
+</p>
+
+
+
+<br>
+
+
+
 ## Week 7/2023 - Hollywood Age Gaps
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/February/TidyTuesday_14th_February_2023).
