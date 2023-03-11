@@ -18,7 +18,8 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <p align="center">
 
-<img width="924" alt="#TidyTuesday_11_3_2023" src="https://user-images.githubusercontent.com/37122520/224487665-73987327-3f4d-4d0d-beeb-8f90fc958b32.png">
+
+<img width="924" alt="#TidyTuesday_11_3_2023" src="https://user-images.githubusercontent.com/37122520/224487850-0e9e77e8-72e8-41b8-b14f-1108b95ab95d.png">
 
 </p>
 
