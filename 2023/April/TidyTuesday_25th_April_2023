@@ -1,0 +1,132 @@
+# Data sets ---------------------------------------------------------------
+
+winners <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-04-25/winners.csv')
+london_marathon <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-04-25/london_marathon.csv')
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales,ggflags)
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Roboto Condensed")
+
+font_labels <- "Roboto Condensed"
+
+showtext_auto()
+
+
+# Data preparation --------------------------------------------------------
+
+winners_2<-winners|> filter (Year >= 1983) |>
+  select(1,2,3,4) 
+
+New_data<-  data.frame(Category = c("Wheelchair Women", "Wheelchair Women",
+                                    "Wheelchair Men", "Wheelchair Men",
+                                    "Women",
+                                    "Men"),
+                       Year = c(2022, 2023,2022, 2023, 2023, 2023),
+                       Athlete =  c("Catherine Debrunner", "Madison de Rozario","Marcel Hug", "Marcel Hug", "Sifan Hassan", "Kelvin Kiptum"),
+                       Nationality = c("Switzerland", "Australia", "Switzerland", "Switzerland", "Netherlands", "Kenya"))
+
+winners_2 = rbind(winners_2, New_data)
+
+winners_2 <- winners_2|>
+  mutate(
+    Category = str_to_sentence(Category),
+    x_number = case_when(
+      Category == "Men" ~ 0,
+      Category == "Women" ~ 7.5,
+      Category == "Wheelchair men" ~ 15,
+      Category == "Wheelchair women" ~ 22.5),
+    flag_position = x_number - 0.2,
+    Nationality = recode(Nationality, "Soviet Union" = "Russia" ), #Update Yakov Grigoryevich Tolstikov to Russia
+    code = case_when(
+      Nationality == "United States"   ~ "us",
+      Nationality == "United Kingdom"  ~ "gb",
+      Nationality == "Norway"  ~ "no",
+      Nationality == "Japan"  ~ "jp",
+      Nationality == "Denmark" ~ "dk",
+      Nationality == "Russia"   ~ "ru", 
+      Nationality == "Kenya" ~ "ke",
+      Nationality == "Portugal" ~ "pt",
+      Nationality == "Mexico"  ~ "mx",
+      Nationality == "Spain"  ~ "ea",
+      Nationality == "Morocco"  ~ "ma",
+      Nationality == "Ethiopia"  ~ "et",
+      Nationality == "Poland"  ~ "pl",
+      Nationality == "Germany" ~ "de",
+      Nationality == "Sweden"  ~ "se",    
+      Nationality == "Canada"  ~ "ca",
+      Nationality == "China"    ~ "cn",
+      Nationality == "Ireland"  ~ "ie",
+      Nationality == "France"  ~ "fr",
+      Nationality == "Belgium"  ~ "be",
+      Nationality == "Switzerland"  ~ "ch",
+      Nationality == "Netherlands"  ~ "nl",
+      Nationality == "Italy"   ~ "it",
+      Nationality == "Australia"   ~ "au")) |>
+  arrange(x_number,Year)
+
+# Position ----------------------------------------------------------------
+
+# Thanks to @ijeamaka_a for the idea
+
+counts_number = winners_2 |>
+  count(x_number) |>
+  select(n) |>
+  unname() |>
+  unlist()
+
+winners_2 =
+  winners_2 |>
+  mutate(counts_number = c(seq(1, counts_number[1]),
+                           seq(1, counts_number[2]),
+                           seq(1, counts_number[3]),
+                           seq(1, counts_number[4])),
+         counts_number = -counts_number) 
+
+
+# Graph -------------------------------------------------------------------
+
+winners_2|>ggplot() +
+  geom_text(aes(x = x_number, y = counts_number, label = Athlete), hjust = 0, fontface = "plain",  size = 5, family = font_labels, color = "#525252") +
+  geom_text(aes(x = x_number -0.4, y = counts_number, label = Year), hjust = 1, fontface = "plain",  size = 5, family = font_labels, color = "#525252") +
+  annotate(geom = "text", x = -.2, y = 0.4, label= "Men", hjust = 0, fontface = "bold",  color = "#588157", size = 6, family = font_labels)+
+  annotate(geom = "text", x = 7.3, y = 0.4, label= "Women", hjust = 0,fontface = "bold",   color = "#588157", size = 6, family = font_labels)+
+  annotate(geom = "text", x = 14.8, y = 0.4, label= "Wheelchair men", hjust = 0,fontface = "bold",   color = "#588157", size = 6, family = font_labels)+
+  annotate(geom = "text", x = 22.3, y = 0.4, label= "Wheelchair women", hjust = 0, fontface = "bold",  color = "#588157", size = 6, family = font_labels)+
+  geom_flag(aes(x=flag_position, y = counts_number, country = code), size = 3.5, hjust = -2) +
+  scale_x_continuous(limits = c(-0.6,25))+
+  labs(x = "",y = "",
+       title = "London Marathon winners from 1983 to 2023",
+       caption = "Source: #TidyTuesday\nVisualization: JuanmaMN (Twitter @Juanma_MN)")+
+  theme(
+    plot.title = element_text(margin = margin(b = 8, t= 8), 
+                              color = "#525252",face = "bold",size = 25,
+                              hjust = 0.5,
+                              family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 20), 
+                                 color = "#525252", size = 15,
+                                 hjust = 0.95,
+                                 family = font_labels),
+    legend.position = "none",
+    axis.text.x    = element_blank(),
+    axis.text.y    = element_blank(),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y =  element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    axis.ticks = element_blank(),
+    strip.background = element_blank(),
+    strip.text.x = element_blank()
+  ) 
