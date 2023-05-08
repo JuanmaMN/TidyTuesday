@@ -22,7 +22,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 
 <img width="924" alt="Screenshot at May 08 20-50-41" src="https://user-images.githubusercontent.com/37122520/236921847-be2a388b-e5ac-4151-a6ef-52f37af6736f.png">
 
-</p>![]()
+</p>
 
 
 
