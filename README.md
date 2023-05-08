@@ -20,7 +20,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <p align="center">
 
 
-<img width="924" alt="Screenshot at May 08 20-50-41" src="https://user-images.githubusercontent.com/37122520/236921847-be2a388b-e5ac-4151-a6ef-52f37af6736f.png">
+<img width="924" alt="Screenshot at May 08 20-50-41" src="https://user-images.githubusercontent.com/37122520/236924293-57efa66e-2d47-407f-8b6d-52b088de6b34.png">
 
 </p>
 
