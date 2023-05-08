@@ -81,10 +81,10 @@ graphAc<-p2A + labs(fill = "Poverty\nrate in the United States") +
   theme(legend.position = "bottom") +
   scale_x_continuous(breaks = NULL) + 
   scale_y_continuous(breaks = NULL) +
-  labs(x = "",y = "",
-       title = "Poverty rate for families in the United States",
-       subtitle = "Source: National Database of Childcare Prices. Data are available from 2008 to 2018.",
-       caption = "\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
+#  labs(x = "",y = "",
+ #      title = "Poverty rate for families in the United States",
+  #     subtitle = "Source: National Database of Childcare Prices. Data are available from 2008 to 2018.",
+  #     caption = "\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
   theme(
     plot.title = element_text(margin = margin(t = 2,b = 8), 
                               color = "#343434",face = "bold",size = 16,
@@ -127,3 +127,29 @@ graphAc<-p2A + labs(fill = "Poverty\nrate in the United States") +
 
 
 graphAc
+
+
+# Cowplot -----------------------------------------------------------------
+
+
+ggarrange(graphAc, ncol=1, nrow=1, common.legend = TRUE, legend="top") +
+  theme_ipsum()   +
+  labs(x = "",y = "",
+       title = "Poverty rate for families in the United States",
+       subtitle = "Source: National Database of Childcare Prices. Data are available from 2008 to 2018.",
+       caption = "\nVisualization: JuanmaMN (Twitter @Juanma_MN)",
+       x = "",
+       y = "") + theme(plot.title = element_text(margin = margin(b = 20), 
+                                                 color = "#343434",face = "bold",size = 20,
+                                                 hjust = 0,
+                                                 family = font_labels),
+                       plot.subtitle = element_text(margin = margin(b = 20), 
+                                                    color = "#343434",size = 14,
+                                                    hjust = 0,
+                                                    family = font_labels),
+                       plot.caption =  element_text(margin = margin(t = 30, b = 10), 
+                                                    color = "#343434", size = 10, family = font_labels2,
+                                                    hjust = 0.5),
+                       plot.background = element_rect(fill = "#f7f7f7", color = NA),
+                       legend.background =  element_rect(fill = "#f7f7f7", color = NA)) 
+
