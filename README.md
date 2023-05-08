@@ -9,6 +9,27 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 
 <hr>
 
+
+## Week 19/2023 - Poverty rate for families in the United States
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/May/TidyTuesday_9th_May_2023).
+
+
+<br>
+
+<p align="center">
+
+
+<img width="924" alt="Screenshot at May 08 20-50-41" src="https://user-images.githubusercontent.com/37122520/236921847-be2a388b-e5ac-4151-a6ef-52f37af6736f.png">
+
+</p>![]()
+
+
+
+
+<br>
+
+
 ## Week 17/2023 - London Marathon
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/April/TidyTuesday_25th_April_2023).
