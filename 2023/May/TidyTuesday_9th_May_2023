@@ -1,0 +1,129 @@
+# Upload data -------------------------------------------------------------
+
+childcare_costs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+data_c<-childcare_costs |> filter(study_year ==2018) |> select(1,2,pr_f) %>% left_join(counties, by = 'county_fips_code')
+
+# Upload county data from working directory -------------------------------
+
+# Join the tables ---------------------------------------------------------
+
+data_c_lat_long<-data_c %>% left_join(county_us_2, by = 'county_fips_code')
+
+# Color -------------------------------------------------------------------
+
+data_c_lat_long2<-data_c_lat_long%>%
+  mutate(
+    color = case_when(
+      pr_f < 5  ~ "Less_than_5",
+      pr_f >= 5 & pr_f < 10  ~ "Between_5_and_10",
+      pr_f >= 10 & pr_f < 15  ~ "Between_10_and_15",
+      pr_f >= 15 & pr_f < 20  ~ "Between_15_and_20",
+      pr_f >= 20   ~ "Higher_20",
+      TRUE ~ "Others"
+    ))
+
+data_c_lat_long2$color <- fct_relevel(data_c_lat_long2$color, 
+                                                       c("Higher_20","Between_15_and_20",
+                                                         "Between_10_and_15","Between_5_and_10","Less_than_5"))
+
+data_c_lat_long2<- data_c_lat_long2  %>%
+  mutate(color= recode(color, "Less_than_5" = "< 5%", 
+                       "Between_5_and_10" = "5% to 10%",
+                       "Between_10_and_15" = "10% to 15%",
+                       "Between_15_and_20" = "15% to 20%",
+                       "Higher_20" = "> 20%"))
+
+
+# Fonts -------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("DM Serif Display")
+
+font_labels <- "DM Serif Display"
+
+showtext_auto()
+
+font_add_google("Lora")
+
+font_labels2 <- "Lora"
+
+showtext_auto()
+
+
+
+# Graph -------------------------------------------------------------------
+
+pcounty <- ggplot(data = data_c_lat_long2,
+             mapping = aes(x = long, y = lat,
+                           fill = color, 
+                           group = group,
+                           label = state_abbreviation))
+
+p1A <- pcounty + geom_polygon(color = "gray90", size = 0.05) + coord_equal()
+
+p2A <- p1A +   scale_fill_manual(values = c( "< 5%" = "#F2BEA5",
+                                             "5% to 10%" = "#EE9779",
+                                             "10% to 15%"= "#DC4B39",
+                                             "15% to 20%"= "#BA2F29",
+                                             "> 20%" = "#8C1A18")) 
+
+graphAc<-p2A + labs(fill = "Poverty\nrate in the United States") +
+  theme_map() +
+  guides(fill = guide_legend(nrow = 1)) + 
+  theme(legend.position = "bottom") +
+  scale_x_continuous(breaks = NULL) + 
+  scale_y_continuous(breaks = NULL) +
+  labs(x = "",y = "",
+       title = "Poverty rate for families in the United States",
+       subtitle = "Source: National Database of Childcare Prices. Data are available from 2008 to 2018.",
+       caption = "\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
+  theme(
+    plot.title = element_text(margin = margin(t = 2,b = 8), 
+                              color = "#343434",face = "bold",size = 16,
+                              hjust = 0,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(b = 10), 
+                                 color = "#343434", size = 10, family = font_labels,
+                                 hjust = 0),
+    plot.caption =  element_text(margin = margin(t = 20), 
+                                 color = "#343434", size = 8, family = font_labels2,
+                                 hjust = 0.92),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    legend.title = element_blank(),
+    axis.text.x    = element_blank(),
+    axis.text.y    = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border,
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border,
+    panel.border = element_blank(),
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    legend.position = c(0, 0.97), 
+    legend.justification = c(0, 0),
+    legend.text=element_text(size=7, color = "#343434"),
+    legend.key.size = unit(0.1, "cm"),
+    legend.key = element_blank(),
+    legend.background=element_blank(),
+    axis.ticks = element_blank(),
+    legend.margin=margin(b = 0.03, unit='cm')
+  ) +
+  guides(fill = guide_legend(
+    label.position = "bottom",
+    nrow = 1,
+    family = font_labels, 
+    color = "#525252",
+    keywidth = 2.1, keyheight = 0.3))
+
+
+
+graphAc
