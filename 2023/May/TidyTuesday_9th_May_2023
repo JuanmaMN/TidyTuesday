@@ -1,6 +1,8 @@
 # Upload data -------------------------------------------------------------
 
 childcare_costs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+counties <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+
 
 # Upload packages ---------------------------------------------------------
 
@@ -135,7 +137,7 @@ graphAc
 ggarrange(graphAc, ncol=1, nrow=1, common.legend = TRUE, legend="top") +
   theme_ipsum()   +
   labs(x = "",y = "",
-       title = "Poverty rate for families in the United States",
+       title = "Poverty rate for families in the United States in 2018",
        subtitle = "Source: National Database of Childcare Prices. Data are available from 2008 to 2018.",
        caption = "\nVisualization: JuanmaMN (Twitter @Juanma_MN)",
        x = "",
