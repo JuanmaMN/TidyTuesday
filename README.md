@@ -10,7 +10,7 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 <hr>
 
 
-## Week 19/2023 - Poverty rate for families in the United States
+## Week 19/2023 - Poverty rate for families in the United States in 2018
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/May/TidyTuesday_9th_May_2023).
 
@@ -20,8 +20,11 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <p align="center">
 
 
-<img width="924" alt="Screenshot at May 08 20-50-41" src="https://user-images.githubusercontent.com/37122520/236924293-57efa66e-2d47-407f-8b6d-52b088de6b34.png">
 
+<img width="924" alt="Screenshot at May 08 20-50-41" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/ccdc8802-f215-4515-85e0-8f57cccafd72">
+
+  
+  
 </p>
 
 
