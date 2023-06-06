@@ -28,6 +28,19 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 </p>
 
 
+<br>
+
+<p align="center">
+
+
+
+<img width="924" alt="Energy production SA" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/46c8b7a8-cbf4-4b97-8c17-92a9cb3f91fd">
+
+
+
+</p>
+
+
 
 
 <br>
