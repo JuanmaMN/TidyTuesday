@@ -10,6 +10,29 @@ Feedback is welcome and appreciated. Please feel free to follow me on [Twitter](
 <hr>
 
 
+## Week 23/2023 - Energy
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/June/TidyTuesday_6th_June_2023).
+
+
+<br>
+
+<p align="center">
+
+
+
+<img width="924" alt="Energy_production_heatmap" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/21a56cd4-d1e2-4e55-94bb-cb69941fb11b">
+
+  
+  
+</p>
+
+
+
+
+<br>
+
+
 ## Week 19/2023 - Poverty rate for families in the United States in 2018
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/May/TidyTuesday_9th_May_2023).
