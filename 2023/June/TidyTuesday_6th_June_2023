@@ -1,0 +1,229 @@
+# Upload data -------------------------------------------------------------
+
+owid_energy <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-06-06/owid-energy.csv')
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales,emojifont)
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Rubik")
+
+font_labels <- "Rubik"
+
+showtext_auto()
+
+
+# Clean up the data -------------------------------------------------------
+
+library(readxl)
+
+Continent_Country <- read_excel("Continent_Country.xlsx"). # File in working directory to filter out just countries.  # I recoded some country names to match
+
+owid_energy_for_graph<-owid_energy |> left_join(Continent_Country, by= c("country"="Country_Name")) 
+
+# top 20 by GDP -----------------------------------------------------------
+
+owid_energy_world_top_15_rene <- owid_energy_for_graph |> filter(year == 2021)|>
+  mutate(Solar = min_rank(-solar_elec_per_capita) * 1,
+         Wind = min_rank(-wind_elec_per_capita) * 1,
+         Hydro = min_rank(-hydro_elec_per_capita) * 1,
+         Biofuel = min_rank(-biofuel_elec_per_capita	) * 1)|>
+  filter( country %in% c(
+    "Australia",
+    "Japan",
+    "Germany",
+    "Netherlands",
+    "Finland",
+    "Spain",
+    "Taiwan",
+    "Denmark",
+    "Sweden",
+    "Norway",
+    "Belgium",
+    "Canada",
+    "United States",
+    "France",
+    "Italy",
+    "China",
+    "United Kingdom",
+    "India",
+    "Brazil",
+    "South Korea"))
+
+
+#Rank by alphabetical order
+
+owid_energy_world_top_15_rene$country <-factor(owid_energy_world_top_15_rene$country, 
+                                                 levels=rev(sort(owid_energy_world_top_15_rene$country)))
+
+
+owid_energy_world_top_15_2_renw<-owid_energy_world_top_15_rene|> select(country,130:133)%>%
+  pivot_longer(names_to = "variable", values_to = "value", cols = 2:5)
+
+# First graph -------------------------------------------------------------
+
+ernergy_graph_ren <- owid_energy_world_top_15_2_renw%>%ggplot(aes(x =variable, y = country, fill = value)) +
+  geom_tile(aes(fill = value), color = "#2b2b2b")+
+  scale_fill_gradient(low = "#20b2aa", high = "#ececc2",na.value = "#e4e4e4")+
+  geom_text(aes(label = comma_format(accuracy = 1)(value)), color = "#22292F",size = 5.5,family = font_labels)+
+  scale_x_discrete(position = "top") +
+  guides(fill = NULL) +
+  labs(y = "",
+       x = "") +
+  theme(
+    plot.title = element_text(margin = margin(b = 25, t=10), 
+                              color = "#525252",face = "bold",size = 20,
+                              hjust = 0.5,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(t=5,b = 25), 
+                                 color = "#525252", size = 12, family = font_labels,
+                                 hjust = 0.5),
+    plot.caption =  element_text(margin = margin(t = 50), 
+                                 color = "#525252", size = 10,
+                                 hjust = 0.94,
+                                 family = font_labels),
+    legend.position = "none",
+    legend.title = element_blank(),
+    strip.background = element_blank(),
+    strip.text.x = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.x    = element_text(size = 15, color = "#22222b", margin = margin(t = 15),family = font_labels),
+    axis.text.y    = element_text(size = 15, color = "#22222b",family = font_labels),
+    axis.title.y = element_blank(),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(), 
+    panel.border = element_blank(),
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),
+    plot.margin = unit(c(2, -0.65, 2, 2), "cm"),
+    axis.ticks = element_blank()
+  )
+
+
+# Second graph ------------------------------------------------------------
+
+owid_energy_world_top_15_non_rene <- owid_energy_for_graph |> filter(year == 2021)|>
+  mutate(
+  Nuclear = min_rank(-nuclear_elec_per_capita) * 1,
+  Oil = min_rank(-oil_elec_per_capita) * 1,
+  Coal = min_rank(-coal_elec_per_capita) * 1,
+  Gas = min_rank(-gas_elec_per_capita) * 1)|>
+  filter( country %in% c(
+    "Australia",
+    "Japan",
+    "Germany",
+    "Netherlands",
+    "Finland",
+    "Spain",
+    "Taiwan",
+    "Denmark",
+    "Sweden",
+    "Norway",
+    "Belgium",
+    "Canada",
+    "United States",
+    "France",
+    "Italy",
+    "China",
+    "United Kingdom",
+    "India",
+    "Brazil",
+    "South Korea"))
+
+
+owid_energy_world_top_15_non_rene$country <-factor(owid_energy_world_top_15_non_rene$country, 
+                                               levels=rev(sort(owid_energy_world_top_15_non_rene$country)))
+
+
+owid_energy_world_top_15_2_nonrenw<-owid_energy_world_top_15_non_rene|> select(country,130:133)%>%
+  pivot_longer(names_to = "variable", values_to = "value", cols = 2:5)
+
+
+# Graph -------------------------------------------------------------------
+
+ernergy_graph_nonren <- owid_energy_world_top_15_2_nonrenw%>%ggplot(aes(x =variable, y = country, fill = value)) +
+  geom_tile(aes(fill = value), color = "#2b2b2b")+
+  scale_fill_gradient(low = "#FF8C82", high = "#ececc2",na.value = "#e4e4e4")+
+  geom_text(aes(label = comma_format(accuracy = 1)(value)), color = "#22292F",size = 5.5,family = font_labels)+
+  scale_x_discrete(position = "top") +
+  guides(fill = NULL) +
+  
+  labs(y = "",
+       x = "") +
+  theme(
+    plot.title = element_text(margin = margin(b = 25, t=10), 
+                              color = "#525252",face = "bold",size = 20,
+                              hjust = 0.5,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(t=5,b = 25), 
+                                 color = "#525252", size = 12, family = font_labels,
+                                 hjust = 0.5),
+    plot.caption =  element_text(margin = margin(t = 50), 
+                                 color = "#525252", size = 10,
+                                 hjust = 0.94,
+                                 family = font_labels),
+    legend.position = "none",
+    legend.title = element_blank(),
+    strip.background = element_blank(),
+    strip.text.x = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.x    = element_text(size = 15, color = "#22222b", margin = margin(t = 15),family = font_labels),
+   axis.text.y    = element_blank(),
+    axis.title.y = element_blank(),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(), 
+    panel.border = element_blank(),
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),
+    plot.margin = unit(c(2, 4.5, 2, -0.5), "cm"),
+    axis.ticks = element_blank()
+  )
+
+
+
+# Arrange plots -----------------------------------------------------------
+ggarrange(ernergy_graph_ren, ernergy_graph_nonren, ncol=2, nrow=1) +
+  theme_ipsum()   +
+  labs(x = "",y = "",
+       title = "Ranking of countries by renewable and non-renewable energy generation",
+       subtitle = "Countries with the highest and lowest production of <span style='color:#008000'>**renewable**</span> and <span style='color:#ff0000'>**non-renewable**</span> energy per capita in KWh/h in 2021.",
+       caption = " ",
+       x = "",
+       y = "") + theme(plot.title = element_text(margin = margin(b = 20), 
+                                                 color = "#22222b",face = "bold",size = 25,
+                                                 hjust = 0,
+                                                 family = font_labels),
+                        plot.subtitle = element_markdown(margin = margin(b = 20), 
+                                                             color = "#22222b",size = 18,
+                                                            hjust = 0,
+                                                           family = font_labels),
+                       plot.caption =  element_text(margin = margin(t = 20, b = 5), 
+                                                    color = "#22222b", size = 12, family = font_labels,
+                                                    hjust = 0.5),
+                       plot.background = element_rect(fill = "#f7f7f7", color = NA),
+                       legend.background =  element_rect(fill = "#f7f7f7", color = NA),
+                       legend.position = "none",
+                       legend.title = element_blank(),
+                       strip.background = element_blank(),
+                       strip.text.x = element_blank(),
+                       axis.title.x = element_blank(),
+                       axis.text.x    = element_blank(),
+                       axis.text.y    = element_blank(),
+                       axis.title.y = element_blank(),
+                       panel.background = element_blank(),
+                       panel.grid.major = element_blank(),
+                       panel.grid.major.y = element_blank(),
+                       panel.grid.major.x = element_blank(),
+                       panel.grid.minor = element_blank(), 
+                       panel.border = element_blank(),
+                       axis.ticks = element_blank()) 
