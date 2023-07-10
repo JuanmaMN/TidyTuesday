@@ -1,0 +1,167 @@
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Rubik")
+
+font_labels <- "Rubik"
+
+showtext_auto()
+
+
+# Raw data ----------------------------------------------------------------
+
+# Dataset: https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series
+
+
+# Bar chart ---------------------------------------------------------------
+
+
+g<- ggplot(climate_at_a_glance_1850_2023,aes(x=Year, y=Anomaly))+
+  geom_bar(stat="identity",position="identity",aes(fill = colour), show.legend = FALSE) + 
+  scale_fill_manual(values = c("#84cbb4","#a9b7d4"), name = NULL) +
+  # labs(title = "Climate at a Glance - Global Temperature Anamalies", 
+  #     subtitle = "Global Land and Ocean climate at a glance: 1850 to 2022 Anomalies", 
+  #    caption = "www.ncdc.noaa.gov\nVisualization: JuanmaMN (Twitter @Juanma_MN)") +
+  scale_x_continuous(breaks = seq(1830,2023, by = 10), limits=c(1830,2023),
+                     labels = c("","","1850","1860",
+                                "1870","1880","1890",
+                                "1900","1910","1920",
+                                "1930","1940","1950",
+                                "1960","1970","1980",
+                                "1990","2000","2010",
+                                "2023" ))  +
+  scale_y_continuous(breaks = seq(-0.8,1.2, by = 0.2), limits=c(-.8,1.3), labels = c(" ", "-0.60°C","-0.40°C",
+                                                                                     "-0.20°C","0.00°C","0.20°C",
+                                                                                     "0.40°C","0.60°C","0.80°C",
+                                                                                     "1.00°C","1.20°C"))  +
+  
+  guides(fill = NULL) +
+  theme(
+    plot.title = element_text(margin = margin(b = 8), 
+                              color = "#343434",face = "bold",size = 14,
+                              hjust = 0,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(t=10,b = 25), 
+                                 color = "#343434", size = 12, ,
+                                 family = font_labels,
+                                 hjust = 0),
+    plot.caption =  element_text(margin = margin(t = 20), 
+                                 color = "#343434", size = 10, ,
+                                 family = font_labels,
+                                 hjust = 0.5),
+    
+    legend.position = "none",
+    axis.text.x    =  element_blank(),  
+    axis.text.y    = element_blank(),  
+    panel.grid.minor.x = element_blank(),
+    
+    panel.grid.minor.y = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), 
+    axis.text = element_text(size = 10),
+    axis.title.y =  element_blank(),
+    axis.title.x =  element_blank(),
+    
+    panel.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border,
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border,
+    plot.margin = unit(c(1, 1, 1,0.1), "cm"),
+    axis.ticks = element_blank()
+  ) +
+  geom_segment(aes(x=1850,xend=2022,y=0,yend=0),linetype="dotted",colour = "#d3d3d3") +
+  annotate("text",x = 1840, y = -.6, fontface = "plain", colour = "#343434",
+           label = "-0.60°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = -.4, fontface = "plain", colour = "#343434",
+           label = "-0.40°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = -.2, fontface = "plain", colour = "#343434",
+           label = "-0.20°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = 0, fontface = "plain", colour = "#343434",
+           label = "0.00°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = .2, fontface = "plain", colour = "#343434",
+           label = "0.20°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = .4, fontface = "plain", colour = "#343434",
+           label = "0.40°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = .6, fontface = "plain", colour = "#343434",
+           label = "0.60°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = .8, fontface = "plain", colour = "#343434",
+           label = "0.80°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = 1, fontface = "plain", colour = "#343434",
+           label = "1.00°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1840, y = 1.2, fontface = "plain", colour = "#343434",
+           label = "1.20°C",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  
+  # X Axis text
+  annotate("text",x = 1850, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1850",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)+
+  annotate("text",x = 1860, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1860",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1870, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1870",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1880, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1880",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1890, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1890",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1900, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1900",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1910, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1910",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1920, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1920",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1930, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1930",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 1940, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1940",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 1950, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1950",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 1960, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1960",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 1970, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1970",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 1980, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1980",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 1990, y = -.7, fontface = "plain", colour = "#343434",
+           label = "1990",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 2000, y = -.7, fontface = "plain", colour = "#343434",
+           label = "2000",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 2010, y = -.7, fontface = "plain", colour = "#343434",
+           label = "2010",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  +
+  annotate("text",x = 2023, y = -.7, fontface = "plain", colour = "#343434",
+           label = "2023",
+           family = font_labels, size = 4.5, hjust = 0.5, vjust = 1.2)  
+
+
