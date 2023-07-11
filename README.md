@@ -10,6 +10,30 @@ Feedback is welcome. Please feel free to follow me on [Twitter](https://twitter.
 <hr>
 
 
+## Week 28/2023 - Climate at a glance
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/July/TidyTuesday_11th_July_2023).
+
+
+<br>
+
+<p align="center">
+
+
+
+<img width="924" alt="Climate_at_a_glance" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/c540a5f7-5f0e-4c8c-ac4a-cbe888463fe2">
+
+
+  
+  
+</p>
+
+
+
+
+<br>
+
+
 ## Week 23/2023 - Energy
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/June/TidyTuesday_6th_June_2023).
