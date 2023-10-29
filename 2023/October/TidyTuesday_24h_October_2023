@@ -1,0 +1,153 @@
+
+# Dataset -----------------------------------------------------------------
+
+house <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-11-07/house.csv')
+
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Montserrat")
+
+font_labels <- "Montserrat"
+
+showtext_auto()
+
+# Prepare the data --------------------------------------------------------
+
+house_party <- house |>
+  mutate(state = str_to_lower(state)) |>
+  filter(state %in% c('new york') , stage == 'GEN',
+         party %in% c('DEMOCRAT', 'REPUBLICAN')) |>
+  group_by(year, party) |>
+  summarize(total_votes_cast = sum(candidatevotes),
+            total_votes = sum(totalvotes),
+            percentage = total_votes_cast/total_votes)
+
+house_party<-house_party %>%
+  mutate(
+    labeld76 = ifelse(year %in% c("1976") & party =='DEMOCRAT', paste0(round(percentage*100,2), "%"), " "),
+    labelr76 = ifelse(year %in% c("1976") & party =='REPUBLICAN', paste0(round(percentage*100,2), "%"), " "),
+    labeld22 = ifelse(year %in% c("2022") & party =='DEMOCRAT', paste0(round(percentage*100,2), "%"), " "),
+    labelr22 = ifelse(year %in% c("2022") & party =='REPUBLICAN', paste0(round(percentage*100,2), "%"), " ")
+    
+  )
+
+
+# Graph -------------------------------------------------------------------
+
+graph_line <-house_party %>%
+  ggplot(aes(x = year, y = percentage, group = party, color = party)) +
+  geom_line(size=1.5,linetype = "solid") + 
+  geom_point(size=2.5, shape=21, aes(fill=party)) +
+  scale_fill_manual(values = c(  
+    "DEMOCRAT" = "#1a6aff",
+    "REPUBLICAN" = "#ff4a43"
+  )) +
+  scale_colour_manual(values = c(  
+    "DEMOCRAT" = "#1a6aff",
+    "REPUBLICAN" = "#ff4a43"
+  )) +
+  scale_x_continuous(breaks = seq(1976,2026), limits=c(1976,2026),
+                     labels = c("","","","","1980",
+                                "","","","","","","","","","1990",
+                                "","","","","","","","","","2000",
+                                "","","","","","","","","","2010",
+                                "","","","","","","","","","2020",
+                                "","","","","",""))  +
+  scale_y_continuous(breaks = seq(0.2,0.65, by =0.2), limits=c(0.2,0.65), labels = c("20%","40%","60%")) +
+  labs(x = "",y = "",
+       title = "",
+       subtitle = "",
+       caption = "") +
+  theme(
+    
+    legend.position = "none",
+    legend.title=element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.x    = element_text(color = "#000000", family = font_labels, size = 16),  # hjust = 1 is not needed for aligment
+    axis.text.y    = element_text(color = "#000000", family = font_labels, size = 16),  # hjust = 1 is not needed for aligment
+    axis.title.x=element_blank(),
+    axis.ticks.x=element_blank(),
+    strip.background = element_blank(),
+    strip.text.x = element_blank(),
+    plot.background = element_rect(fill = "#f7f7f7", color = NA),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(), 
+    panel.border = element_blank(),
+    plot.margin = unit(c(0.5, 0.5, 2.5, 0.5), "cm")   # legend.key.size = unit(0.3, "cm")
+  ) +  guides(fill = guide_legend(
+    label.position = "bottom",
+    family = font_labels, 
+    color = "#808080",
+    keywidth = 3, keyheight = 0.5)) +
+  geom_text(aes(year,percentage, label = labeld76), data = house_party, 
+            size = 8, vjust = -2.7,family = font_labels,fontface =2) +
+  geom_text(aes(year,percentage, label =labelr76), data = house_party, 
+            size = 8, vjust = 2.7,family = font_labels,fontface =2) +
+  geom_text(aes(year,percentage, label = labeld22), data = house_party, 
+            size = 8, vjust = -2.7,hjust = -0.1,family = font_labels,fontface =2) +
+  geom_text(aes(year,percentage, label = labelr22), data = house_party, 
+            size = 8, vjust = 2.7,hjust = -0.1,family = font_labels,fontface =2)
+
+
+
+# Arrange plots -----------------------------------------------------------
+
+
+arrage_three_points <- ggarrange(graph_line, ncol=1, nrow=1) +
+  theme_ipsum()   +
+  labs(x = "",y = "",
+       title = "US House Election Results - General elections data in New York",
+       subtitle = "Percentage of votes won by <span style='color:#1a6aff'>**Democrats**</span> and <span style='color:#ff4a43'>**Republicans**</span>
+        in all general elections from 1976 to 2022",
+       caption = "",
+       x = "",
+       y = "") + theme(plot.title = element_text(margin = margin(b = 20), 
+                                                 color = "#22222b",face = "bold",size = 30,
+                                                 hjust = 0,
+                                                 family = font_labels),
+                       plot.subtitle = element_markdown(margin = margin(b = 20), 
+                                                        color = "#22222b",size = 30,
+                                                        hjust = 0,
+                                                        family = font_labels),
+                       plot.caption =  element_text(margin = margin(t = 20, b = 5), 
+                                                    color = "#22222b", size = 8, family = font_labels,
+                                                    hjust = 0.5),
+                       plot.background = element_rect(fill = "#f7f7f7", color = NA),
+                       legend.background =  element_rect(fill = "#f7f7f7", color = NA),
+                       legend.position = "none",
+                       legend.title = element_blank(),
+                       strip.background = element_blank(),
+                       strip.text.x = element_blank(),
+                       axis.title.x = element_blank(),
+                       axis.text.x    = element_blank(),
+                       axis.text.y    = element_blank(),
+                       axis.title.y = element_blank(),
+                       panel.background = element_blank(),
+                       panel.grid.major = element_blank(),
+                       panel.grid.major.y = element_blank(),
+                       panel.grid.major.x = element_blank(),
+                       panel.grid.minor = element_blank(), 
+                       panel.border = element_blank(),
+                       axis.ticks = element_blank())  +
+  annotate("text",x = 0.15, y = 0.002, fontface = "plain", colour = "#22222b",
+           label = "Source: https://electionlab.mit.edu/ for #TidyTuesday                 Visualization: JuanmaMN", 
+           family = font_labels, size = 5, hjust = 0)
+
+
+
+
+
+
