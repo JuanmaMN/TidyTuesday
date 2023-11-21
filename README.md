@@ -9,6 +9,27 @@ Feedback is welcome. Please feel free to follow me on [Twitter](https://twitter.
 
 <hr>
 
+## Week 45/2023 - Climate at a glance
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/October/TidyTuesday_24th_October_2023).
+
+
+<br>
+
+<p align="center">
+
+
+<img width="924" alt="Climate_at_a_glance" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/2d553557-eda6-40a3-a39f-21dc911d336b">
+
+
+  
+  
+</p>
+
+
+
+
+<br>
 
 ## Week 28/2023 - Climate at a glance
 
