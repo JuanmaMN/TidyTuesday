@@ -9,7 +9,7 @@ Feedback is welcome. Please feel free to follow me on [Twitter](https://twitter.
 
 <hr>
 
-## Week 45/2023 - Climate at a glance
+## Week 45/2023 - US House Election Results - General elections data in New York
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/October/TidyTuesday_24th_October_2023).
 
