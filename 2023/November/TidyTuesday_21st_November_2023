@@ -10,3 +10,33 @@ rladies_chapters <- readr::read_csv('https://raw.githubusercontent.com/rfordatas
 
 pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
                grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
+
+
+
+# Prepare the data --------------------------------------------------------
+
+
+rladies_chapters_heatmap_data <- rladies_chapters |> mutate(month = month(date),
+                                                       month = recode(month, "1" = "Jan", 
+                                                                      "2" = "Feb","3" = "Mar",  "4" = "Apr",  "5" = "May", "6" = "Jun",   
+                                                                      "7" = "Jul","8" = "Aug", "9" = "Sep","10" = "Oct", 
+                                                                      "11" = "Nov", "12" = "Dec"),
+                                                       month = fct_relevel(month,
+                                                                           c("Jan", "Feb", "Mar","Apr", "May","Jun",
+                                                                             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))) |> 
+  group_by(month, year) |> summarize(total=n())
+
+
+# Fonts -------------------------------------------------------------------
+
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Open Sans")
+
+font_labels <- "Open Sans"
+
+showtext_auto()
+
+
+# Code for graphs to be uplaoded
