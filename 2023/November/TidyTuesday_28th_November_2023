@@ -1,0 +1,119 @@
+# Upload packages ---------------------------------------------------------
+
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm)
+
+
+library(emojifont)
+load.fontawesome()
+
+
+# Upload image ------------------------------------------------------------
+
+
+From my working directory 
+
+
+# Upload data -------------------------------------------------------------
+
+
+drwho_episodes <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-11-28/drwho_episodes.csv')
+
+
+drwho_episodes_data <-
+  drwho_episodes |>
+  filter(!is.na(uk_viewers), !is.na(season_number)) |>
+  group_by(season_number) |> 
+  summarise(avg_views = mean(uk_viewers, na.rm = TRUE),
+            max_views = max(uk_viewers,na.rm = TRUE),
+            min_views = min(uk_viewers,na.rm = TRUE))
+
+
+
+
+# Fonts -------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Poppins")
+font_labels <- "Poppins"
+
+showtext_auto()
+
+
+# Graph -------------------------------------------------------------------
+
+
+drwho_episodes_data <-
+  drwho_episodes |>
+  filter(!is.na(uk_viewers), !is.na(season_number)) |>
+  group_by(season_number) |> 
+  summarise(avg_views = mean(uk_viewers, na.rm = TRUE),
+            max_views = max(uk_viewers,na.rm = TRUE),
+            min_views = min(uk_viewers,na.rm = TRUE))
+
+
+# #003b6f.  to #003b6f
+
+graph_doctor_who<- ggplot(drwho_episodes_data, aes(season_number, avg_views, color = as.factor(season_number))) +
+  #scale_y_continuous(breaks = seq(4,38, by = 5), limits=c(0,38)) +
+  geom_segment(aes(xend = season_number, yend = max_views), alpha = 1/2,color = "#003b6f") +
+  geom_segment(aes(xend = season_number, yend = min_views), alpha = 1/2,color = "#003b6f") +
+  geom_point(size = 14, fill = "#a6b8c7", color = "#003b6f") +
+  geom_point(aes(y = max_views), size = 4, fill = "#a6b8c7", color = "#003b6f") +
+  geom_point(aes(y = min_views), size = 4, fill = "#a6b8c7", color = "#003b6f") +
+  geom_point(size = 12, fill = "#a6b8c7", color = "#a6b8c7") +
+  geom_text(aes(label = number(avg_views, accuracy = 0.1)), 
+            color = "black", 
+            fontface = "bold",
+            size = 6,
+            hjust = 0.5, vjust = 0.5) +
+  geom_link(data = tibble(x = 0.5, xend = 13.5,    y = 2.75, yend = y,    season_number = 13),    
+            aes(x = x, xend = xend,   y = y, yend = y, alpha = stat(index)), 
+            lineend = "butt",size = 6, color = "#a6b8c7") +
+  annotate(geom = "text", label = c("1", "13"),    
+           colour = "#525252", x = c(1, 13), y = c(2.75, 2.75), size = 8.5,   
+           family = font_labels) +
+  annotate(geom = "text", label = "Season",    colour = "#525252", x = 6.5, y = 2.75, size = 8.5,   
+           family = font_labels) +
+  geom_segment(aes(x = 5, y = 2.75, xend = 1.25, yend =2.75),linetype="solid", colour = "#354f52", size = 0.25,    
+               arrow = arrow(length = unit(0.15, "cm"))) +
+  geom_segment(aes(x = 9, y = 2.75, xend = 12.75, yend =2.75),linetype="solid", colour = "#2f3e46", size = 0.25,    
+               arrow = arrow(length = unit(0.15, "cm"))) +
+  theme(   plot.caption =  element_text(margin = margin(t = 50), 
+                                        color = "black", size = 10,
+                                        hjust = 0.45,
+                                        family = font_labels),
+           axis.title.x = element_blank(),
+           axis.title.y = element_blank(),
+           legend.title = element_blank(),
+           axis.text.x    = element_blank(),
+           axis.text.y    = element_blank(),
+           panel.grid.major = element_blank(),
+           panel.grid.major.y = element_blank(),
+           panel.grid.minor = element_blank(), 
+           panel.background = element_rect(fill = "#f7f7f7", color = NA), 
+           plot.background = element_rect(fill = "#f7f7f7", color = NA),    # color removes the border,
+           panel.border = element_blank(),
+           plot.margin = unit(c(1, 1, 1, 1), "cm"),
+           axis.ticks = element_blank(),
+           legend.position = "none",
+           strip.background = element_rect(fill = "#f7f7f7"),
+           strip.text.x = element_blank()) +
+  annotate("text",x = 0, y = 5, fontface = "plain", colour = "black",
+           label = "5m",
+           family = font_labels, size = 9.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 7.5, fontface = "plain", colour = "black",
+           label = "7.5m",
+           family = font_labels, size = 9.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 10, fontface = "plain", colour = "black",
+           label = "10m",
+           family = font_labels, size = 9.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 12.5, fontface = "plain", colour = "black",
+           label = "12.5m",
+           family = font_labels, size = 9.5, hjust = 0.5, vjust = 1.2) +
+  annotate("text",x = 0, y = 12.25, fontface = "plain", colour = "black",
+           label = "viewers",
+           family = font_labels, size = 6.5, hjust = 0.5, vjust = 1.2) +
+  annotation_raster(raster, xmin=11.5,xmax=12.75, ymin=11.8, ymax=13.55)
