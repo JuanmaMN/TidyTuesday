@@ -1,0 +1,98 @@
+# Upload data -------------------------------------------------------------
+
+
+life_expectancy <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-12-05/life_expectancy.csv')
+
+
+
+# Upload packages ---------------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+
+library(ggflags)
+
+
+
+
+# Prepare data ------------------------------------------------------------
+
+
+life_expectancy2 <- life_expectancy |> select(1,3,4) |> na.omit() |>
+  group_by(Entity)|> slice(which.max(Year)) |> ungroup() |>  top_n(10)
+
+
+
+
+life_expectancy2 <- life_expectancy2 |> mutate(flag = case_when(
+  Entity == "Monaco" ~ "mc",
+  Entity == "Hong Kong" ~ "hk",
+  Entity == "Macao" ~ "mo",
+  Entity == "Japan" ~ "jp",
+  Entity == "Australia" ~ "au",
+  Entity == "Switzerland" ~ "ch",
+  Entity == "Malta" ~ "mt",
+  Entity == "South Korea" ~ "kr",
+  Entity == "Liechtenstein" ~ "li",
+  Entity == "Norway" ~ "no",
+  TRUE ~ "Others"
+  
+)) |> arrange(desc(LifeExpectancy)) |>
+  mutate(row = c(1:10))
+
+
+
+# Graph -------------------------------------------------------------------
+
+ggplotlif<-life_expectancy2 %>% ggplot(aes(x=fct_reorder(Entity,LifeExpectancy), y=LifeExpectancy,group = Entity,
+                                           fill= factor(Entity)))  +
+  geom_flag(y = -3, aes(country = flag), size = 8, hjust = -2) +
+  scale_fill_manual(values = c( "Monaco"= "#4e79a7",
+                                "Hong Kong" = "#76B7B2",  
+                                "Switzerland" = "#76B7B2",
+                                "Macao"    = "#76B7B2",
+                                "Japan"  = "#76B7B2",
+                                "Norway"      = "#76B7B2",
+                                "Australia"       = "#76B7B2",
+                                "Malta"= "#76B7B2",
+                                "South Korea" = "#76B7B2",
+                                "Liechtenstein"  = "#76B7B2")) +
+  coord_flip()+
+
+  geom_col(width = 0.8) +
+
+  labs(x = "",y = "") +
+  guides(fill = NULL) +
+  ylim(-4, 90)+
+  theme(
+    plot.title = element_text(margin = margin(b = 10), 
+                              color = "#343434",face = "bold",size = 24,
+                              hjust = 0,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(t=10,b = 25), 
+                                 color = "#343434",size = 16,
+                                 hjust = 0,
+                                 family = font_labels),
+    plot.caption =  element_text(margin = margin(t = 30, b = 10), 
+                                 color = "#343434", size = 10, family = font_labels2,
+                                 hjust = 0.5),
+    #axis.title.x = element_text(margin = margin(t = 15),color = "#f7f7f7"),
+    legend.position = "none",
+    axis.text.x  = element_blank(),
+    axis.text.y    = element_text(size = 20, color = "#22222b", margin = margin(t = 1, r = 0, b = 0, l = 0),family = font_labels),
+    axis.title.y = element_text(margin = margin(t = 5, r = 10, b = 5, l = 5)),
+    axis.title.x = element_blank(),
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.background = element_rect(color=NA, fill = "#fbfaf6"),
+    plot.margin = unit(c(1, 1, 1, 1), "cm"),
+    axis.ticks = element_blank()
+  ) +
+  geom_text(aes(label=round(LifeExpectancy,2)),hjust=-0.5,color = "#22222b", size = 8, fontface = "plain",family = font_labels) 
+
+  
+  
