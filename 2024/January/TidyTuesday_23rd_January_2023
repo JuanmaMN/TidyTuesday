@@ -1,0 +1,69 @@
+# Upload data -------------------------------------------------------------
+
+english_education <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-01-23/english_education.csv')
+
+
+# Upload the packages -----------------------------------------------------
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+
+avg_population <- mean(english_education$population_2011, na.rm = TRUE)
+
+english_education_data <- english_education |> select(ttwa11nm, population_2011,rgn11nm,coastal,
+                                                      activity_at_age_19_full_time_higher_education,
+                                                      activity_at_age_19_appprenticeships) |> na.omit() |>
+
+  mutate(population_avg = case_when(
+    population_2011 > mean(english_education$population_2011, na.rm = TRUE) ~ "Above avg. population",
+    population_2011 < mean(english_education$population_2011, na.rm = TRUE) ~ "Below avg. population",
+    TRUE ~ "Others"
+  ))
+
+
+graph_english <- english_education_data |> ggplot(aes(activity_at_age_19_appprenticeships,activity_at_age_19_full_time_higher_education,
+                                     fill = population_avg)) +
+  #geom_segment(aes(x=0,xend=45,y=10,yend=10),linetype="dotted",colour = "#000000") +
+                                   geom_point(shape=21, color = 'black', size = 3) +
+  
+  scale_fill_manual(values = c( "Below avg. population" = "#C05746",
+                                "Above avg. population"= "#588157"))  +
+
+  scale_x_continuous(expand = c(0, 0), 
+                     limits = c(0, 45), breaks = seq(0, 45, by = 10)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(-5, 80), breaks = seq(5, 80, by = 10)) +
+  
+  labs(y = "",
+       x = "",
+       title = "",
+       caption = " ")  +
+  theme(
+    plot.title = element_text(margin = margin(b = 15, t=10), 
+                              color = "#808080",face = "bold",size = 14,
+                              hjust = 0,
+                              family = font_labels),
+    plot.subtitle = element_text(margin = margin(t=10,b = 25), 
+                                 color = "#808080", size = 12, family = font_labels,
+                                 hjust = 0.5),
+    plot.caption =  element_text(margin = margin(t = 50), 
+                                 color = "#808080", size = 10,
+                                 hjust = 0.94,
+                                 family = font_labels),
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    axis.text.x    = element_blank(), 
+    axis.text.y    =  element_blank(), 
+    panel.background = element_blank(), 
+   panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(), 
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    plot.background = element_rect(fill = "#EFEFED", color = NA),    # color removes the border,
+    axis.ticks = element_blank(),
+    legend.position = "none")
+
+
+
+# Rest of the code to be uploaded
