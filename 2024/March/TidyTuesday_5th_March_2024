@@ -1,0 +1,33 @@
+
+# Dataset -----------------------------------------------------------------
+
+trashwheel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')
+
+
+View(trashwheel)
+
+str(trashwheel)
+class(trashwheel)
+summary(trashwheel)
+
+unique(trashwheel$Name) # Filter by "Mister Trash Wheel" 
+
+?pivot_longer
+
+trashwheel_2 <- trashwheel |> select(Name,CigaretteButts, PlasticBags, PlasticBottles) |>
+  pivot_longer(2:4, names_to = "Item", values_to = "Number") |> 
+  filter(Name == "Mister Trash Wheel") |>
+  group_by(Item) |>
+  summarise(total=sum(Number)) |>
+  mutate(total = comma(total),
+         axis_x=c(5,12.5,20),
+    axis_y = 3.87
+  ) |>
+  mutate(Item = recode(Item,
+                       "CigaretteButts" = "Cigarette Butts",
+                       "PlasticBags"  = "Plastic Bags",
+                       "PlasticBottles"= "Plastic Bottles"
+                       ))
+
+
+# More code to upload
