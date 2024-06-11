@@ -9,6 +9,51 @@ Feedback is welcome. Please feel free to follow me on [Twitter](https://twitter.
 
 <hr>
 
+
+## Week 21/2024 (2) - Coal - Yearly production
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2024/June/TidyTuesday_11th_June_2024).
+
+
+<br>
+
+<p align="center">
+
+
+<img width="924" alt="Coal_gas" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/1e90a1ab-90c0-47ab-bfa4-946ccbc9f9b0">
+
+
+
+</p>
+
+
+
+
+<br>
+
+
+
+## Week 21/2024 - Natural Gas - Yearly production
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2024/June/TidyTuesday_11th_June_2024).
+
+
+<br>
+
+<p align="center">
+
+
+<img width="924" alt="Natural_gas" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/3c987343-9555-4e64-99ef-1f1a18b5a78d">
+
+
+</p>
+
+
+
+
+<br>
+
+
 ## Week 45/2023 - US House Election Results - General elections data in New York
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2023/October/TidyTuesday_24th_October_2023).
