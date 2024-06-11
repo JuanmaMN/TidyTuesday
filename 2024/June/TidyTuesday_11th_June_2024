@@ -1,0 +1,65 @@
+
+# Raw data ----------------------------------------------------------------
+
+emissions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-21/emissions.csv')
+
+pacman::p_load(readxl, lubridate, tidyverse, ggplot2, hrbrthemes, ggfittext, patchwork, hrbrthemes, scales,ggtext, ggpubr,sf,
+               grid, gridtext,hrbrthemes,scales,ggtext, ggpubr, biscale, cowplot,sysfonts,ggimage,extrafont,systemfonts, showtext, ggbeeswarm, 
+               ggalt,scales)
+
+
+library(emojifont)
+load.fontawesome()
+
+
+# Font --------------------------------------------------------------------
+
+extrafont::loadfonts(device = "all", quiet = TRUE)
+
+font_add_google("Montserrat")
+
+font_labels <- "Montserrat"
+
+showtext_auto()
+
+
+# Prepare the data --------------------------------------------------------
+
+emissions_ng_first <- emissions |> filter(commodity =="Natural Gas")  |>
+  group_by(year)|>
+  summarize(value = sum(production_value)) |>
+  ungroup()
+
+
+# Graph -------------------------------------------------------------------
+
+graph_em_first <- emissions_ng_first %>% 
+  ggplot(aes(year, value)) +
+  geom_area(alpha = 0.8,fill="#df5a4a",colour="#8C1A18") +
+  geom_line(aes(year, value), size = .9, color = '#8C1A18') +
+  scale_x_continuous(expand = c(0, 0), limits = c(1900, 2023),breaks = seq(1900,2023, by = 20),
+                     labels = c("1900","1920","1940","1960","1980",
+                                "2000","2020")) +
+  scale_y_continuous(limits = c(0, 110000), breaks = seq(0, 110000, by = 30000),
+                     labels = c("","30000","60000","90000 Bcf"),
+                     position = "right") +
+  guides(fill = NULL) +
+  theme(
+    legend.position = "none",
+    legend.title = element_blank(),
+    strip.background = element_blank(),
+    strip.text.x = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.x    = element_text(color = "#000000", family = font_labels, size = 24),  # hjust = 1 is not needed for aligment
+    axis.text.y    = element_text(color = "#000000", family = font_labels, size = 24),  # hjust = 1 is not needed for aligment
+    axis.title.y = element_blank(),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(), 
+    panel.border = element_blank(),
+    plot.background = element_rect(fill = "#fbfaf6", color = NA),
+    plot.margin = unit(c(2, 2, 2, 2), "cm"),
+   axis.ticks = element_blank()
+  )
