@@ -48,7 +48,7 @@ tdf_winners2<-tdf_winners %>%
 
 # Graph -------------------------------------------------------------------
 
-RWlogo <- png::readPNG("C:/Users/StephMcD/Documents/R/TF.png")
+RWlogo <- png::readPNG("TF.png")
 raster <- as.raster(RWlogo)
 
 
