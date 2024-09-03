@@ -43,7 +43,7 @@ Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/202
 <p align="center">
 
 
-<img width="924" alt="Natural_gas" src="https://github.com/JuanmaMN/TidyTuesday/assets/37122520/3c987343-9555-4e64-99ef-1f1a18b5a78d">
+<img width="924" alt="Natural_gas" src="https://github.com/user-attachments/assets/6b7365ce-0392-4c05-8ed8-4097b0755c05">
 
 
 </p>
