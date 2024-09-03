@@ -1,0 +1,31 @@
+
+# Upload data -------------------------------------------------------------
+
+qname_levels_single_response_crosswalk <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-09-03/qname_levels_single_response_crosswalk.csv')
+stackoverflow_survey_questions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-09-03/stackoverflow_survey_questions.csv')
+stackoverflow_survey_single_response <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-09-03/stackoverflow_survey_single_response.csv')
+
+# Prepare the data --------------------------------------------------------
+
+main_branch_s <- stackoverflow_survey_single_response |> select(main_branch, r_used, r_want_to_use) |>
+  na.omit() |>
+  mutate(segment = case_when(
+    r_used == "0"  & r_want_to_use == "0" ~ "Currently_not_using_not_want_to_use",
+    r_used == "0"  & r_want_to_use == "1" ~ "Currently_not_using_want_to_use",
+    r_used == "1"  & r_want_to_use == "0" ~ "Currently_using_not_want_to_use",
+    r_used == "1"  & r_want_to_use == "1" ~ "Currently_using_want_to_use",
+    TRUE ~ "Others"))|>
+  group_by(main_branch)|> 
+  summarise(
+    A = sum(segment == "Currently_not_using_not_want_to_use"),
+    B = sum(segment == "Currently_not_using_want_to_use"),
+    C = sum(segment == "Currently_using_not_want_to_use"),
+    D = sum(segment == "Currently_using_want_to_use"),
+    n=n()) |>
+  select(main_branch, B) |>
+  left_join(main_branch_category, by ="main_branch") |>
+  arrange(desc(B))
+
+
+# Upload the graph
+
