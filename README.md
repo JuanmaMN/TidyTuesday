@@ -10,6 +10,31 @@ Feedback is welcome. Please feel free to follow me on [Twitter](https://twitter.
 <hr>
 
 
+## Week 36/2024 - Stack Overflow Annual Developer Survey 2024
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2024/September/TidyTuesday_3rd_September_2024).
+
+
+<br>
+
+<p align="center">
+
+
+<img width="924" alt="Coal_gas" src="https://github.com/user-attachments/assets/c00f3900-9718-4b25-a985-414588e23b94">
+
+
+
+</p>
+
+
+
+
+<br>
+
+
+
+
+
 ## Week 21/2024 (2) - Coal - Yearly production
 
 Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2024/June/TidyTuesday_11th_June_2024).
