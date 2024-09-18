@@ -1,0 +1,29 @@
+### Code to be uploaded
+
+
+chess <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-10-01/chess.csv')
+
+
+
+chessC <- chess |> filter(winner != "draw") |>
+  mutate(winner_rank = case_when(
+    winner == "white" & white_rating > black_rating ~ "Winner_Highest_ranking",
+    winner == "white" & white_rating < black_rating ~ "Winner_Lowest_ranking",
+    winner == "black" & white_rating < black_rating ~ "Winner_Highest_ranking",
+    winner == "black" & white_rating > black_rating ~ "Winner_Lowest_ranking",
+    winner == "white" & white_rating == black_rating ~ "Same_ranking",
+    winner == "black" & white_rating == black_rating ~ "Same_ranking",
+    TRUE ~ "Others"))|> select(winner_rank, victory_status) |> mutate(n = 1) |>
+  group_by(winner_rank, victory_status)|>
+  summarize(Value = sum(n)) |>
+  group_by(winner_rank)|>
+  mutate(total = sum(Value),
+         percentage = Value / total,
+         yaxismax=cumsum(percentage), 
+         yaxismin = c(0, head(yaxismax, n=-1)),
+         label_position = (yaxismax+yaxismin)/2,
+         pcnt=round(percentage*100, 1)) |>
+  mutate(winner_rank = recode(winner_rank,
+                                 Same_ranking = "Same ranking",
+                                 Winner_Highest_ranking  = "Winner with higher ranking",
+                                 Winner_Lowest_ranking = "Winner with lower ranking"))
