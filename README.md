@@ -9,6 +9,31 @@ Feedback is welcome. Please feel free to follow me on [Twitter](https://twitter.
 
 <hr>
 
+## Week 43/2024 - Net migration rate - Estimated 2024
+
+Code is available [here](https://github.com/JuanmaMN/TidyTuesday/blob/master/2024/November/TidyTuesday_5th_November_2024).
+
+
+<br>
+
+<p align="center">
+
+
+<img width="924" alt="Net_migration" src="https://github.com/user-attachments/assets/21651285-f755-419f-b2e4-bdefe2662d71">
+
+
+
+
+
+</p>
+
+
+
+
+<br>
+
+
+
 
 ## Week 36/2024 - Stack Overflow Annual Developer Survey 2024
 
