@@ -1,0 +1,6 @@
+
+# Upload data -------------------------------------------------------------
+library(readr)
+Net_migration_rate <- read_csv("Net migration rate.csv")  #This data is from the official website
+
+# Rest of the code to be uploaded soon.
